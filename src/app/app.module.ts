@@ -5,20 +5,27 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { routing, appRoutingProviders } from './app.routing';
+import { Ng2BootstrapModule,ModalModule,DropdownModule } from 'ng2-bootstrap';
+
 
 import { SheetExcelComponent } from './componets/sheetExcel.component';
+import { FormComponent } from './componets/popup-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SheetExcelComponent
+    SheetExcelComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     FormsModule,
-    routing
+    routing,
+    Ng2BootstrapModule,
+    ModalModule.forRoot(),
+    DropdownModule.forRoot()
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

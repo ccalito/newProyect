@@ -1,0 +1,59 @@
+
+<button type="button" class="btn btn-primary" (click)="showChildModal()"> modal</button>
+ 
+ <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Ingreso de datos</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+              <div>
+                 <label>From:</label> 
+              </div>
+              <div>
+                <select name="from" [ngModel]="selectedObject.from">
+                  <option  *ngFor="let item of fromItems">{{item}}</option>
+                </select>
+            </div>
+              <div> 
+                <label>Where:</label>
+              </div>
+              <div>
+                <select name="where" [ngModel]="selectedObject.where">
+                  <option  *ngFor="let item of whereItems">{{item}}</option>
+                </select>
+              </div>
+              <hr>
+             <div>
+                <label style="width:150px; text-align:right;">Pais:</label>
+                <select name="country" [ngModel]="selectedObject.country">
+                  <option  *ngFor="let item of countryItems">{{item}}</option>
+                </select>
+                <label style="width:150px; text-align:right;">Empresa:</label>
+                <select name="company" [ngModel]="selectedObject.company">
+                  <option  *ngFor="let item of companyItems">{{item}}</option>
+                </select>
+             </div>
+              <div>
+                <label style="width:150px; text-align:right;">Departamento:</label>
+                <select name="department" [ngModel]="selectedObject.department">
+                  <option  *ngFor="let item of departmentsItems">{{item}}</option>
+                </select>
+                <label style="width:150px; text-align:right;">Perido:</label>
+                <select name="period" [ngModel]="selectedObject.period">
+                  <option  *ngFor="let item of periodsItems">{{item}}</option>
+                </select>
+                <button type="submit" >Confirmar</button>
+              </div> 
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
