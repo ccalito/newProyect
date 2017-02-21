@@ -82,7 +82,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 					}
 			});
 			}catch(e){
-				return new Cell(this.cont++,null,null,null,null,null,null,null,null,null,null);
+				return new Cell(this.cont++,null,null,null,null,null,null,null,null,null,null,null,null);
 			};
 		} 
 		

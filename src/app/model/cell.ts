@@ -11,7 +11,9 @@ export class Cell{
         public codigoPais:string,
         public codigoEmpresa:string,
         public codigoDepartamento:string,
-        public periodo:string
+        public periodo:string,
+        public from:string,
+        public where:string,
     ){
 
     }
