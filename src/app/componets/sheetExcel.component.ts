@@ -1,10 +1,11 @@
-import { Component, AfterViewInit  } from '@angular/core';
+import { Component, AfterViewInit,ViewChild  } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
-declare var Handsontable: any;
+declare let $ : any;
+declare let Handsontable: any;
 
 import {Sheet} from '../model/sheet';
 import {Cell} from "../model/cell";
+import {FormComponent} from "./popup-form.component";
 
 @Component({
 	selector: "sheet-excel",
@@ -15,6 +16,9 @@ export class SheetExcelComponent implements AfterViewInit  {
 	public sheet:Sheet;
 	public container: any;
 	public hot: any;
+	public cellSelected:Cell;
+
+ 	@ViewChild(FormComponent) public childModal:FormComponent;
 
 	ngAfterViewInit(){
 		this.sheet = new Sheet("ejemplo.xls",2,['ID', 'Name', 'Address'],null);
@@ -47,19 +51,39 @@ export class SheetExcelComponent implements AfterViewInit  {
 			currentColClassName: 'currentCol',
 
 			// se le asigna color y forma a las columnas
-			renderer: function(hotInstance, TD, row, col, prop, value, cellProperties) {
+			renderer: (hotInstance, TD, row, col, prop, value, cellProperties) =>{
 
+				
+				console.log("entra " + TD);
+				let cell = this.getCell(col,row);
 				TD.style.color = 'blue';
 				TD.style.background = 'yellow';
 				value="hola";
 				TD.innerHTML = value;
+				TD.addEventListener("click",()=>{
+					this.childModal.showChildModal();
+					this.cellSelected = cell;
+				});
 				console.log("value" +value);
 				console.log(row);
 				console.log(col);
-				console.log(cellProperties);
 			}
 		}
-		
 		);
-	}	  
+	}	 
+	public cont=1;
+	public getCell(column:number,row:number):Cell{
+			console.log("sheet" + this.sheet);
+			try{
+			let cellObj = this.sheet.whereValues.map((obj)=>{ 
+					console.log("entra aqui" + obj);
+					if(obj.posY === column && obj.posX===row){
+						return obj;
+					}
+			});
+			}catch(e){
+				return new Cell(this.cont++,null,null,null,null,null,null,null,null,null,null);
+			};
+		} 
+		
 }
