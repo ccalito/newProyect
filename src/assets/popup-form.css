@@ -1,0 +1,18 @@
+label.lbl-first-section{
+ text-align:center;
+}
+label.lbl-second-section{
+    width:150px; 
+    text-align:right;
+}
+select.sel-option{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
+
+.btn.btn-primary.btn-sm{
+    width: 150px;
+    height: 30px;
+    float: right;
+}

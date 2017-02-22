@@ -6,7 +6,8 @@ import {Cell} from '../model/cell';
 
 @Component({
 selector: 'my-form',
-  templateUrl: '../views/popup-form.view.html'
+  templateUrl: '../views/popup-form.view.html',
+  styleUrls: ['../../assets/popup-form.css']
 })
 
 export class FormComponent implements OnChanges{
