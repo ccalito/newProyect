@@ -3,43 +3,45 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 declare let $ : any;
 declare let Handsontable: any;
 
+import {Book} from "../model/book";
 import {Sheet} from '../model/sheet';
 import {Cell} from "../model/cell";
 import {FormComponent} from "./popup-form.component";
 
+import {BookService} from "../services/book.service";
+
 @Component({
 	selector: "sheet-excel",
 	templateUrl: "../views/sheet-excel.html",
+	providers: [BookService]
 })
 
 export class SheetExcelComponent implements AfterViewInit  {
-	public sheet:Sheet;
+	public book:Book;
 	public container: any;
 	public hot: any;
 	public cellSelected:Cell;
 
+	constructor(
+		private _bookService: BookService
+		){}
+
  	@ViewChild(FormComponent) public childModal:FormComponent;
 
 	ngAfterViewInit(){
-		this.sheet = new Sheet("ejemplo.xls",2,['ID', 'Name', 'Address'],null);
+		//this._bookService.getBook().then(response => this.book=response).catch(this.handleError);
+		this.book = this._bookService.getBookExample();
 		this.inicializa();
 	}
 
 	public inicializa(){
 		this.container = document.getElementById('sheetInput');
-		let lengthRows=(this.sheet.whereValues == null ? 1: this.sheet.whereValues.length) /this.sheet.fromValues.length;
-		if(lengthRows.toString().indexOf(".")){
-			let auxLengthRows = lengthRows.toString().substr(0,lengthRows.toString().indexOf("."));
-			lengthRows = parseInt(auxLengthRows);
-			lengthRows = lengthRows+1;
-		}
-		let cellArray:Array<Cell>;
 		this.hot = new Handsontable(this.container,
 			{
 				// Definición de tabla
-			data: Handsontable.helper.createEmptySpreadsheetData(lengthRows,this.sheet.fromValues.length),
+			data: Handsontable.helper.createEmptySpreadsheetData(this.book.sizeX,this.book.sizeY),
 			rowHeaders: true,
-			colHeaders: this.sheet.fromValues,
+			colHeaders: true,
 			// performance tip: set constant size
 			colWidths: 80,
 			rowHeights: 23,
@@ -53,37 +55,69 @@ export class SheetExcelComponent implements AfterViewInit  {
 			// se le asigna color y forma a las columnas
 			renderer: (hotInstance, TD, row, col, prop, value, cellProperties) =>{
 
-				
-				console.log("entra " + TD);
-				let cell = this.getCell(col,row);
-				TD.style.color = 'blue';
-				TD.style.background = 'yellow';
-				value="hola";
-				TD.innerHTML = value;
-				TD.addEventListener("click",()=>{
-					this.childModal.showChildModal();
-					this.cellSelected = cell;
-				});
-				console.log("value" +value);
-				console.log(row);
-				console.log(col);
+				try{
+					let cell = this.getCell(col,row);
+					console.log("celda encontrada:" +cell);
+					if(cell != undefined){
+						TD.style.background = 'yellow';
+						value=cell.textValue;
+						TD.innerHTML = value;
+					}
+					TD.addEventListener("click",()=>{
+						this.childModal.showChildModal();
+						this.cellSelected = cell;
+					});
+					console.log("fila" + row + " columna " + col);
+				}catch(e){
+					console.log(e);
+				}
 			}
 		}
 		);
 	}	 
 	public cont=1;
 	public getCell(column:number,row:number):Cell{
-			console.log("sheet" + this.sheet);
+			console.log("book" + this.book);
 			try{
-			let cellObj = this.sheet.whereValues.map((obj)=>{ 
-					console.log("entra aqui" + obj);
-					if(obj.posY === column && obj.posX===row){
-						return obj;
+				let cellObj;
+				this.book.sheetList.filter((sheetObj)=>{
+					cellObj = sheetObj.cellList.filter((cellObj)=>{
+									console.log("entra aqui: " + cellObj);
+									if(cellObj.posY === column && cellObj.posX===row){
+										return cellObj;
+									}
+								 });
+					if(cellObj.length>0){
+						return;
 					}
-			});
+				});
+				return cellObj[0];
 			}catch(e){
-				return new Cell(this.cont++,null,null,null,null,null,null,null,null,null,null,null,null);
+				return;
 			};
 		} 
-		
+
+ handleError(error: any) : void {
+    if(error.status == 404){
+      let body="";
+      if(error._body != ""){
+        try{
+          body = JSON.parse(error._body).message;
+        }catch(e){
+          body = error._body;
+        }
+      }
+      alert('No found 404!' + "The server response 404 : \n"+body);
+    }else if(error.status == 400){
+      let body="";
+      if(error._body != ""){
+        try{
+          body = JSON.parse(error._body).message;
+        }catch(e){
+          body = error._body;
+        }
+      }
+      alert('Internal Error' + "The server response 500 error : \n"+body);
+    }
+ }
 }
