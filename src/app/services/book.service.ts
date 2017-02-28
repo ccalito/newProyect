@@ -62,6 +62,24 @@ export class BookService{
                         "value": "GUA"
                     }
                     ]
+                },
+                 {
+                    "size": 10,
+                    "posX": 2,
+                    "posY": 1,
+                    "textValue": "Hola",
+                    "inputId01": null,
+                    "style": null,
+                    "parameterList": [
+                    {
+                        "name": "empcod",
+                        "value": "1"
+                    },
+                    {
+                        "name": "paicod",
+                        "value": "GUA"
+                    }
+                    ]
                 }
                 ]
             }
