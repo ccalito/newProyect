@@ -8,14 +8,16 @@ import { routing, appRoutingProviders } from './app.routing';
 import { Ng2BootstrapModule,ModalModule,DropdownModule } from 'ng2-bootstrap';
 
 
-import { SheetExcelComponent } from './componets/sheetExcel.component';
-import { FormComponent } from './componets/popup-form.component';
+import { SheetExcelComponent } from './components/sheetExcel.component';
+import { FormComponent } from './components/popup-form.component';
+import { SelectModalComponent } from './components/selectModal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SheetExcelComponent,
-    FormComponent
+    FormComponent,
+    SelectModalComponent
   ],
   imports: [
     BrowserModule,

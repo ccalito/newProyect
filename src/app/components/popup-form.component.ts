@@ -11,7 +11,7 @@ selector: 'my-form',
 })
 
 export class FormComponent implements OnChanges{
-  @ViewChild('childModal') public childModal:ModalDirective;
+  @ViewChild('formFormula') public formFormula:ModalDirective;
   private selectedObject = new CellObject('SALDO1','0001.0303','GUA','001','001','2017');
 
   @Input() public cell:Cell;
@@ -23,18 +23,18 @@ export class FormComponent implements OnChanges{
     public departmentsItems:string[] = ['001','002','005','004','005'];
     public periodsItems:string[] = ['2015','2016','2017'];
 
-  public showChildModal():void {
-    this.childModal.show();
+  public showFormFormula():void {
+    this.formFormula.show();
   }
  
-  public hideChildModal():void {
-    this.childModal.hide();
+  public hideFormFormula():void {
+    this.formFormula.hide();
   }
 
  onSubmit(f: NgForm) {
     console.log(f.value);  // { first: '', last: '' }
     console.log(f.valid);  // false
-    this.childModal.hide();
+    this.formFormula.hide();
   }
 
   ngOnChanges(changes: SimpleChanges) {

@@ -1,0 +1,23 @@
+<div bsModal #selectModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" 
+        id="selectModal">
+
+    <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align:center;">Tipo de Ingreso</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="hideSelectModal()">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Desea ingresar título o fórmula? 
+                    <hr/>
+                    <button (click)="showForm()"> Fórmula </button>
+                    <button> Título </button>
+                </div>
+            </div>
+    </div>
+
+</div>
+
+<my-form [cell] ="cell"></my-form> 

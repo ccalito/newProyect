@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {SheetExcelComponent} from "./componets/sheetExcel.component";
+import {SheetExcelComponent} from "./components/sheetExcel.component";
 
 const appRoutes: Routes = [
 	{

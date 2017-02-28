@@ -1,4 +1,4 @@
-import { Component, AfterViewInit,ViewChild  } from '@angular/core';
+import { Component, AfterViewInit,ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 declare let $ : any;
 declare let Handsontable: any;
@@ -6,7 +6,7 @@ declare let Handsontable: any;
 import {Book} from "../model/book";
 import {Sheet} from '../model/sheet';
 import {Cell} from "../model/cell";
-import {FormComponent} from "./popup-form.component";
+import {SelectModalComponent} from "./selectModal.component";
 
 import {BookService} from "../services/book.service";
 
@@ -26,7 +26,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 		private _bookService: BookService
 		){}
 
- 	@ViewChild(FormComponent) public childModal:FormComponent;
+@ViewChild(SelectModalComponent) public selectModal:SelectModalComponent;
 
 	ngAfterViewInit(){
 		//this._bookService.getBook().then(response => this.book=response).catch(this.handleError);
@@ -64,7 +64,8 @@ export class SheetExcelComponent implements AfterViewInit  {
 						TD.innerHTML = value;
 					}
 					TD.addEventListener("click",()=>{
-						this.childModal.showChildModal();
+						//this.childModal.showChildModal();
+						this.selectModal.showSelectModal(cell);
 						this.cellSelected = cell;
 					});
 					console.log("fila" + row + " columna " + col);
