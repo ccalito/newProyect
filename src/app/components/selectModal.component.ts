@@ -22,7 +22,7 @@ export class SelectModalComponent implements OnChanges{
     } else{
       switch(cellTemp.parameterList.length){
         case 0:
-          this.formText.showTextForm();
+          this.formText.showTextForm(cellTemp);
         break;
         default:
             this.formFormula.showFormFormula();
@@ -41,7 +41,8 @@ export class SelectModalComponent implements OnChanges{
   }
 
     public showTextForm(){
-      this.formText.showTextForm();
+      let cellTemp:Cell;
+      this.formText.showTextForm(cellTemp);
       this.hideSelectModal();
   }
 
