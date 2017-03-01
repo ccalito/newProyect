@@ -9,15 +9,17 @@ import { Ng2BootstrapModule,ModalModule,DropdownModule } from 'ng2-bootstrap';
 
 
 import { SheetExcelComponent } from './components/sheetExcel.component';
-import { FormComponent } from './components/popup-form.component';
+import { FormComponent } from './components/formulaForm.component';
 import { SelectModalComponent } from './components/selectModal.component';
+import { textFormComponent } from './components/textForm.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SheetExcelComponent,
     FormComponent,
-    SelectModalComponent
+    SelectModalComponent,
+    textFormComponent
   ],
   imports: [
     BrowserModule,

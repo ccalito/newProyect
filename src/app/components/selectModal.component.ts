@@ -1,16 +1,18 @@
 import { Component,ViewChild,Input,OnChanges,SimpleChanges } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
-import { FormComponent} from './popup-form.component'
+import { FormComponent} from './formulaForm.component'
+import { textFormComponent} from './textForm.component'
 import {Cell} from '../model/cell';
 
 @Component({
   selector: 'my-selectModal',
-  templateUrl: '../views/selectModal.view.html'
+  templateUrl: '../views/select-modal.view.html'
 })
 
 export class SelectModalComponent implements OnChanges{
   @ViewChild('selectModal') public selectModal:ModalDirective;
   @ViewChild(FormComponent) public formFormula:FormComponent;
+  @ViewChild(textFormComponent) public formText:textFormComponent;
 
   @Input() public cell:Cell;
 
@@ -20,9 +22,7 @@ export class SelectModalComponent implements OnChanges{
     } else{
       switch(cellTemp.parameterList.length){
         case 0:
-          // Crear formulario solo para texto;
-          //this.showFormText.showForm();
-          console.log("Formulario de Texto");
+          this.formText.showTextForm();
         break;
         default:
             this.formFormula.showFormFormula();
@@ -35,9 +35,14 @@ export class SelectModalComponent implements OnChanges{
     this.selectModal.hide();
   }
 
-  public showForm(){
+  public showFormulaForm(){
     this.formFormula.showFormFormula();
     this.hideSelectModal();
+  }
+
+    public showTextForm(){
+      this.formText.showTextForm();
+      this.hideSelectModal();
   }
 
     ngOnChanges(changes: SimpleChanges) {

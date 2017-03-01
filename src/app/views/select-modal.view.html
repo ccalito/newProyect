@@ -12,12 +12,13 @@
                 <div class="modal-body">
                     Desea ingresar título o fórmula? 
                     <hr/>
-                    <button (click)="showForm()"> Fórmula </button>
-                    <button> Título </button>
+                    <button (click)="showFormulaForm()"> Fórmula </button>
+                    <button (click)="showTextForm()"> Título </button>
                 </div>
             </div>
     </div>
 
 </div>
 
-<my-form [cell] ="cell"></my-form> 
+<formulaForm [cell] ="cell"></formulaForm> 
+<textForm></textForm> 
