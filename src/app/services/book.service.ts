@@ -5,6 +5,7 @@ import 'rxjs/add/operator/toPromise';
 import {Book} from "../model/book";
 import {Pais} from "../model/pais";
 import {Empresa} from "../model/empresa";
+import {Departamento} from "../model/departamento";
 
 @Injectable()
 export class BookService{
@@ -20,8 +21,12 @@ export class BookService{
         return this._http.get(this.urlBase+"/countries/").toPromise().then(res=> res.json() as Array<Pais> ).catch(this.handleError);
     }
 
-    getEmpresa(pais:string){
+    getEmpresas(pais:string){
         return this._http.get(this.urlBase+"/companies/filter/pais="+pais).toPromise().then(res=> res.json() as Array<Empresa> ).catch(this.handleError);
+    }
+
+    getDepartamentos(pais:string,empresa:string){
+        return this._http.get(this.urlBase+"/departments/filter/pais="+pais+"&empresa="+empresa).toPromise().then(res=> res.json() as Array<Departamento> ).catch(this.handleError);
     }
 
     
@@ -75,7 +80,41 @@ export class BookService{
                 `);
     }
   }
-  
+
+  getDepartamentoExample(pais:string,empresa:string):Array<Departamento>{
+    if(pais==="GUA"&&empresa==="001"){
+        return JSON.parse(
+          `  [{
+                "departmentId": {
+                    "paicod": "GUA",
+                    "empcod": "001",
+                    "depcod": "1"
+                },
+                "paicod": "GUA",
+                "empcod": "001",
+                "depcod": "1",
+                "depnom": "CONTABILIDAD"
+                }
+            ]
+        `);
+    }else if(pais==="SAN"&&empresa==="002"){
+        return JSON.parse(
+                `  [{
+                "departmentId": {
+                    "paicod": "SAN",
+                    "empcod": "002",
+                    "depcod": "2"
+                },
+                "paicod": "SAN",
+                "empcod": "002",
+                "depcod": "2",
+                "depnom": "CONTABILIDAD SALVADOR"
+                }
+            ]
+                `);
+    }
+  }
+
   getBookExample():Book{
         return JSON.parse(`  {
             "_id": {
