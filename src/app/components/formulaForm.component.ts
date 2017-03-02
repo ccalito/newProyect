@@ -70,16 +70,22 @@ export class FormComponent implements OnChanges,AfterViewInit{
   onChangeCountry(){
       //this._bookService.getEmpresas(this.selectedObject.country).then(response => this.companyItems =response).catch(this.handleError);
       this.companyItems = this._bookService.getCompaniaExample(this.selectedObject.country);
+      this.selectedObject.company=null;
+      this.selectedObject.department=null;
+      this.selectedObject.period=null;
   }
 
   onChangeCompany(){
     //this._bookService.getDepartamentos(this.selectedObject.country,this.selectedObject.company).then(response =>this.departmentsItems=response).catch(this.handleError);
     this.departmentsItems=this._bookService.getDepartamentoExample(this.selectedObject.country,this.selectedObject.company);
+      this.selectedObject.department=null;
+      this.selectedObject.period=null;
   }
 
   onChangeDepartment(){
     //this._bookService.getPeriodos(this.selectedObject.country,this.selectedObject.company,this.selectedObject.department).then(response =>this.periodsItems=response).catch(this.handleError);
     this.periodsItems = this._bookService.getPeriodosExample(this.selectedObject.country,this.selectedObject.company,this.selectedObject.department);
+      this.selectedObject.period=null;
   }
 
   handleError(error: any) : void {
