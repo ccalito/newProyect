@@ -29,7 +29,6 @@ public hideTextForm():void {
     this.formText.hide();
 }
 
-
 public ngOnInit(){
     this.listFonts = FONTS_LIST;
     this.listColors = COLORS_LIST;

@@ -41,7 +41,6 @@ export class SelectModalComponent implements OnChanges{
   }
 
     public showTextForm(){
-      let cellTemp:Cell;
       this.formText.showTextFormClear();
       this.hideSelectModal();
   }

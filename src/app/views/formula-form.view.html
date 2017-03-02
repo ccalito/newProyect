@@ -15,7 +15,7 @@
                  <label class="lbl-first-section">From:</label> 
               </div>
               <div>
-                <select class="sel-option" name="from" [(ngModel)]="selectedObject.from">
+                <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
                   <option  *ngFor="let item of fromItems">{{item}}</option>
                 </select>
             </div>
@@ -23,31 +23,31 @@
                 <label class="lbl-first-section">Where:</label>
               </div>
               <div>
-                <select class="sel-option" name="where" [(ngModel)]="selectedObject.where">
+                <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
                   <option  *ngFor="let item of whereItems">{{item}}</option>
                 </select>
               </div>
               <hr>
              <div>
                 <label class="lbl-second-section">Pais:</label>
-                <select class="sel-option" name="country" [(ngModel)]="selectedObject.country" (change)="onChangeCountry()">
+                <select class="sel-option" name="country" [(ngModel)]="selectedObject.country" (change)="onChangeCountry(true)" required>
                   <option  *ngFor="let item of countryItems" value="{{item.paicod}}">{{item.painom}}</option>
                 </select>
                 <label class="lbl-second-section">Empresa:</label>
-                <select class="sel-option" name="company" [(ngModel)]="selectedObject.company" (change)="onChangeCompany(selectedObject.country)">
+                <select class="sel-option" name="company" [(ngModel)]="selectedObject.company" (change)="onChangeCompany(true)" required>
                   <option  *ngFor="let item of companyItems" value="{{item.empcod}}">{{item.empnom}}</option>
                 </select>
              </div>
               <div>
                 <label class="lbl-second-section">Departamento:</label>
-                <select class="sel-option" name="department" [(ngModel)]="selectedObject.department" (change)="onChangeDepartment(selectedObject.company)">
+                <select class="sel-option" name="department" [(ngModel)]="selectedObject.department" (change)="onChangeDepartment(true)" required>
                   <option  *ngFor="let item of departmentsItems" value="{{item.depcod}}">{{item.depnom}}</option>
                 </select>
                 <label class="lbl-second-section">Perido:</label>
-                <select class="sel-option" name="period" [(ngModel)]="selectedObject.period">
+                <select class="sel-option" name="period" [(ngModel)]="selectedObject.period" required>
                   <option  *ngFor="let item of periodsItems" value="{{item.percod}}">{{item.perdes}}</option>
                 </select>
-                <button class="btn btn-primary btn-sm" type="submit" >Confirmar</button>
+                <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid">Confirmar</button>
               </div> 
           </form>
           </div>
