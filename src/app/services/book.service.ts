@@ -6,6 +6,7 @@ import {Book} from "../model/book";
 import {Pais} from "../model/pais";
 import {Empresa} from "../model/empresa";
 import {Departamento} from "../model/departamento";
+import {Periodo} from "../model/periodo";
 
 @Injectable()
 export class BookService{
@@ -29,7 +30,10 @@ export class BookService{
         return this._http.get(this.urlBase+"/departments/filter/pais="+pais+"&empresa="+empresa).toPromise().then(res=> res.json() as Array<Departamento> ).catch(this.handleError);
     }
 
-    
+   getPeriodos(pais:string,empresa:string,departamento:string){
+        return this._http.get(this.urlBase+"/periods/filter/pais="+pais+"&empresa="+empresa+"&departamento="+departamento).toPromise().then(res=> res.json() as Array<Periodo> ).catch(this.handleError);
+   }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
@@ -114,6 +118,44 @@ export class BookService{
                 `);
     }
   }
+
+    getPeriodosExample(pais:string,empresa:string,departamento:string):Array<Periodo>{
+        if(pais==="GUA"&&empresa==="001"&&departamento==="1"){
+            return JSON.parse(
+            `  [{
+                "departmentId": {
+                    "paicod": "GUA",
+                    "empcod": "001",
+                    "depcod": "1",
+                    "percod": "2017"
+                },
+                "paicod": "GUA",
+                "empcod": "001",
+                "depcod": "1",
+                "percod": "2017",
+                "perdes": "PERIODO 2017"
+                    }
+                ]
+            `);
+        }else if(pais==="SAN"&&empresa==="002"&&departamento==="2"){
+            return JSON.parse(
+                    `   [{
+                    "departmentId": {
+                        "paicod": "SAN",
+                        "empcod": "002",
+                        "depcod": "2",
+                        "percod": "2018"
+                    },
+                    "paicod": "SAN",
+                    "empcod": "002",
+                    "depcod": "2",
+                    "percod": "2018",
+                    "perdes": "PERIODO 2018"
+                        }
+                    ]
+                    `);
+        }
+    }
 
   getBookExample():Book{
         return JSON.parse(`  {

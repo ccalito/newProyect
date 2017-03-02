@@ -6,6 +6,7 @@ import {Cell} from '../model/cell';
 import {Pais} from '../model/pais';
 import {Empresa} from '../model/empresa';
 import {Departamento} from "../model/departamento";
+import {Periodo} from "../model/periodo";
 
 import {BookService} from "../services/book.service";
 
@@ -27,11 +28,11 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public countryItems:Array<Pais>;
    public companyItems:Array<Empresa>;
    public departmentsItems:Array<Departamento>;
+   public periodsItems:Array<Periodo>;
 
 
    public fromItems:string[] = ['SALDO1','SALDO2'];
    public whereItems:string[] = ['0001.0101','0001.0202','0001.0303','0001.0404'];
-   public periodsItems:string[] = ['2015','2016','2017'];
 
   constructor(
 		private _bookService: BookService
@@ -75,7 +76,13 @@ export class FormComponent implements OnChanges,AfterViewInit{
     //this._bookService.getDepartamentos(this.selectedObject.country,this.selectedObject.company).then(response =>this.departmentsItems=response).catch(this.handleError);
     this.departmentsItems=this._bookService.getDepartamentoExample(this.selectedObject.country,this.selectedObject.company);
   }
-   handleError(error: any) : void {
+
+  onChangeDepartment(){
+    this._bookService.getPeriodos(this.selectedObject.country,this.selectedObject.company,this.selectedObject.department).then(response =>this.periodsItems=response).catch(this.handleError);
+
+  }
+
+  handleError(error: any) : void {
     if(error.status == 404){
       let body="";
       if(error._body != ""){
