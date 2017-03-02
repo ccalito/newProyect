@@ -56,8 +56,10 @@ export class FormComponent implements OnChanges,AfterViewInit{
           this.onChangeCountry();
         }else if(parameter.name==="empcod"){
           this.selectedObject.company=parameter.value;
+          this.onChangeCompany();
         }else if(parameter.name==="depcod"){
           this.selectedObject.department=parameter.value;
+          this.onChangeDepartment();
         }if(parameter.name==="percod"){
           this.selectedObject.period=parameter.value;
         }
