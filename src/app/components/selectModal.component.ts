@@ -16,16 +16,16 @@ export class SelectModalComponent implements OnChanges{
 
   @Input() public cell:Cell;
 
-  public showSelectModal(cellTemp:Cell):void {
-    if(cellTemp===undefined){
+  public showSelectModal(cell:Cell):void {
+    if(cell===undefined){
       this.selectModal.show();
     } else{
-      switch(cellTemp.parameterList.length){
+      switch(cell.parameterList.length){
         case 0:
-          this.formText.showTextForm(cellTemp);
+          this.formText.showTextForm(cell);
         break;
         default:
-            this.formFormula.showFormFormula();
+            this.formFormula.showFormFormula(cell);
         break;
       }
     }
@@ -36,13 +36,13 @@ export class SelectModalComponent implements OnChanges{
   }
 
   public showFormulaForm(){
-    this.formFormula.showFormFormula();
+    this.formFormula.showFormFormulaClear();
     this.hideSelectModal();
   }
 
     public showTextForm(){
       let cellTemp:Cell;
-      this.formText.showTextForm(cellTemp);
+      this.formText.showTextFormClear();
       this.hideSelectModal();
   }
 

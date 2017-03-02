@@ -16,8 +16,12 @@ private listFonts:string[];
 private listColors:string[];
 public cell:Cell;
 
-public showTextForm(cellTemp:Cell):void {
-    this.cell=cellTemp;
+public showTextForm(cell:Cell):void {
+    this.cell=cell;
+    this.formText.show();
+}
+
+public showTextFormClear():void {
     this.formText.show();
 }
 

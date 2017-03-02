@@ -43,7 +43,12 @@ export class FormComponent implements OnChanges,AfterViewInit{
     this.countryItems= this._bookService.getPaisesExample();
 	}
   
-  public showFormFormula():void {
+  public showFormFormulaClear():void {
+    this.formFormula.show();
+  }
+
+  public showFormFormula(cell:Cell):void {
+    this.cell=cell;
     this.formFormula.show();
   }
  
