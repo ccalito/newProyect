@@ -62,13 +62,13 @@ export class FormComponent implements OnChanges,AfterViewInit{
         }
       }
       if(this.selectedObject.country!= undefined){
-        this.onChangeCountry();
+        this.onChangeCountry(false);
       }
       if(this.selectedObject.company != undefined){
-        this.onChangeCompany();
+        this.onChangeCompany(false);
       }
       if(this.selectedObject.department != undefined){
-        this.onChangeDepartment();
+        this.onChangeDepartment(false);
       }
     }
     this.formFormula.show();
@@ -94,25 +94,31 @@ export class FormComponent implements OnChanges,AfterViewInit{
     }
   }
 
-  onChangeCountry(){
+  onChangeCountry(clear:boolean){
       //this._bookService.getEmpresas(this.selectedObject.country).then(response => this.companyItems =response).catch(this.handleError);
       this.companyItems = this._bookService.getCompaniaExample(this.selectedObject.country);
-      this.selectedObject.company=null;
-      this.selectedObject.department=null;
-      this.selectedObject.period=null;
+      if(clear){
+        this.selectedObject.company=null;
+        this.selectedObject.department=null;
+        this.selectedObject.period=null;
+      }
   }
 
-  onChangeCompany(){
+  onChangeCompany(clear:boolean){
     //this._bookService.getDepartamentos(this.selectedObject.country,this.selectedObject.company).then(response =>this.departmentsItems=response).catch(this.handleError);
     this.departmentsItems=this._bookService.getDepartamentoExample(this.selectedObject.country,this.selectedObject.company);
+     if(clear){
       this.selectedObject.department=null;
       this.selectedObject.period=null;
+     }
   }
 
-  onChangeDepartment(){
+  onChangeDepartment(clear:boolean){
     //this._bookService.getPeriodos(this.selectedObject.country,this.selectedObject.company,this.selectedObject.department).then(response =>this.periodsItems=response).catch(this.handleError);
     this.periodsItems = this._bookService.getPeriodosExample(this.selectedObject.country,this.selectedObject.company,this.selectedObject.department);
+     if(clear){
       this.selectedObject.period=null;
+     }
   }
 
   handleError(error: any) : void {
