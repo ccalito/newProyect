@@ -7,6 +7,7 @@ import {Pais} from "../model/pais";
 import {Empresa} from "../model/empresa";
 import {Departamento} from "../model/departamento";
 import {Periodo} from "../model/periodo";
+import {Cell} from "../model/cell";
 
 @Injectable()
 export class BookService{
@@ -32,6 +33,10 @@ export class BookService{
 
    getPeriodos(pais:string,empresa:string,departamento:string){
         return this._http.get(this.urlBase+"/periods/filter/pais="+pais+"&empresa="+empresa+"&departamento="+departamento).toPromise().then(res=> res.json() as Array<Periodo> ).catch(this.handleError);
+   }
+
+   submitCell(cell:Cell){
+
    }
 
   private handleError(error: any): Promise<any> {
