@@ -209,7 +209,6 @@ export class BookService{
                         "value": "2017"
                     }
                     ]
-                    ]
                 },
                  {
                     "size": 10,

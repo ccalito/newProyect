@@ -49,6 +49,20 @@ export class FormComponent implements OnChanges,AfterViewInit{
 
   public showFormFormula(cell:Cell):void {
     this.cell=cell;
+    if(this.cell.parameterList.length>0){
+      for (let parameter of this.cell.parameterList) {
+        if(parameter.name==="paicod"){
+          this.selectedObject.country=parameter.value;
+          this.onChangeCountry();
+        }else if(parameter.name==="empcod"){
+          this.selectedObject.company=parameter.value;
+        }else if(parameter.name==="depcod"){
+          this.selectedObject.department=parameter.value;
+        }if(parameter.name==="percod"){
+          this.selectedObject.period=parameter.value;
+        }
+      }
+    }
     this.formFormula.show();
   }
  
