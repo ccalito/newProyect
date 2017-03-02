@@ -194,12 +194,21 @@ export class BookService{
                     "parameterList": [
                     {
                         "name": "empcod",
-                        "value": "1"
+                        "value": "001"
                     },
                     {
                         "name": "paicod",
                         "value": "GUA"
+                    },
+                    {
+                        "name": "depcod",
+                        "value": "1"
+                    },
+                    {
+                        "name": "percod",
+                        "value": "2017"
                     }
+                    ]
                     ]
                 },
                  {
@@ -212,11 +221,19 @@ export class BookService{
                     "parameterList": [
                     {
                         "name": "empcod",
-                        "value": "1"
+                        "value": "002"
                     },
                     {
                         "name": "paicod",
-                        "value": "GUA"
+                        "value": "SAN"
+                    },
+                    {
+                        "name": "depcod",
+                        "value": "2"
+                    },
+                    {
+                        "name": "percod",
+                        "value": "2018"
                     }
                     ]
                 }
