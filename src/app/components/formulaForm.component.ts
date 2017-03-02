@@ -4,6 +4,7 @@ import {NgForm} from '@angular/forms';
 import {CellObject} from './cell-object';
 import {Cell} from '../model/cell';
 import {Pais} from '../model/pais';
+import {Empresa} from '../model/empresa';
 
 import {BookService} from "../services/book.service";
 
@@ -16,6 +17,21 @@ selector: 'formulaForm',
 
 export class FormComponent implements OnChanges,AfterViewInit{
 
+   @ViewChild('formFormula') public formFormula:ModalDirective;
+  
+   private selectedObject = new CellObject('SALDO1','0001.0303','GUA','001','001','2017');
+
+   @Input() public cell:Cell;
+    
+   public countryItems:Array<Pais>;
+   public companyItems:Array<Empresa>;
+
+
+   public fromItems:string[] = ['SALDO1','SALDO2'];
+   public whereItems:string[] = ['0001.0101','0001.0202','0001.0303','0001.0404'];
+   public departmentsItems:string[] = ['001','002','005','004','005'];
+   public periodsItems:string[] = ['2015','2016','2017'];
+
   constructor(
 		private _bookService: BookService
 	){}
@@ -24,18 +40,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
     //this._bookService.getPaises().then(response => this.countryItems =response).catch(this.handleError);
     this.countryItems= this._bookService.getPaisesExample();
 	}
-  @ViewChild('formFormula') public formFormula:ModalDirective;
-  private selectedObject = new CellObject('SALDO1','0001.0303','GUA','001','001','2017');
-
-  @Input() public cell:Cell;
-
-    public fromItems:string[] = ['SALDO1','SALDO2'];
-    public whereItems:string[] = ['0001.0101','0001.0202','0001.0303','0001.0404'];
-    public countryItems:Array<Pais>;
-    public companyItems:string[] = ['001','002'];
-    public departmentsItems:string[] = ['001','002','005','004','005'];
-    public periodsItems:string[] = ['2015','2016','2017'];
-
+  
   public showFormFormula():void {
     this.formFormula.show();
   }
@@ -60,6 +65,11 @@ export class FormComponent implements OnChanges,AfterViewInit{
     }
   }
 
+  onChangeContry(){
+      //this._bookService.getEmpresa(this.).then(response => this.companyItems =response).catch(this.handleError);
+      this.companyItems = this._bookService.getCompaniaExample(this.selectedObject.country);
+  }
+  
    handleError(error: any) : void {
     if(error.status == 404){
       let body="";

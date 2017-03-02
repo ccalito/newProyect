@@ -4,21 +4,27 @@ import "rxjs/add/operator/map";
 import 'rxjs/add/operator/toPromise';
 import {Book} from "../model/book";
 import {Pais} from "../model/pais";
+import {Empresa} from "../model/empresa";
 
 @Injectable()
 export class BookService{
-    public url:string="http://localhost:8080/services/book";
-    public urlPais:string="http: //localhost:9000/resource/api/legacy/countries/";
+    public urlBase:string="http://localhost:9000/resource/api/legacy";
+
 	constructor(private _http: Http){}
 
     getBook(){
-        return this._http.get(this.url).toPromise().then(res =>res.json() as Book).catch(this.handleError);
+        return this._http.get(this.urlBase+"/book").toPromise().then(res =>res.json() as Book).catch(this.handleError);
     }
 
     getPaises(){
-        return this._http.get(this.urlPais).toPromise().then(res=> res.json() as Array<Pais> ).catch(this.handleError);
+        return this._http.get(this.urlBase+"/countries/").toPromise().then(res=> res.json() as Array<Pais> ).catch(this.handleError);
     }
 
+    getEmpresa(pais:string){
+        return this._http.get(this.urlBase+"/companies/filter/pais="+pais).toPromise().then(res=> res.json() as Array<Empresa> ).catch(this.handleError);
+    }
+
+    
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
@@ -26,7 +32,7 @@ export class BookService{
   
   getPaisesExample():Array<Pais>{
       return JSON.parse(
-        `{
+        `[{
 		"paicod": "GUA",
 		"painom": "GUATEMALA",
 		"pastat": " ",
@@ -36,8 +42,38 @@ export class BookService{
             "painom": "Salvador",
             "pastat": " ",
             "mncod": " "
-        } `
+        } ]`
       );
+  }
+
+  getCompaniaExample(pais:string):Array<Empresa>{
+    if(pais==="GUA"){
+        return JSON.parse(
+          `  [{
+                "empresaId": {
+                    "paicod": "GUA",
+                    "empcod": "001"
+                },
+                "paicod": "GUA",
+                "empcod": "001",
+                "empnom": "Cliente 01"
+                    }
+                ]
+        `);
+    }else if(pais==="SAN"){
+        return JSON.parse(
+                `  [{
+                        "empresaId": {
+                            "paicod": "SAN",
+                            "empcod": "002"
+                        },
+                        "paicod": "SAN",
+                        "empcod": "002",
+                        "empnom": "Cliente 02 SA"
+                            }
+                        ]
+                `);
+    }
   }
   
   getBookExample():Book{
