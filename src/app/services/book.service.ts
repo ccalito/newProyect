@@ -9,7 +9,7 @@ import {Departamento} from "../model/departamento";
 import {Periodo} from "../model/periodo";
 import {Cell} from "../model/cell";
 import {Parameter} from "../model/parameter";
-import {Id} from "./id";
+import {Id} from "../model/id";
 
 @Injectable()
 export class BookService{
