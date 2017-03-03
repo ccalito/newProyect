@@ -3,6 +3,7 @@ import { ModalDirective } from 'ng2-bootstrap';
 import { FormComponent} from './formulaForm.component'
 import { textFormComponent} from './textForm.component'
 import {Cell} from '../model/cell';
+import {Parameter} from "../model/parameter";
 
 @Component({
   selector: 'my-selectModal',
@@ -16,7 +17,10 @@ export class SelectModalComponent implements OnChanges{
 
   @Input() public cell:Cell;
 
-  public showSelectModal(cell:Cell):void {
+  public parameterGeneral:Array<Parameter>;
+
+  public showSelectModal(cell:Cell, parameterGeneral:Array<Parameter>):void {
+    this.parameterGeneral=parameterGeneral;
     if(cell===undefined){
       this.selectModal.show();
     } else{
@@ -25,7 +29,7 @@ export class SelectModalComponent implements OnChanges{
           this.formText.showTextForm(cell);
         break;
         default:
-            this.formFormula.showFormFormula(cell);
+            this.formFormula.showFormFormula(cell, this.parameterGeneral);
         break;
       }
     }
@@ -36,7 +40,7 @@ export class SelectModalComponent implements OnChanges{
   }
 
   public showFormulaForm(){
-    this.formFormula.showFormFormulaClear();
+    this.formFormula.showFormFormulaClear(this.parameterGeneral);
     this.hideSelectModal();
   }
 

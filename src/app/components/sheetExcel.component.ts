@@ -6,6 +6,8 @@ declare let Handsontable: any;
 import {Book} from "../model/book";
 import {Sheet} from '../model/sheet';
 import {Cell} from "../model/cell";
+import {Parameter} from "../model/parameter";
+
 import {SelectModalComponent} from "./selectModal.component";
 
 import {BookService} from "../services/book.service";
@@ -21,6 +23,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 	public container: any;
 	public hot: any;
 	public cellSelected:Cell;
+	public parameterListGeneral:Array<Parameter>;
 
 	constructor(
 		private _bookService: BookService
@@ -30,7 +33,9 @@ export class SheetExcelComponent implements AfterViewInit  {
 
 	ngAfterViewInit(){
 		//this._bookService.getBook().then(response => this.book=response).catch(this.handleError);
+		//this._bookService.getParametersGeneral(this.book.input_id).then(response => this.parameterListGeneral=response).catch(this.handleError);
 		this.book = this._bookService.getBookExample();
+		this.parameterListGeneral = this._bookService.getParametersGeneralExample(this.book.input_id);
 		this.inicializa();
 	}
 
@@ -65,7 +70,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 					}
 					TD.addEventListener("click",()=>{
 						//this.childModal.showChildModal();
-						this.selectModal.showSelectModal(cell);
+						this.selectModal.showSelectModal(cell, this.parameterListGeneral);
 						this.cellSelected = cell;
 					});
 					console.log("fila" + row + " columna " + col);

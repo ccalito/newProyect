@@ -7,6 +7,7 @@ import {Pais} from '../model/pais';
 import {Empresa} from '../model/empresa';
 import {Departamento} from "../model/departamento";
 import {Periodo} from "../model/periodo";
+import {Parameter} from "../model/parameter";
 
 import {BookService} from "../services/book.service";
 
@@ -43,14 +44,23 @@ export class FormComponent implements OnChanges,AfterViewInit{
     this.countryItems= this._bookService.getPaisesExample();
 	}
   
-  public showFormFormulaClear():void {
+  public showFormFormulaClear(parameterGeneral:Array<Parameter>):void {
     this.formFormula.show();
+    this.setParameterGeneral(parameterGeneral);
   }
 
-  public showFormFormula(cell:Cell):void {
+  public showFormFormula(cell:Cell, listParameterGeneral:Array<Parameter>):void {
     this.cell=cell;
     if(this.cell.parameterList.length>0){
-      for (let parameter of this.cell.parameterList) {
+        this.setParameterGeneral(this.cell.parameterList);
+    }else{
+        this.setParameterGeneral(listParameterGeneral);
+    }
+    this.formFormula.show();
+  }
+ 
+  public setParameterGeneral(list:Array<Parameter>){
+    for (let parameter of list) {
         if(parameter.name==="paicod"){
           this.selectedObject.country=parameter.value;
         }else if(parameter.name==="empcod"){
@@ -70,10 +80,8 @@ export class FormComponent implements OnChanges,AfterViewInit{
       if(this.selectedObject.department != undefined){
         this.onChangeDepartment(false);
       }
-    }
-    this.formFormula.show();
   }
- 
+
   public hideFormFormula():void {
     this.formFormula.hide();
   }

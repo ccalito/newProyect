@@ -8,6 +8,8 @@ import {Empresa} from "../model/empresa";
 import {Departamento} from "../model/departamento";
 import {Periodo} from "../model/periodo";
 import {Cell} from "../model/cell";
+import {Parameter} from "../model/parameter";
+import {Id} from "./id";
 
 @Injectable()
 export class BookService{
@@ -33,6 +35,10 @@ export class BookService{
 
    getPeriodos(pais:string,empresa:string,departamento:string){
         return this._http.get(this.urlBase+"/periods/filter/pais="+pais+"&empresa="+empresa+"&departamento="+departamento).toPromise().then(res=> res.json() as Array<Periodo> ).catch(this.handleError);
+   }
+
+   getParametersGeneral(id:Id){
+       return this._http.get(this.urlBase+"/id="+id).toPromise().then(res=>res.json() as Array<Parameter>).catch(this.handleError);
    }
 
    submitCell(cell:Cell){
@@ -161,6 +167,25 @@ export class BookService{
                     `);
         }
     }
+
+ getParametersGeneralExample(id:Id):Array<Parameter>{
+    return JSON.parse( `  
+        [{
+                "name": "empcod",
+                "value": "001"
+            }, {
+                "name": "paicod",
+                "value": "GUA"
+            }, {
+                "name": "depcod",
+                "value": "1"
+            }, {
+                "name": "percod",
+                "value": "2017"
+            }
+        ]
+    ` );
+ }
 
   getBookExample():Book{
         return JSON.parse(`  {
