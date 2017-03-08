@@ -10,6 +10,7 @@ import {Periodo} from "../model/periodo";
 import {Cell} from "../model/cell";
 import {Parameter} from "../model/parameter";
 import {Id} from "../model/id";
+import {Moneda} from "../model/Moneda";
 
 @Injectable()
 export class BookService{
@@ -168,7 +169,19 @@ export class BookService{
         }
     }
 
- getParametersGeneralExample(id:Id):Array<Parameter>{
+  getMonedaExample():Array<Moneda>{
+      return JSON.parse(
+        `[{
+            "moneda": "DFT",
+            "descripcion": "Moneda local"
+        },{
+            "moneda": "US$",
+            "descripcion": "Dólares"
+        } ]`
+      );
+  }
+
+ /* getParametersGeneralExample(id:Id):Array<Parameter>{
     return JSON.parse( `  
         [{
                 "name": "empcod",
@@ -185,7 +198,7 @@ export class BookService{
             }
         ]
     ` );
- }
+ } */
 
   getBookExample():Book{
         return JSON.parse(`  {
@@ -210,6 +223,29 @@ export class BookService{
             },
             "sizeX": 5,
             "sizeY": 5,
+            "username": "anonymous",
+            "parameterList": [
+                {
+                "name": "paicod",
+                "value": "GUA"
+                },
+                {
+                "name": "empcod",
+                "value": "001"
+                },
+                {
+                "name": "depcod",
+                "value": "1"
+                },
+                {
+                "name": "percod",
+                "value": "2017"
+                },
+                {
+                "name": "moneda",
+                "value": "DFT"
+                }
+            ],
             "sheetList": [
             {
                 "correlative": 1,
@@ -237,6 +273,20 @@ export class BookService{
                     {
                         "name": "percod",
                         "value": "2017"
+                    },
+                    {
+                        "name": "moneda",
+                        "value": "US$"
+                    }
+                    ],
+                    "queryList": [
+                    {
+                        "correlative": 1,
+                        "value": "smsali"
+                    },
+                    {
+                        "correlative": 2,
+                        "value": "0101.01.0001"
                     }
                     ]
                 },
@@ -263,8 +313,32 @@ export class BookService{
                     {
                         "name": "percod",
                         "value": "2018"
+                    },
+                    {
+                        "name": "moneda",
+                        "value": "DFT"
+                    }
+                    ],
+                    "queryList": [
+                    {
+                        "correlative": 1,
+                        "value": "smsali"
+                    },
+                    {
+                        "correlative": 2,
+                        "value": "0101.01.0001"
                     }
                     ]
+                },
+                 {
+                    "size": 10,
+                    "posX": 2,
+                    "posY": 2,
+                    "textValue": "Hola 2",
+                    "inputId01": null,
+                    "style": null,
+                    "parameterList": [],
+                    "queryList": []
                 }
                 ]
             }

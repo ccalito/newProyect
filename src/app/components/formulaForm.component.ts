@@ -8,7 +8,7 @@ import {Empresa} from '../model/empresa';
 import {Departamento} from "../model/departamento";
 import {Periodo} from "../model/periodo";
 import {Parameter} from "../model/parameter";
-
+import {Moneda} from "../model/moneda";
 import {BookService} from "../services/book.service";
 
 @Component({
@@ -22,7 +22,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
 
    @ViewChild('formFormula') public formFormula:ModalDirective;
   
-   private selectedObject = new CellObject('SALDO1','0001.0303','GUA','001','001','2017');
+   private selectedObject = new CellObject('SALDO1','0001.0303','GUA','001','001','2017','DFT');
 
    @Input() public cell:Cell;
     
@@ -30,7 +30,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public companyItems:Array<Empresa>;
    public departmentsItems:Array<Departamento>;
    public periodsItems:Array<Periodo>;
-
+   public monedaItems:Array<Moneda>;
 
    public fromItems:string[] = ['SALDO1','SALDO2'];
    public whereItems:string[] = ['0001.0101','0001.0202','0001.0303','0001.0404'];
@@ -42,17 +42,18 @@ export class FormComponent implements OnChanges,AfterViewInit{
 	ngAfterViewInit(){
     //this._bookService.getPaises().then(response => this.countryItems =response).catch(this.handleError);
     this.countryItems= this._bookService.getPaisesExample();
+    this.monedaItems= this._bookService.getMonedaExample();
 	}
   
   public showFormFormulaClear(parameterGeneral:Array<Parameter>):void {
-    this.formFormula.show();
     this.setParameterGeneral(parameterGeneral);
+    this.formFormula.show();
   }
 
   public showFormFormula(cell:Cell, listParameterGeneral:Array<Parameter>):void {
     this.cell=cell;
     if(this.cell.parameterList.length>0){
-        this.setParameterGeneral(this.cell.parameterList);
+          this.setParameterGeneral(this.cell.parameterList);
     }else{
         this.setParameterGeneral(listParameterGeneral);
     }
@@ -69,6 +70,9 @@ export class FormComponent implements OnChanges,AfterViewInit{
           this.selectedObject.department=parameter.value;
         }if(parameter.name==="percod"){
           this.selectedObject.period=parameter.value;
+        }
+        if(parameter.name==="moneda"){
+          this.selectedObject.moneda=parameter.value;
         }
       }
       if(this.selectedObject.country!= undefined){

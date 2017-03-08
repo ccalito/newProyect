@@ -37,6 +37,7 @@
                 <select class="sel-option" name="company" [(ngModel)]="selectedObject.company" (change)="onChangeCompany(true)" required>
                   <option  *ngFor="let item of companyItems" value="{{item.empcod}}">{{item.empnom}}</option>
                 </select>
+                <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid">Confirmar</button>
              </div>
               <div>
                 <label class="lbl-second-section">Departamento:</label>
@@ -47,7 +48,12 @@
                 <select class="sel-option" name="period" [(ngModel)]="selectedObject.period" required>
                   <option  *ngFor="let item of periodsItems" value="{{item.percod}}">{{item.perdes}}</option>
                 </select>
-                <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid">Confirmar</button>
+              </div> 
+              <div>
+                <label class="lbl-second-section">Moneda:</label>
+                <select class="sel-option" name="moneda" [(ngModel)]="selectedObject.moneda" required>
+                  <option  *ngFor="let item of monedaItems" value="{{item.moneda}}">{{item.descripcion}}</option>
+                </select>
               </div> 
           </form>
           </div>

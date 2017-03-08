@@ -1,5 +1,6 @@
 import {Id} from "./id";
 import {Parameter} from "./parameter";
+import {QueryList} from "./queryList";
 
 export class Cell{
  
@@ -10,7 +11,8 @@ export class Cell{
         public textValue:string,
         public inputId01:Id,
         public style:string,
-        public parameterList:Array<Parameter>
+        public parameterList:Array<Parameter>,
+        public queryList:Array<QueryList>
     ){
     }
 }

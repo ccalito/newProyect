@@ -5,14 +5,16 @@ export class CellObject{
     public company:string;
     public department:string;
     public period:string;
+    public moneda:string;
 
-    constructor(from:string,where:string,country:string,company:string,department:string,period:string){
+    constructor(from:string,where:string,country:string,company:string,department:string,period:string,moneda:string){
         this.from = from;
         this.where = where;
         this.country = country;
         this.company = company;
         this.department = department;
         this.period = period;
+        this.moneda = moneda;
     }
     
     public setFrom(from:string){
@@ -33,6 +35,9 @@ export class CellObject{
     public setPeriod(period:string){
         this.period = period;
     }
+    public setMoneda(moneda:string){
+        this.moneda = moneda;
+    }
 
     public getFrom():string{
         return this.from;
@@ -51,5 +56,8 @@ export class CellObject{
     }
     public getPeriod():string{
         return this.period;
+    }
+    public getMoneda():string{
+        return this.moneda;
     }
 }

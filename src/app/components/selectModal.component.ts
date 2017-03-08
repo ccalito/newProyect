@@ -24,7 +24,7 @@ export class SelectModalComponent implements OnChanges{
     if(cell===undefined){
       this.selectModal.show();
     } else{
-      switch(cell.parameterList.length){
+      switch(cell.queryList.length){
         case 0:
           this.formText.showTextForm(cell);
         break;
