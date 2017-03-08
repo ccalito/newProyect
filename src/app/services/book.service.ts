@@ -334,11 +334,30 @@ export class BookService{
                     "size": 10,
                     "posX": 2,
                     "posY": 2,
-                    "textValue": "Hola 2",
+                    "textValue": "SOLO TEXTO",
                     "inputId01": null,
                     "style": null,
                     "parameterList": [],
                     "queryList": []
+                },
+                 {
+                    "size": 10,
+                    "posX": 3,
+                    "posY": 1,
+                    "textValue": "sin parameterList",
+                    "inputId01": null,
+                    "style": null,
+                    "parameterList": [],
+                    "queryList": [
+                    {
+                        "correlative": 1,
+                        "value": "smsali"
+                    },
+                    {
+                        "correlative": 2,
+                        "value": "0101.01.0001"
+                    }
+                    ]
                 }
                 ]
             }
