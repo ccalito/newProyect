@@ -11,6 +11,7 @@ export class Book{
         public username:string,
         public sizeX:number,
         public sizeY:number,
+        public xls:string,
         public parameterList:Array<Parameter>,
         public sheetList:Array<Sheet>){
     }
