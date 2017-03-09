@@ -24,14 +24,11 @@ export class SelectModalComponent implements OnChanges{
     if(cell===undefined){
       this.selectModal.show();
     } else{
-      switch(cell.valueList.length){
-        case 0:
-          this.formText.showTextForm(cell);
-        break;
-        default:
+          if(cell.valueList == undefined || cell.valueList.length == 0){
+            this.formText.showTextForm(cell);
+          }else{
             this.formFormula.showFormFormula(cell, this.parameterGeneral);
-        break;
-      }
+          }
     }
   }
   

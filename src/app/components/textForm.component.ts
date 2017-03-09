@@ -15,9 +15,11 @@ export class textFormComponent implements OnInit{
 private listFonts:string[];
 private listColors:string[];
 public cell:Cell;
+public textValue:string;
 
 public showTextForm(cell:Cell):void {
     this.cell=cell;
+    this.textValue = cell.textValue;
     this.formText.show();
 }
 

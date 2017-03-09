@@ -19,37 +19,14 @@
                 </tr>
                 <tr>
                   <td>
-                    <textarea style="resize:none; width: 680px; height: 50px;"></textarea>
-                  </td>
-                  <td>
-<!--                    <input type="number" required #fontSize="ngModel" [(ngModel)]="cell.size" 
-                        name="fontSize" value="12" >
-                    <span *ngIf="fontSize.valid">Valor Inválido</span> -->
-                   <input type="number" required #fontSize name="fontSize" min="1" max="50" value="12" >
+                    <textarea type="string" #textValue name ="textValue" [(ngModel)]="textValue"  
+                    style="resize:none; width: 680px; height: 50px;"></textarea>
                   </td>
                 </tr>
               </table> 
            </div>
             <br/>
             <div style="height: 50px;">
-                <label>Fuente</label>
-                <select>
-                  <option *ngFor="let font of listFonts">{{font}}</option>
-                </select>
-                <label>Color de fondo </label>
-                <select>
-                  <option  *ngFor="let color of listColors">{{color}}</option>
-                </select>
-                <label>Color de texto </label>
-                <select>
-                  <option  *ngFor="let color of listColors">{{color}}</option>
-                </select>
-                <label>Subrayado</label>
-                <input type="checkbox" name="chkSubrayado"> 
-                <label>Negrilla</label>
-                <input type="checkbox" name="chkNegrilla">
-                <label>Cursiva</label>
-                <input type="checkbox" name="chkCursiva">
                 <button class="btn btn-primary btn-sm" type="submit">Confirmar</button>
             </div>
             </form>
