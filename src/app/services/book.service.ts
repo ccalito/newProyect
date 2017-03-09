@@ -10,6 +10,7 @@ import {Periodo} from "../model/periodo";
 import {Cell} from "../model/cell";
 import {Parameter} from "../model/parameter";
 import {Moneda} from "../model/Moneda";
+import {Input} from "../model/input";
 
 @Injectable()
 export class BookService{
@@ -41,6 +42,10 @@ export class BookService{
         return this._http.get(this.urlBase+"/monedas/").toPromise().then(res=> res.json() as Array<Moneda> ).catch(this.handleError);
    }
 
+   getInput(inputId:string){
+        return this._http.get(this.urlBase+"/inputId/").toPromise().then(res=> res.json() as Input ).catch(this.handleError);
+   }
+   
    submitCell(cell:Cell){
 
    }
@@ -401,5 +406,68 @@ export class BookService{
             }
         ]
     }`) as Book;
+}
+
+ getInputExample():Input{
+        return JSON.parse(`
+    {
+    "_id": "58b1ee763a21f841b5c9d138",
+    "queryList": [
+        {
+        "correlative": 1,
+        "query": "SELECT CTCOD, SMSALI, &SALDOM FROM V5CFBDAT.CFSALM WHERE PAICOD = '&pais' AND EMPCOD = '&empresa' AND DEPCOD = '&departamento' AND TIPCON = '1' AND PERCOD = '&periodo' AND MOCOD=&moneda AND CTCOD = ?",
+        "name": "Saldo Mensual",
+        "fields": [
+            {
+            "variable": "ctcod",
+            "label": "Cuenta",
+            "description": "Cuenta Contable"
+            },
+            {
+            "variable": "smsali",
+            "label": "Saldo Inicial",
+            "description": "Saldo Inicial de Período"
+            }
+        ]
+        },
+        {
+        "correlative": 2,
+        "query": "SELECT CTCOD, CTDES1 FROM V5CFBDAT.CFCTAS WHERE PAICOD = '&pais' AND EMPCOD = '&empresa' AND DEPCOX = '&departamento' AND TIPCON = '1'",
+        "name": "Cuentas",
+        "fields": [
+            {
+            "variable": "ctcod",
+            "label": "Cuenta",
+            "description": "Cuenta Contable"
+            },
+            {
+            "variable": "ctdes1",
+            "label": "Nombre de Cuenta",
+            "description": "Nombre de la Cuenta"
+            }
+        ]
+        }
+    ],
+    "fields": [
+        {
+        "variable": "ctcod",
+        "label": "Cuenta",
+        "description": "Cuenta Contable"
+        },
+        {
+        "variable": "smsali",
+        "label": "Saldo del Período",
+        "description": "Saldo de inicio de Período"
+        },
+        {
+        "variable": "$saldom",
+        "label": "Saldo Mensual",
+        "description": "Función de Saldo Mensual",
+        "isFunction": true
+        }
+
+    ]
+    }`) as Input;
     }
+
 }
