@@ -1,4 +1,4 @@
-import {Component,ViewChild,OnInit} from '@angular/core';
+import {Component,ViewChild,OnInit,Input} from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
 import {Cell} from '../model/cell';
 import {FONTS_LIST,COLORS_LIST} from './values.component';
@@ -15,7 +15,8 @@ export class textFormComponent implements OnInit{
 private listFonts:string[];
 private listColors:string[];
 public cell:Cell;
-public textValue:string;
+@Input() public textValue:string;
+
 
 public showTextForm(cell:Cell):void {
     this.cell=cell;
