@@ -1,17 +1,16 @@
 import {Parameter} from "./parameter";
-import {QueryList} from "./queryList";
+import {Style} from "./style";
 
 export class Cell{
  
     constructor(
-        public size:number,
         public posX:number,
         public posY:number,
         public textValue:string,
         public inputId01:string,
-        public style:string,
+        public style:Style,
         public parameterList:Array<Parameter>,
-        public queryList:Array<QueryList>
+        public valueList:Array<Parameter>
     ){
     }
 }
