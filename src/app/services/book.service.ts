@@ -10,7 +10,7 @@ import {Periodo} from "../model/periodo";
 import {Cell} from "../model/cell";
 import {Parameter} from "../model/parameter";
 import {Moneda} from "../model/Moneda";
-import {Input} from "../model/input";
+import {InputId} from "../model/inputId";
 
 @Injectable()
 export class BookService{
@@ -43,7 +43,7 @@ export class BookService{
    }
 
    getInput(inputId:string){
-        return this._http.get(this.urlBase+"/inputId/").toPromise().then(res=> res.json() as Input ).catch(this.handleError);
+        return this._http.get(this.urlBase+"/inputId/").toPromise().then(res=> res.json() as InputId ).catch(this.handleError);
    }
    
    submitCell(cell:Cell){
@@ -408,7 +408,7 @@ export class BookService{
     }`) as Book;
 }
 
- getInputExample():Input{
+ getInputExample():InputId{
         return JSON.parse(`
     {
     "_id": "58b1ee763a21f841b5c9d138",
@@ -467,7 +467,7 @@ export class BookService{
         }
 
     ]
-    }`) as Input;
+    }`) as InputId;
     }
 
 }

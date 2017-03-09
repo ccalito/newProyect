@@ -1,10 +1,10 @@
 import {QueryElement} from "./queryelement";
 import {FieldElement} from "./fieldelement";
 
-export class Input{
+export class InputId{
 
     constructor(
-        public id:string,
+        public _id:string,
         public queryList:Array<QueryElement>,
         public fields:Array<FieldElement>){
     }

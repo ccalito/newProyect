@@ -9,6 +9,8 @@ import {Departamento} from "../model/departamento";
 import {Periodo} from "../model/periodo";
 import {Parameter} from "../model/parameter";
 import {Moneda} from "../model/moneda";
+import {InputId} from "../model/inputId";
+import {QueryElement} from "../model/queryelement";
 import {BookService} from "../services/book.service";
 
 @Component({
@@ -31,9 +33,9 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public departmentsItems:Array<Departamento>;
    public periodsItems:Array<Periodo>;
    public monedaItems:Array<Moneda>;
-
-   public fromItems:string[] = ['SALDO1','SALDO2'];
-   public whereItems:string[] = ['0001.0101','0001.0202','0001.0303','0001.0404'];
+   public fromQueryList:QueryElement;
+   public whereQueryList:QueryElement;
+   public InputRecibido:InputId;
 
   constructor(
 		private _bookService: BookService
@@ -44,6 +46,21 @@ export class FormComponent implements OnChanges,AfterViewInit{
     //this._bookService.getMonedas().then(response => this.monedaItems=response).catch(this.handleError);
     this.countryItems= this._bookService.getPaisesExample();
     this.monedaItems= this._bookService.getMonedaExample();
+    this.InputRecibido= this._bookService.getInputExample();
+
+console.log(this.InputRecibido);
+    for(let queryList of this.InputRecibido.queryList){
+      console.log(queryList);
+      switch(queryList.correlative){
+      case 1:
+        this.fromQueryList= queryList;
+      break;
+      case 2:
+        this.whereQueryList= queryList;
+      break;
+      }
+
+    }
 	}
   
   public showFormFormulaClear(parameterGeneral:Array<Parameter>):void {
