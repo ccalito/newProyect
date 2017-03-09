@@ -32,9 +32,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 
 	ngAfterViewInit(){
 		//this._bookService.getBook().then(response => this.book=response).catch(this.handleError);
-		//this._bookService.getParametersGeneral(this.book.input_id).then(response => this.parameterListGeneral=response).catch(this.handleError);
 		this.book = this._bookService.getBookExample();
-		//this.parameterListGeneral = this._bookService.getParametersGeneralExample(this.book.input_id);
 		this.inicializa();
 	}
 

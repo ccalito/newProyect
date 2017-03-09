@@ -38,8 +38,8 @@ export class BookService{
         return this._http.get(this.urlBase+"/periods/filter/pais="+pais+"&empresa="+empresa+"&departamento="+departamento).toPromise().then(res=> res.json() as Array<Periodo> ).catch(this.handleError);
    }
 
-   getParametersGeneral(id:Id){
-       return this._http.get(this.urlBase+"/id="+id).toPromise().then(res=>res.json() as Array<Parameter>).catch(this.handleError);
+   getMonedas(){
+        return this._http.get(this.urlBase+"/monedas/").toPromise().then(res=> res.json() as Array<Moneda> ).catch(this.handleError);
    }
 
    submitCell(cell:Cell){
@@ -181,187 +181,226 @@ export class BookService{
       );
   }
 
- /* getParametersGeneralExample(id:Id):Array<Parameter>{
-    return JSON.parse( `  
-        [{
-                "name": "empcod",
-                "value": "001"
-            }, {
-                "name": "paicod",
-                "value": "GUA"
-            }, {
-                "name": "depcod",
-                "value": "1"
-            }, {
-                "name": "percod",
-                "value": "2017"
+  getBookExample():Book{
+        return JSON.parse(` {
+        "_id": "58c030d332f60e5ba8b32790",
+        "_class": "com.is4tech.reporting.templates.Template",
+        "name": "test01",
+        "input_id": "58b1ee763a21f841b5c9d138",
+        "username": "anonymous",
+        "sizeX": 7,
+        "sizeY": 51,
+        "xls": false,
+        "parametersList": [
+            {
+            "name": "pais",
+            "value": "HON"
+            },
+            {
+            "name": "empresa",
+            "value": "BAN"
+            },
+            {
+            "name": "departamento",
+            "value": "1"
+            },
+            {
+            "name": "periodo",
+            "value": "2016"
+            },
+            {
+            "name": "moneda",
+            "value": "DFT"
+            }
+        ],
+        "sheetList": [
+            {
+            "correlative": 0,
+            "cellList": [
+                {
+                "posX": 0,
+                "posY": 2,
+                "textValue": "KM 21.5 Carretera a El Salvador",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF229EC4"
+                }
+                },
+                {
+                "posX": 0,
+                "posY": 3,
+                "textValue": "Mz 15 Casa 7 Condominio Cumbres de la Arboleda",
+                "inputId01": "58acb11b817f827781fe8c76",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF229EC4"
+                },
+                "parameterList": [
+                    {
+                    "name": "pais",
+                    "value": "GUA"
+                    }
+                ],
+                "valueList": [
+                    {
+                    "name": "ctcod",
+                    "value": "01.0011.0101"
+                    },
+                    {
+                    "name": "ctdes1",
+                    "value": "Cuenta de ejemplo."
+                    }
+                ]
+                },
+                {
+                "posX": 0,
+                "posY": 4,
+                "textValue": "NIT  9439555-1",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF229EC4"
+                }
+                },
+                {
+                "posX": 0,
+                "posY": 7,
+                "textValue": "Nombre: ",
+                "style": {
+                    "fontFamily": "Arial"
+                }
+                },
+                {
+                "posX": 0,
+                "posY": 9,
+                "textValue": "Dirección:",
+                "style": {
+                    "fontFamily": "Arial"
+                }
+                },
+                {
+                "posX": 0,
+                "posY": 11,
+                "textValue": "Cantidad",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF229EC4"
+                }
+                },
+                {
+                "posX": 0,
+                "posY": 25,
+                "textValue": "TOTAL EN LETRAS:",
+                "style": {
+                    "fontFamily": "Arial"
+                }
+                },
+                {
+                "posX": 0,
+                "posY": 26,
+                "textValue": "   LITOGRAFIA E&B NIT.: 1971767-9 Autorizado",
+                "style": {
+                    "fontFamily": "Arial"
+                }
+                },
+                {
+                "posX": 0,
+                "posY": 27,
+                "textValue": "   Según Resolución No. 2017-5-494-1551 del 001 al 100 de fecha 13-02-2017 S.A.T. VENCE: 13-02-2018",
+                "style": {
+                    "fontFamily": "Arial"
+                }
+                },
+                {
+                "posX": 1,
+                "posY": 0,
+                "textValue": "ISOFTEC",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF229EC4"
+                }
+                },
+                {
+                "posX": 1,
+                "posY": 11,
+                "textValue": "Descripción",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF229EC4"
+                }
+                },
+                {
+                "posX": 3,
+                "posY": 25,
+                "textValue": "TOTAL:",
+                "style": {
+                    "fontFamily": "Arial"
+                }
+                },
+                {
+                "posX": 4,
+                "posY": 1,
+                "textValue": "Número:",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF176983"
+                }
+                },
+                {
+                "posX": 4,
+                "posY": 2,
+                "textValue": "Fecha:",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF176983"
+                }
+                },
+                {
+                "posX": 4,
+                "posY": 11,
+                "textValue": "Total",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF229EC4"
+                }
+                },
+                {
+                "posX": 5,
+                "posY": 0,
+                "textValue": "FACTURA   Serie A",
+                "style": {
+                    "fontFamily": "Arial",
+                    "backgroundColor": "FF008080",
+                    "foregroundColor": "FF176983"
+                }
+                },
+                {
+                "posX": 5,
+                "posY": 26,
+                "textValue": "ORIGINAL: CLIENTE – DUPLICADO: CONTABILIDAD",
+                "style": {
+                    "fontFamily": "Arial"
+                }
+                },
+                {
+                "posX": 5,
+                "posY": 27,
+                "textValue": "FECHA DE VENCIMIENTO: 27/12/2017",
+                "style": {
+                    "fontFamily": "Arial"
+                }
+                }
+            ]
             }
         ]
-    ` );
- } */
-
-  getBookExample():Book{
-        return JSON.parse(`  {
-            "_id": {
-            "timestamp": 1488055911,
-            "machineIdentifier": 3809784,
-            "processIdentifier": 16754,
-            "counter": 10658919,
-            "time": 1488055911000,
-            "date": 1488055911000,
-            "timeSecond": 1488055911
-            },
-            "name": "Template01",
-            "input_id": {
-            "timestamp": 1487712539,
-            "machineIdentifier": 8486786,
-            "processIdentifier": 30593,
-            "counter": 16682102,
-            "time": 1487712539000,
-            "date": 1487712539000,
-            "timeSecond": 1487712539
-            },
-            "sizeX": 5,
-            "sizeY": 5,
-            "username": "anonymous",
-            "parameterList": [
-                {
-                "name": "paicod",
-                "value": "GUA"
-                },
-                {
-                "name": "empcod",
-                "value": "001"
-                },
-                {
-                "name": "depcod",
-                "value": "1"
-                },
-                {
-                "name": "percod",
-                "value": "2017"
-                },
-                {
-                "name": "moneda",
-                "value": "DFT"
-                }
-            ],
-            "sheetList": [
-            {
-                "correlative": 1,
-                "cellList": [
-                {
-                    "size": 10,
-                    "posX": 1,
-                    "posY": 1,
-                    "textValue": "Hola",
-                    "inputId01": null,
-                    "style": null,
-                    "parameterList": [
-                    {
-                        "name": "empcod",
-                        "value": "001"
-                    },
-                    {
-                        "name": "paicod",
-                        "value": "GUA"
-                    },
-                    {
-                        "name": "depcod",
-                        "value": "1"
-                    },
-                    {
-                        "name": "percod",
-                        "value": "2017"
-                    },
-                    {
-                        "name": "moneda",
-                        "value": "US$"
-                    }
-                    ],
-                    "queryList": [
-                    {
-                        "correlative": 1,
-                        "value": "smsali"
-                    },
-                    {
-                        "correlative": 2,
-                        "value": "0101.01.0001"
-                    }
-                    ]
-                },
-                 {
-                    "size": 10,
-                    "posX": 2,
-                    "posY": 1,
-                    "textValue": "Hola",
-                    "inputId01": null,
-                    "style": null,
-                    "parameterList": [
-                    {
-                        "name": "empcod",
-                        "value": "002"
-                    },
-                    {
-                        "name": "paicod",
-                        "value": "SAN"
-                    },
-                    {
-                        "name": "depcod",
-                        "value": "2"
-                    },
-                    {
-                        "name": "percod",
-                        "value": "2018"
-                    },
-                    {
-                        "name": "moneda",
-                        "value": "DFT"
-                    }
-                    ],
-                    "queryList": [
-                    {
-                        "correlative": 1,
-                        "value": "smsali"
-                    },
-                    {
-                        "correlative": 2,
-                        "value": "0101.01.0001"
-                    }
-                    ]
-                },
-                 {
-                    "size": 10,
-                    "posX": 2,
-                    "posY": 2,
-                    "textValue": "SOLO TEXTO",
-                    "inputId01": null,
-                    "style": null,
-                    "parameterList": [],
-                    "queryList": []
-                },
-                 {
-                    "size": 10,
-                    "posX": 3,
-                    "posY": 1,
-                    "textValue": "sin parameterList",
-                    "inputId01": null,
-                    "style": null,
-                    "parameterList": [],
-                    "queryList": [
-                    {
-                        "correlative": 1,
-                        "value": "smsali"
-                    },
-                    {
-                        "correlative": 2,
-                        "value": "0101.01.0001"
-                    }
-                    ]
-                }
-                ]
-            }
-            ]
-      }`) as Book;
+    }`) as Book;
     }
 }

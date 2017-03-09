@@ -1,13 +1,12 @@
-import {Id} from "./id";
 import {Sheet} from "./sheet";
 import {Parameter} from "./parameter";
 
 export class Book{
 
     constructor(
-        public id:Id,
+        public id:string,
         public name:string, 
-        public input_id:Id,
+        public input_id:string,
         public sizeX:number,
         public sizeY:number,
         public username:string,

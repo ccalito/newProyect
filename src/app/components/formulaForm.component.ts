@@ -41,6 +41,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
 
 	ngAfterViewInit(){
     //this._bookService.getPaises().then(response => this.countryItems =response).catch(this.handleError);
+    //this._bookService.getMonedas().then(response => this.monedaItems=response).catch(this.handleError);
     this.countryItems= this._bookService.getPaisesExample();
     this.monedaItems= this._bookService.getMonedaExample();
 	}

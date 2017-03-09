@@ -1,4 +1,3 @@
-import {Id} from "./id";
 import {Parameter} from "./parameter";
 import {QueryList} from "./queryList";
 
@@ -9,7 +8,7 @@ export class Cell{
         public posX:number,
         public posY:number,
         public textValue:string,
-        public inputId01:Id,
+        public inputId01:string,
         public style:string,
         public parameterList:Array<Parameter>,
         public queryList:Array<QueryList>
