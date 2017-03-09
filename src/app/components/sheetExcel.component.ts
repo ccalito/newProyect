@@ -61,7 +61,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 					let cell = this.getCell(col,row);
 					console.log("celda encontrada:" +cell);
 					if(cell != undefined){
-						TD.style.background = cell.style != undefined && cell.style.backgroundColor != undefined ? cell.style.backgroundColor:"";
+						TD.style.background = cell.style != undefined && cell.style.backgroundColor != undefined ? "#"+cell.style.backgroundColor:"";
 						value=cell.textValue;
 						TD.innerHTML = value;
 					}
