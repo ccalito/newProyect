@@ -12,7 +12,7 @@
           <div class="modal-body">
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
               <div>
-                 <label class="lbl-first-section">From:</label> 
+                 <label class="lbl-first-section">{{fromQueryList.name}}:</label> 
               </div>
               <div>
                 <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
@@ -20,7 +20,7 @@
                 </select>
             </div>
               <div> 
-                <label class="lbl-first-section">Where:</label>
+                <label class="lbl-first-section">{{whereQueryList.name}}:</label>
               </div>
               <div>
                 <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
