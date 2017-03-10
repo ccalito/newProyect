@@ -112,10 +112,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
   }
 
  onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    console.log(f.valid);  // false
-    this.formFormula.hide();
-    
+    this.formFormula.hide();    
   }
 
   ngOnChanges(changes: SimpleChanges) {
