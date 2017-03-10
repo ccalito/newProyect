@@ -16,7 +16,7 @@
               </div>
               <div>
                 <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
-                  <option  *ngFor="let item of fromQueryList" value="{{item.name}}">{{item.name}}</option>
+                  <option  *ngFor="let item of fromQueryList.fields" value="{{item.description}}">{{item.description}}</option>
                 </select>
             </div>
               <div> 
@@ -24,7 +24,7 @@
               </div>
               <div>
                 <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
-                  <option  *ngFor="let item of whereQueryList">{{item.name}}</option>
+                  <option  *ngFor="let item of whereQueryList.fields"  value="{{item.description}}">{{item.description}}</option>
                 </select>
               </div>
               <hr>

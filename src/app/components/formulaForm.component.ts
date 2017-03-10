@@ -33,9 +33,10 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public departmentsItems:Array<Departamento>;
    public periodsItems:Array<Periodo>;
    public monedaItems:Array<Moneda>;
-   public fromQueryList:QueryElement;
-   public whereQueryList:QueryElement;
-   public InputRecibido:InputId;
+   public fromQueryList:QueryElement = new QueryElement(null,null,null,null);
+   public whereQueryList:QueryElement = new QueryElement(null,null,null,null);
+   public inputRecibido:InputId;
+   public inputIdBook:string;
 
   constructor(
 		private _bookService: BookService
@@ -44,12 +45,13 @@ export class FormComponent implements OnChanges,AfterViewInit{
 	ngAfterViewInit(){
     //this._bookService.getPaises().then(response => this.countryItems =response).catch(this.handleError);
     //this._bookService.getMonedas().then(response => this.monedaItems=response).catch(this.handleError);
+    //this._bookService.getInput(this.inputIdBook).then(response => this.inputRecibido=response).catch(this.handleError);
     this.countryItems= this._bookService.getPaisesExample();
     this.monedaItems= this._bookService.getMonedaExample();
-    this.InputRecibido= this._bookService.getInputExample();
+    this.inputRecibido= this._bookService.getInputExample();
 
-console.log(this.InputRecibido);
-    for(let queryList of this.InputRecibido.queryList){
+    console.log(this.inputRecibido);
+    for(let queryList of this.inputRecibido.queryList){
       console.log(queryList);
       switch(queryList.correlative){
       case 1:
@@ -68,8 +70,9 @@ console.log(this.InputRecibido);
     this.formFormula.show();
   }
 
-  public showFormFormula(cell:Cell, listParameterGeneral:Array<Parameter>):void {
+  public showFormFormula(cell:Cell, listParameterGeneral:Array<Parameter>, inputIdBook:string):void {
     this.cell=cell;
+    this.inputIdBook=inputIdBook;
     if(this.cell.parameterList.length>0){
           this.setParameterGeneral(this.cell.parameterList);
     }else{

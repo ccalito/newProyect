@@ -19,7 +19,7 @@ export class SelectModalComponent implements OnChanges{
 
   public parameterGeneral:Array<Parameter>;
 
-  public showSelectModal(cell:Cell, parameterGeneral:Array<Parameter>):void {
+  public showSelectModal(cell:Cell, parameterGeneral:Array<Parameter>, inputIdBook:string):void {
     this.parameterGeneral=parameterGeneral;
     if(cell===undefined){
       this.selectModal.show();
@@ -27,7 +27,7 @@ export class SelectModalComponent implements OnChanges{
           if(cell.valueList === undefined || cell.valueList.length == 0){
             this.formText.showTextForm(cell);
           }else{
-            this.formFormula.showFormFormula(cell, this.parameterGeneral);
+            this.formFormula.showFormFormula(cell, this.parameterGeneral,inputIdBook);
           }
     }
   }

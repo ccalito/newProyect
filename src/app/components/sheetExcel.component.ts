@@ -59,18 +59,15 @@ export class SheetExcelComponent implements AfterViewInit  {
 
 				try{
 					let cell = this.getCell(col,row);
-					console.log("celda encontrada:" +cell);
 					if(cell != undefined){
 						TD.style.background = cell.style != undefined && cell.style.backgroundColor != undefined ? "#"+cell.style.backgroundColor:"";
 						value=cell.textValue;
 						TD.innerHTML = value;
 					}
 					TD.addEventListener("click",()=>{
-						console.log(this.book.parameterList);
-						this.selectModal.showSelectModal(cell, this.book.parameterList);
+						this.selectModal.showSelectModal(cell, this.book.parameterList,this.book.input_id);
 						this.cellSelected = cell;
 					});
-					console.log("fila" + row + " columna " + col);
 				}catch(e){
 					console.log(e);
 				}
@@ -85,7 +82,6 @@ export class SheetExcelComponent implements AfterViewInit  {
 				let cellObj;
 				this.book.sheetList.filter((sheetObj)=>{
 					cellObj = sheetObj.cellList.filter((cellObj)=>{
-									console.log("entra aqui: " + cellObj);
 									if(cellObj.posY === column && cellObj.posX===row){
 										return cellObj;
 									}
