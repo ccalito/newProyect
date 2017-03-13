@@ -12,17 +12,17 @@
           <div class="modal-body">
             <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
               <div>
-                 <label class="lbl-first-section">{{fromQueryList.name}}:</label> 
+                 <label class="lbl-first-section">Seleccionar Input:</label> 
               </div>
               <div>
-                <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
-                  <option  *ngFor="let item of fromQueryList.fields" value="{{item.description}}">{{item.description}}</option>
+                <select class="sel-option" name="selectInput" [(ngModel)]="selectedObject.selectInput" (change)="onChangeInputId(true)" required>
+                  <option  *ngFor="let item of inputRecibido.queryList" value="{{item.name}}">{{item.name}}</option>
                 </select>
             </div>
-              <div> 
+              <div *ngIf="true"> 
                 <label class="lbl-first-section">{{whereQueryList.name}}:</label>
               </div>
-              <div>
+              <div *ngIf="true">
                 <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
                   <option  *ngFor="let item of whereQueryList.fields"  value="{{item.description}}">{{item.description}}</option>
                 </select>

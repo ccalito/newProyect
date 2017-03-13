@@ -11,6 +11,8 @@ import {Cell} from "../model/cell";
 import {Parameter} from "../model/parameter";
 import {Moneda} from "../model/Moneda";
 import {InputId} from "../model/inputId";
+import {InputQuery} from "../model/inputquery";
+
 
 @Injectable()
 export class BookService{
@@ -20,6 +22,10 @@ export class BookService{
 
     getBook(){
         return this._http.get(this.urlBase+"/book").toPromise().then(res =>res.json() as Book).catch(this.handleError);
+    }
+
+    getInputQuery(inputId:string){
+        return this._http.get(this.urlBase+"/api/dynamic/query").toPromise().then(res =>res.json() as InputQuery).catch(this.handleError);
     }
 
     getPaises(){
@@ -55,6 +61,53 @@ export class BookService{
     return Promise.reject(error.message || error);
   }
   
+  getInputQueryExample():InputQuery{
+       return JSON.parse(
+        `{
+           "content": [{
+                    "values": [
+                        "1",
+                        "A C T I V O"
+                    ]
+                }, {
+                    "values": [
+                        "101",
+                        "DISPONIBLES"
+                    ]
+                }, {
+                    "values": [
+                        "1011",
+                        "MONEDA NACIONAL"
+                    ]
+                }, {
+                    "values": [
+                        "101101",
+                        "CAJA"
+                    ]
+                }, {
+                    "values": [
+                        "101101.01",
+                        "CAJA MOVIMIENTO DIARIO"
+                    ]
+                }, {
+                    "values": [
+                        "101101.01.01",
+                        "CAJEROS DE VENTANILLA"
+                    ]
+                }, {
+                    "values": [
+                        "101102.02",
+                        "DEPOSITOS ESPECIALES"
+                    ]
+                }
+            ],
+            "parameters": [
+                "ctcod",
+                "ctdes1"
+            ]
+        }`
+      );
+  }
   getPaisesExample():Array<Pais>{
       return JSON.parse(
         `[{

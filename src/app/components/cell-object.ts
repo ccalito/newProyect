@@ -1,4 +1,5 @@
 export class CellObject{
+    public selectInput:string;
     public from:string;
     public where:string;
     public country:string;
@@ -7,7 +8,8 @@ export class CellObject{
     public period:string;
     public moneda:string;
 
-    constructor(from:string,where:string,country:string,company:string,department:string,period:string,moneda:string){
+    constructor(selectInput:string,from:string,where:string,country:string,company:string,department:string,period:string,moneda:string){
+        this.selectInput=selectInput;
         this.from = from;
         this.where = where;
         this.country = country;
@@ -17,6 +19,9 @@ export class CellObject{
         this.moneda = moneda;
     }
     
+    public setSelectInput(selectInput:string){
+        this.selectInput=selectInput;
+    }
     public setFrom(from:string){
         this.from = from;
     }
@@ -39,6 +44,9 @@ export class CellObject{
         this.moneda = moneda;
     }
 
+    public getSelectInput():string{
+        return this.selectInput;
+    }
     public getFrom():string{
         return this.from;
     }

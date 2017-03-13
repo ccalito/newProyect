@@ -12,6 +12,7 @@ import {Moneda} from "../model/moneda";
 import {InputId} from "../model/inputId";
 import {QueryElement} from "../model/queryelement";
 import {BookService} from "../services/book.service";
+import {InputQuery} from "../model/inputquery";
 
 @Component({
 selector: 'formulaForm',
@@ -24,7 +25,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
 
    @ViewChild('formFormula') public formFormula:ModalDirective;
   
-   private selectedObject = new CellObject('SALDO1','0001.0303','GUA','001','001','2017','DFT');
+   private selectedObject = new CellObject(null,null,null,null,null,null,null,null);
 
    @Input() public cell:Cell;
     
@@ -35,14 +36,16 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public monedaItems:Array<Moneda>;
    public fromQueryList:QueryElement = new QueryElement(null,null,null,null);
    public whereQueryList:QueryElement = new QueryElement(null,null,null,null);
-   public inputRecibido:InputId;
+   public inputRecibido:InputId= new InputId(null,null,null);
    public inputIdBook:string;
+   public inputQuery:InputQuery;
 
   constructor(
 		private _bookService: BookService
 	){}
 
 	ngAfterViewInit(){
+   // this._bookService.getInputQuery(this.inputIdBook).then(response => this.inputQuery=response).catch(this.handleError);
     //this._bookService.getPaises().then(response => this.countryItems =response).catch(this.handleError);
     //this._bookService.getMonedas().then(response => this.monedaItems=response).catch(this.handleError);
     //this._bookService.getInput(this.inputIdBook).then(response => this.inputRecibido=response).catch(this.handleError);
@@ -107,6 +110,10 @@ export class FormComponent implements OnChanges,AfterViewInit{
       }
   }
 
+  public setOverrideCellValues(list:Array<Parameter>){
+    if(list != undefined && list.length){}
+  }
+
   public hideFormFormula():void {
     this.formFormula.hide();
   }
@@ -123,6 +130,11 @@ export class FormComponent implements OnChanges,AfterViewInit{
           //echo pija con el cell
       }
     }
+  }
+
+  onChangeInputId(clear:boolean){
+    //this._bookService.getInputQuery(this.inputIdBook).then(response => this.inputQuery =response).catch(this.handleError);
+    this.inputQuery = this._bookService.getInputQueryExample();
   }
 
   onChangeCountry(clear:boolean){
