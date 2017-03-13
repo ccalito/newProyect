@@ -19,12 +19,12 @@
                   <option  *ngFor="let item of inputRecibido.queryList" value="{{item.name}}">{{item.name}}</option>
                 </select>
             </div>
-              <div *ngIf="true"> 
+              <div *ngIf="muestraCombo2"> 
                 <label class="lbl-first-section">{{whereQueryList.name}}:</label>
               </div>
-              <div *ngIf="true">
+              <div *ngIf="muestraCombo2">
                 <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
-                  <option  *ngFor="let item of whereQueryList.fields"  value="{{item.description}}">{{item.description}}</option>
+                  <option  *ngFor="let item of inputQuery.content"  value="{{item[0]}}">{{item[1]}}</option>
                 </select>
               </div>
               <hr>

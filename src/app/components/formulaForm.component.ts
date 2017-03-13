@@ -39,6 +39,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public inputRecibido:InputId= new InputId(null,null,null);
    public inputIdBook:string;
    public inputQuery:InputQuery;
+   public muestraCombo2:boolean=false;
 
   constructor(
 		private _bookService: BookService
@@ -135,6 +136,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
   onChangeInputId(clear:boolean){
     //this._bookService.getInputQuery(this.inputIdBook).then(response => this.inputQuery =response).catch(this.handleError);
     this.inputQuery = this._bookService.getInputQueryExample();
+    this.muestraCombo2=true;
   }
 
   onChangeCountry(clear:boolean){
