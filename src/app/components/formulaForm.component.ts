@@ -166,6 +166,11 @@ export class FormComponent implements OnChanges,AfterViewInit{
      }
   }
 
+  onSaveCell(){
+    let cellSave:Cell;
+    this._bookService.submitCell(cellSave);
+  }
+
   handleError(error: any) : void {
     if(error.status == 404){
       let body="";

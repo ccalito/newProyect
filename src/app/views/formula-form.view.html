@@ -37,7 +37,7 @@
                 <select class="sel-option" name="company" [(ngModel)]="selectedObject.company" (change)="onChangeCompany(true)" required>
                   <option  *ngFor="let item of companyItems" value="{{item.empcod}}">{{item.empnom}}</option>
                 </select>
-                <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid">Confirmar</button>
+                <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid" (click)="onSaveCell()">Confirmar</button>
              </div>
               <div>
                 <label class="lbl-second-section">Departamento:</label>
