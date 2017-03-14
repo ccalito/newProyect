@@ -250,23 +250,23 @@ export class BookService{
         "xls": false,
         "parametersList": [
             {
-            "name": "pais",
+            "name": "paicod",
             "value": "HON"
             },
             {
-            "name": "empresa",
+            "name": "empcod",
             "value": "BAN"
             },
             {
-            "name": "departamento",
+            "name": "depcod",
             "value": "1"
             },
             {
-            "name": "periodo",
+            "name": "percod",
             "value": "2016"
             },
             {
-            "name": "moneda",
+            "name": "moncod",
             "value": "DFT"
             }
         ],
@@ -296,7 +296,7 @@ export class BookService{
                 },
                 "parameterList": [
                     {
-                    "name": "pais",
+                    "name": "paicod",
                     "value": "GUA"
                     }
                 ],

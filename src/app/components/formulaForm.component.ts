@@ -40,6 +40,12 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public inputIdBook:string;
    public inputQuery:InputQuery;
    public muestraCombo2:boolean=false;
+   public parameterListGeneral:Array<Parameter>;
+   public readonly PARAMETRO_PAIS:string="paicod";
+   public readonly PARAMETRO_EMPRESA:string="empcod";
+   public readonly PARAMETRO_DEPARTAMENTO:string="depcod";
+   public readonly PARAMETRO_PERIODO:string="percod";
+   public readonly PARAMETRO_MONEDA:string="moneda";
 
   constructor(
 		private _bookService: BookService
@@ -70,6 +76,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
 	}
   
   public showFormFormulaClear(parameterGeneral:Array<Parameter>):void {
+    this.parameterListGeneral = parameterGeneral;
     this.setParameterGeneral(parameterGeneral);
     this.formFormula.show();
   }
@@ -77,6 +84,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
   public showFormFormula(cell:Cell, listParameterGeneral:Array<Parameter>, inputIdBook:string):void {
     this.cell=cell;
     this.inputIdBook=inputIdBook;
+    this.parameterListGeneral = listParameterGeneral;
     if(this.cell.parameterList.length>0){
           this.setParameterGeneral(this.cell.parameterList);
     }else{
@@ -87,16 +95,16 @@ export class FormComponent implements OnChanges,AfterViewInit{
  
   public setParameterGeneral(list:Array<Parameter>){
     for (let parameter of list) {
-        if(parameter.name==="paicod"){
+        if(parameter.name===this.PARAMETRO_PAIS){
           this.selectedObject.country=parameter.value;
-        }else if(parameter.name==="empcod"){
+        }else if(parameter.name===this.PARAMETRO_EMPRESA){
           this.selectedObject.company=parameter.value;
-        }else if(parameter.name==="depcod"){
+        }else if(parameter.name===this.PARAMETRO_DEPARTAMENTO){
           this.selectedObject.department=parameter.value;
-        }if(parameter.name==="percod"){
+        }if(parameter.name===this.PARAMETRO_PERIODO){
           this.selectedObject.period=parameter.value;
         }
-        if(parameter.name==="moneda"){
+        if(parameter.name===this.PARAMETRO_MONEDA){
           this.selectedObject.moneda=parameter.value;
         }
       }
@@ -119,16 +127,11 @@ export class FormComponent implements OnChanges,AfterViewInit{
     this.formFormula.hide();
   }
 
- onSubmit(f: NgForm) {
-    this.formFormula.hide();    
-  }
-
   ngOnChanges(changes: SimpleChanges) {
     if(changes['cell']!==undefined){
       if (changes['cell'].currentValue !== undefined) {
           this.cell = changes['cell'].currentValue;
           console.log(this.cell);
-          //echo pija con el cell
       }
     }
   }
@@ -170,10 +173,35 @@ export class FormComponent implements OnChanges,AfterViewInit{
     let cellSave:Cell;
     let parameterList:Array<Parameter>;
     let parameterValues:Array<Parameter>;
-    
-    cellSave.parameterList=parameterList;
+    let parameterValue:Parameter=new Parameter(null,null);
+
+    console.log(this.cell);
+    console.log(this.parameterListGeneral);    
+    cellSave = this.cell;
+
+   /* 
+    for (let parameter of this.parameterListGeneral) {
+        if(parameter.name===this.PARAMETRO_PAIS){
+          if(this.selectedObject.country != parameter.value){
+            parameterValue.name = parameter.name;
+            parameterValue.value = this.selectedObject.country;
+            parameterList = [parameterValue];
+          }
+        }
+      }
+    */
+
+    parameterValue.name = this.inputQuery.parameters[0];
+    parameterValue.value = this.selectedObject.where; 
+    parameterValues = [parameterValue];
+
+    if(parameterList != undefined){
+      cellSave.parameterList=parameterList;
+    }
+
     cellSave.valueList=parameterValues;
     this._bookService.submitCell(cellSave);
+    this.formFormula.hide();   
   }
 
   handleError(error: any) : void {

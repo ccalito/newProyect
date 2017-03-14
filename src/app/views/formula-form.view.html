@@ -10,7 +10,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+            <form #f="ngForm" (ngSubmit)="onSaveCell()" novalidate>
               <div>
                  <label class="lbl-first-section">Seleccionar Input:</label> 
               </div>
@@ -37,7 +37,7 @@
                 <select class="sel-option" name="company" [(ngModel)]="selectedObject.company" (change)="onChangeCompany(true)" required>
                   <option  *ngFor="let item of companyItems" value="{{item.empcod}}">{{item.empnom}}</option>
                 </select>
-                <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid" (click)="onSaveCell()">Confirmar</button>
+                <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid">Confirmar</button>
              </div>
               <div>
                 <label class="lbl-second-section">Departamento:</label>
