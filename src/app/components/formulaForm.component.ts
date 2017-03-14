@@ -168,6 +168,11 @@ export class FormComponent implements OnChanges,AfterViewInit{
 
   onSaveCell(){
     let cellSave:Cell;
+    let parameterList:Array<Parameter>;
+    let parameterValues:Array<Parameter>;
+    
+    cellSave.parameterList=parameterList;
+    cellSave.valueList=parameterValues;
     this._bookService.submitCell(cellSave);
   }
 
