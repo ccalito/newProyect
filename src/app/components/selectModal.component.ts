@@ -10,7 +10,7 @@ import {Parameter} from "../model/parameter";
   templateUrl: '../views/select-modal.view.html'
 })
 
-export class SelectModalComponent implements OnChanges{
+export class SelectModalComponent{
   @ViewChild('selectModal') public selectModal:ModalDirective;
   @ViewChild(FormComponent) public formFormula:FormComponent;
   @ViewChild(textFormComponent) public formText:textFormComponent;
@@ -41,18 +41,9 @@ export class SelectModalComponent implements OnChanges{
     this.hideSelectModal();
   }
 
-    public showTextForm(){
+  public showTextForm(){
       this.formText.showTextFormClear();
       this.hideSelectModal();
-  }
-
-    ngOnChanges(changes: SimpleChanges) {
-    if(changes['cell']!==undefined){
-      if (changes['cell'].currentValue !== undefined) {
-          this.cell = changes['cell'].currentValue;
-          //echo pija con el cell
-      }
-    }
   }
   
 }

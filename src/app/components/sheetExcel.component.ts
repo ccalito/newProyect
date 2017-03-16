@@ -59,11 +59,14 @@ export class SheetExcelComponent implements AfterViewInit  {
 
 				try{
 					let cell = this.getCell(col,row);
+					value="";
+					TD.innerHTML = value;
 					if(cell != undefined){
 						TD.style.background = cell.style != undefined && cell.style.backgroundColor != undefined ? "#"+cell.style.backgroundColor:"";
 						value=cell.textValue;
 						TD.innerHTML = value;
 					}
+					TD.removeEventListener("click");
 					TD.addEventListener("click",()=>{
 						this.selectModal.showSelectModal(cell, this.book.parametersList,this.book.input_id);
 						this.cellSelected = cell;
