@@ -289,6 +289,7 @@ export class BookService{
                 "posY": 3,
                 "textValue": "Mz 15 Casa 7 Condominio Cumbres de la Arboleda",
                 "inputId01": "58acb11b817f827781fe8c76",
+                "fieldCode": "ctcod",
                 "style": {
                     "fontFamily": "Arial",
                     "backgroundColor": "FF008080",
