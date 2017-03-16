@@ -175,51 +175,41 @@ export class FormComponent implements OnChanges,AfterViewInit{
     let cellSave:Cell;
     let parameterList:Array<Parameter> = new Array<Parameter>();
     let parameterValues:Array<Parameter> = new Array<Parameter>();
-    let parameterValue:Parameter=new Parameter(null,null);
+    
 
     cellSave = this.cell;
 
     for (let parameter of this.parameterListGeneral) {
         if(parameter.name===this.PARAMETRO_PAIS){
           if(this.selectedObject.country != parameter.value){
-            parameterValue.name = parameter.name;
-            parameterValue.value = this.selectedObject.country;
-            console.log(parameterValue)
+            let parameterValue:Parameter=new Parameter(parameter.name,this.selectedObject.country);
             parameterList.push(parameterValue);
             console.log(parameterList);
           }
-        }
-        if(parameter.name===this.PARAMETRO_EMPRESA){
+        }else if(parameter.name===this.PARAMETRO_EMPRESA){
           if(this.selectedObject.company != parameter.value){
-            parameterValue.name = parameter.name;
-            parameterValue.value = this.selectedObject.company;
+            let parameterValue:Parameter=new Parameter(parameter.name,this.selectedObject.company);
             parameterList.push(parameterValue);
           }
-        }
-        if(parameter.name===this.PARAMETRO_DEPARTAMENTO){
+        }else if(parameter.name===this.PARAMETRO_DEPARTAMENTO){
           if(this.selectedObject.department != parameter.value){
-            parameterValue.name = parameter.name;
-            parameterValue.value = this.selectedObject.department;
+            let parameterValue:Parameter=new Parameter(parameter.name,this.selectedObject.department);
             parameterList.push(parameterValue);
           }
-        }
-        if(parameter.name===this.PARAMETRO_PERIODO){
+        }else if(parameter.name===this.PARAMETRO_PERIODO){
           if(this.selectedObject.period != parameter.value){
-            parameterValue.name = parameter.name;
-            parameterValue.value = this.selectedObject.period;
+            let parameterValue:Parameter=new Parameter(parameter.name,this.selectedObject.period);
             parameterList.push(parameterValue);
           }
-        }
-        if(parameter.name===this.PARAMETRO_MONEDA){
+        }else if(parameter.name===this.PARAMETRO_MONEDA){
           if(this.selectedObject.moneda != parameter.value){
-            parameterValue.name = parameter.name;
-            parameterValue.value = this.selectedObject.moneda;
+            let parameterValue:Parameter=new Parameter(parameter.name,this.selectedObject.moneda);
             parameterList.push(parameterValue);
           }
         }
       }
     
-    if(parameterList != this.parameterListGeneral){
+    if(parameterList.length>0){
       cellSave.parameterList=parameterList;
     }
 
@@ -227,6 +217,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
     cellSave.inputId01 = this.selectedObject.selectInput;
     cellSave.fieldCode = this.selectedObject.from;
 
+    let parameterValue:Parameter=new Parameter(null,null)
     parameterValue.name = this.inputQuery.parameters[0];
     parameterValue.value = this.selectedObject.where; 
     parameterValues.push(parameterValue);
