@@ -53,34 +53,35 @@ export class FormComponent implements OnChanges,AfterViewInit{
 	){}
 
 	ngAfterViewInit(){
-   // this._bookService.getInputQuery(this.inputIdBook).then(response => this.inputQuery=response).catch(this.handleError);
-    //this._bookService.getPaises().then(response => this.countryItems =response).catch(this.handleError);
-    //this._bookService.getMonedas().then(response => this.monedaItems=response).catch(this.handleError);
-    //this._bookService.getInput(this.inputIdBook).then(response => this.inputRecibido=response).catch(this.handleError);
-    this.countryItems= this._bookService.getPaisesExample();
-    this.monedaItems= this._bookService.getMonedaExample();
-    if(this.parameterListGeneral != this.cell.parameterList){
-      //Aca se debe llamar al que hace override
-    }else{
-      this.inputRecibido= this._bookService.getInputExample();
-    }
-
-    for(let queryList of this.inputRecibido.queryList){
-      switch(queryList.correlative){
-      case 1:
-        this.fromQueryList= queryList;
-      break;
-      case 2:
-        this.whereQueryList= queryList;
-      break;
-      }
-
-    }
+    //this.inicializaValoresDefault();
 	}
+
+  public inicializaValoresDefault(){
+      // this._bookService.getInputQuery(this.inputIdBook).then(response => this.inputQuery=response).catch(this.handleError);
+      //this._bookService.getPaises().then(response => this.countryItems =response).catch(this.handleError);
+      //this._bookService.getMonedas().then(response => this.monedaItems=response).catch(this.handleError);
+      //this._bookService.getInput(this.inputIdBook).then(response => this.inputRecibido=response).catch(this.handleError);
+      this.countryItems= this._bookService.getPaisesExample();
+      this.monedaItems= this._bookService.getMonedaExample();
+      this.inputRecibido= this._bookService.getInputExample();
+    
+      for(let queryList of this.inputRecibido.queryList){
+        switch(queryList.correlative){
+        case 1:
+          this.fromQueryList= queryList;
+        break;
+        case 2:
+          this.whereQueryList= queryList;
+        break;
+        }
+
+      }
+  }
   
   public showFormFormulaClear(parameterGeneral:Array<Parameter>):void {
     this.parameterListGeneral = parameterGeneral;
     this.setParameterGeneral(parameterGeneral);
+    this.inicializaValoresDefault();
     this.formFormula.show();
   }
 
@@ -93,6 +94,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
     }else{
         this.setParameterGeneral(listParameterGeneral);
     }
+    this.inicializaValoresDefault();
     this.formFormula.show();
   }
  
@@ -224,7 +226,9 @@ export class FormComponent implements OnChanges,AfterViewInit{
     cellSave.valueList=parameterValues;
     console.log(this.cell);
     this._bookService.submitCell(cellSave);
-    this.formFormula.hide();   
+    this.muestraCombo2=false;
+    this.selectedObject = new CellObject(null,null,null,null,null,null,null,null);   
+    this.formFormula.hide();
   }
 
   handleError(error: any) : void {
