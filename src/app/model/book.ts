@@ -12,7 +12,7 @@ export class Book{
         public sizeX:number,
         public sizeY:number,
         public xls:string,
-        public parameterList:Array<Parameter>,
+        public parametersList:Array<Parameter>,
         public sheetList:Array<Sheet>){
     }
 }

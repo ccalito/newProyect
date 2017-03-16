@@ -10,6 +10,7 @@ export class Cell{
         public inputId01:string,
         public style:Style,
         public parameterList:Array<Parameter>,
+        public fieldCode:string,
         public valueList:Array<Parameter>
     ){
     }

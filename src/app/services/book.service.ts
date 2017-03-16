@@ -300,6 +300,7 @@ export class BookService{
                     "value": "GUA"
                     }
                 ],
+                "fieldCode": "smsali",
                 "valueList": [
                     {
                     "name": "ctcod",

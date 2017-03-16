@@ -65,7 +65,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 						TD.innerHTML = value;
 					}
 					TD.addEventListener("click",()=>{
-						this.selectModal.showSelectModal(cell, this.book.parameterList,this.book.input_id);
+						this.selectModal.showSelectModal(cell, this.book.parametersList,this.book.input_id);
 						this.cellSelected = cell;
 					});
 				}catch(e){
@@ -77,7 +77,6 @@ export class SheetExcelComponent implements AfterViewInit  {
 	}	 
 	public cont=1;
 	public getCell(column:number,row:number):Cell{
-			console.log("book" + this.book);
 			try{
 				let cellObj;
 				this.book.sheetList.filter((sheetObj)=>{

@@ -34,11 +34,12 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public departmentsItems:Array<Departamento>;
    public periodsItems:Array<Periodo>;
    public monedaItems:Array<Moneda>;
+   public inputQueryList:QueryElement = new QueryElement(null,null,null,null);
    public fromQueryList:QueryElement = new QueryElement(null,null,null,null);
    public whereQueryList:QueryElement = new QueryElement(null,null,null,null);
    public inputRecibido:InputId= new InputId(null,null,null);
    public inputIdBook:string;
-   public inputQuery:InputQuery;
+   public inputQuery:InputQuery= new InputQuery(null,null);
    public muestraCombo2:boolean=false;
    public parameterListGeneral:Array<Parameter>;
    public readonly PARAMETRO_PAIS:string="paicod";
@@ -58,11 +59,13 @@ export class FormComponent implements OnChanges,AfterViewInit{
     //this._bookService.getInput(this.inputIdBook).then(response => this.inputRecibido=response).catch(this.handleError);
     this.countryItems= this._bookService.getPaisesExample();
     this.monedaItems= this._bookService.getMonedaExample();
-    this.inputRecibido= this._bookService.getInputExample();
+    if(this.parameterListGeneral != this.cell.parameterList){
+      //Aca se debe llamar al que hace override
+    }else{
+      this.inputRecibido= this._bookService.getInputExample();
+    }
 
-    console.log(this.inputRecibido);
     for(let queryList of this.inputRecibido.queryList){
-      console.log(queryList);
       switch(queryList.correlative){
       case 1:
         this.fromQueryList= queryList;
@@ -131,7 +134,6 @@ export class FormComponent implements OnChanges,AfterViewInit{
     if(changes['cell']!==undefined){
       if (changes['cell'].currentValue !== undefined) {
           this.cell = changes['cell'].currentValue;
-          console.log(this.cell);
       }
     }
   }
@@ -171,35 +173,65 @@ export class FormComponent implements OnChanges,AfterViewInit{
 
   onSaveCell(){
     let cellSave:Cell;
-    let parameterList:Array<Parameter>;
-    let parameterValues:Array<Parameter>;
+    let parameterList:Array<Parameter> = new Array<Parameter>();
+    let parameterValues:Array<Parameter> = new Array<Parameter>();
     let parameterValue:Parameter=new Parameter(null,null);
 
-    console.log(this.cell);
-    console.log(this.parameterListGeneral);    
     cellSave = this.cell;
 
-   /* 
     for (let parameter of this.parameterListGeneral) {
         if(parameter.name===this.PARAMETRO_PAIS){
           if(this.selectedObject.country != parameter.value){
             parameterValue.name = parameter.name;
             parameterValue.value = this.selectedObject.country;
-            parameterList = [parameterValue];
+            console.log(parameterValue)
+            parameterList.push(parameterValue);
+            console.log(parameterList);
+          }
+        }
+        if(parameter.name===this.PARAMETRO_EMPRESA){
+          if(this.selectedObject.company != parameter.value){
+            parameterValue.name = parameter.name;
+            parameterValue.value = this.selectedObject.company;
+            parameterList.push(parameterValue);
+          }
+        }
+        if(parameter.name===this.PARAMETRO_DEPARTAMENTO){
+          if(this.selectedObject.department != parameter.value){
+            parameterValue.name = parameter.name;
+            parameterValue.value = this.selectedObject.department;
+            parameterList.push(parameterValue);
+          }
+        }
+        if(parameter.name===this.PARAMETRO_PERIODO){
+          if(this.selectedObject.period != parameter.value){
+            parameterValue.name = parameter.name;
+            parameterValue.value = this.selectedObject.period;
+            parameterList.push(parameterValue);
+          }
+        }
+        if(parameter.name===this.PARAMETRO_MONEDA){
+          if(this.selectedObject.moneda != parameter.value){
+            parameterValue.name = parameter.name;
+            parameterValue.value = this.selectedObject.moneda;
+            parameterList.push(parameterValue);
           }
         }
       }
-    */
-
-    parameterValue.name = this.inputQuery.parameters[0];
-    parameterValue.value = this.selectedObject.where; 
-    parameterValues = [parameterValue];
-
-    if(parameterList != undefined){
+    
+    if(parameterList != this.parameterListGeneral){
       cellSave.parameterList=parameterList;
     }
 
+
+    cellSave.inputId01 = this.selectedObject.selectInput;
+    cellSave.fieldCode = this.selectedObject.from;
+
+    parameterValue.name = this.inputQuery.parameters[0];
+    parameterValue.value = this.selectedObject.where; 
+    parameterValues.push(parameterValue);
     cellSave.valueList=parameterValues;
+    console.log(this.cell);
     this._bookService.submitCell(cellSave);
     this.formFormula.hide();   
   }
