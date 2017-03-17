@@ -15,7 +15,7 @@ export class SelectModalComponent{
   @ViewChild(FormComponent) public formFormula:FormComponent;
   @ViewChild(textFormComponent) public formText:textFormComponent;
 
-  @Input() public cell:Cell=new Cell(null,null,null,null,null,null,null,null);
+  @Input() public cell:Cell=new Cell(null,null,null,null,null,null,null,null,null);
 
   public parameterGeneral:Array<Parameter>;
 

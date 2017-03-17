@@ -4,6 +4,7 @@ import {Style} from "./style";
 export class Cell{
  
     constructor(
+        public size:number,
         public posX:number,
         public posY:number,
         public textValue:string,
