@@ -17,39 +17,40 @@ import {InputQuery} from "../model/inputquery";
 @Injectable()
 export class BookService{
     public urlBase:string="http://192.168.0.16:8080/reporting/api/";
+    public urlBaseLegacy:string="http://192.168.0.16:8080/reporting-legacy/api/";
 
 	constructor(private _http: Http){}
 
     getBook(idTemplate:string){
-        return this._http.get(this.urlBase+"/template/"+idTemplate).toPromise().then(res =>res.json() as Book).catch(this.handleError);
+        return this._http.get(this.urlBase+"template/"+idTemplate).toPromise().then(res =>res.json() as Book).catch(this.handleError);
     }
 
-    getInputQuery(inputId:string){
-        return this._http.get(this.urlBase+"/api/dynamic/query").toPromise().then(res =>res.json() as InputQuery).catch(this.handleError);
+    getInputQuery(idTemplate:string){
+        return this._http.get(this.urlBase+"dynamic/query/templateId="+idTemplate).toPromise().then(res =>res.json() as InputQuery).catch(this.handleError);
     }
 
     getPaises(){
-        return this._http.get(this.urlBase+"/countries/").toPromise().then(res=> res.json() as Array<Pais> ).catch(this.handleError);
+        return this._http.get(this.urlBaseLegacy+"countries/").toPromise().then(res=> res.json() as Array<Pais> ).catch(this.handleError);
     }
 
     getEmpresas(pais:string){
-        return this._http.get(this.urlBase+"/companies/filter/pais="+pais).toPromise().then(res=> res.json() as Array<Empresa> ).catch(this.handleError);
+        return this._http.get(this.urlBaseLegacy+"/companies/filter/pais="+pais).toPromise().then(res=> res.json() as Array<Empresa> ).catch(this.handleError);
     }
 
     getDepartamentos(pais:string,empresa:string){
-        return this._http.get(this.urlBase+"/departments/filter/pais="+pais+"&empresa="+empresa).toPromise().then(res=> res.json() as Array<Departamento> ).catch(this.handleError);
+        return this._http.get(this.urlBaseLegacy+"/departments/filter/pais="+pais+"&empresa="+empresa).toPromise().then(res=> res.json() as Array<Departamento> ).catch(this.handleError);
     }
 
    getPeriodos(pais:string,empresa:string,departamento:string){
-        return this._http.get(this.urlBase+"/periods/filter/pais="+pais+"&empresa="+empresa+"&departamento="+departamento).toPromise().then(res=> res.json() as Array<Periodo> ).catch(this.handleError);
+        return this._http.get(this.urlBaseLegacy+"/periods/filter/pais="+pais+"&empresa="+empresa+"&departamento="+departamento).toPromise().then(res=> res.json() as Array<Periodo> ).catch(this.handleError);
    }
 
    getMonedas(){
         return this._http.get(this.urlBase+"/monedas/").toPromise().then(res=> res.json() as Array<Moneda> ).catch(this.handleError);
    }
 
-   getInput(inputId:string){
-        return this._http.get(this.urlBase+"/inputId/").toPromise().then(res=> res.json() as InputId ).catch(this.handleError);
+   getInput(inputHexId:string){
+        return this._http.get(this.urlBase+"/input/"+inputHexId).toPromise().then(res=> res.json() as InputId ).catch(this.handleError);
    }
    
    submitCell(cell:Cell){
@@ -241,15 +242,15 @@ export class BookService{
   getBookExample():Book{
         return JSON.parse(` {
 	"_id": {
-		"timestamp": 1489712242,
+		"timestamp": 1489716443,
 		"machineIdentifier": 2773029,
-		"processIdentifier": 10698,
-		"counter": 5694144,
-		"time": 1489712242000,
-		"date": 1489712242000,
-		"timeSecond": 1489712242
+		"processIdentifier": 16672,
+		"counter": 2696374,
+		"time": 1489716443000,
+		"date": 1489716443000,
+		"timeSecond": 1489716443
 	},
-	"hexId": "58cb34722a502529ca56e2c0",
+	"hexId": "58cb44db2a502541202924b6",
 	"name": "test01",
 	"input_id": {
 		"timestamp": 1488055926,
@@ -263,7 +264,7 @@ export class BookService{
 	"inputHexId": "58b1ee763a21f841b5c9d138",
 	"username": "root",
 	"sizeX": 9,
-	"sizeY": 1000,
+	"sizeY": 100,
 	"xls": false,
 	"parametersList": [{
 			"name": "pais",
@@ -293,8 +294,9 @@ export class BookService{
 					"style": {
 						"fontFamily": "Calibri",
 						"fontWeight": null,
-						"backgroundColor": "FF003300",
-						"foregroundColor": "FF000000"
+						"backgroundColor": "003300",
+						"foregroundColor": "000000",
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -308,8 +310,9 @@ export class BookService{
 					"style": {
 						"fontFamily": "Calibri",
 						"fontWeight": null,
-						"backgroundColor": "FF003300",
-						"foregroundColor": "FF000000"
+						"backgroundColor": "003300",
+						"foregroundColor": "000000",
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -323,8 +326,9 @@ export class BookService{
 					"style": {
 						"fontFamily": "Calibri",
 						"fontWeight": null,
-						"backgroundColor": "FF003300",
-						"foregroundColor": "FF000000"
+						"backgroundColor": "003300",
+						"foregroundColor": "000000",
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -338,8 +342,9 @@ export class BookService{
 					"style": {
 						"fontFamily": "Calibri",
 						"fontWeight": null,
-						"backgroundColor": "FF003300",
-						"foregroundColor": "FF000000"
+						"backgroundColor": "003300",
+						"foregroundColor": "000000",
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -354,7 +359,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 74
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -369,7 +375,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 94
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -384,7 +391,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 74
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -399,7 +407,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 74
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -414,7 +423,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 98
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -429,7 +439,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 74
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -444,7 +455,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -459,7 +471,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -474,7 +487,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -489,7 +503,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -504,7 +519,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -533,7 +549,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -548,7 +565,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -577,7 +595,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -592,7 +611,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -607,7 +627,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -622,7 +643,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -637,7 +659,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -652,7 +675,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -667,7 +691,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -682,7 +707,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -697,7 +723,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -712,7 +739,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -727,7 +755,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -742,7 +771,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -757,7 +787,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -772,7 +803,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -787,7 +819,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -802,7 +835,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -817,7 +851,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -832,7 +867,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -847,7 +883,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -862,7 +899,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -877,7 +915,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -892,7 +931,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -907,7 +947,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -922,7 +963,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -937,7 +979,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -952,7 +995,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -967,7 +1011,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -982,7 +1027,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -997,7 +1043,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1012,7 +1059,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1027,7 +1075,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1042,7 +1091,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1057,7 +1107,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1072,7 +1123,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1087,7 +1139,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1102,7 +1155,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1117,7 +1171,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1132,7 +1187,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1147,7 +1203,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1162,7 +1219,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1177,7 +1235,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1192,7 +1251,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1207,7 +1267,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1222,7 +1283,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1237,7 +1299,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1252,7 +1315,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1267,7 +1331,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1282,7 +1347,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1297,7 +1363,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1312,7 +1379,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 253
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1327,7 +1395,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1342,7 +1411,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1357,7 +1427,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1372,7 +1443,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1387,7 +1459,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1402,7 +1475,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1417,7 +1491,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1432,7 +1507,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1447,7 +1523,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1462,7 +1539,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1477,7 +1555,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -1492,7 +1571,8 @@ export class BookService{
 						"fontFamily": "Calibri",
 						"fontWeight": null,
 						"backgroundColor": null,
-						"foregroundColor": null
+						"foregroundColor": null,
+						"width": 270
 					},
 					"parameterList": [],
 					"fieldCode": null,

@@ -31,7 +31,8 @@ export class SheetExcelComponent implements AfterViewInit  {
 @ViewChild(SelectModalComponent) public selectModal:SelectModalComponent;
 
 	ngAfterViewInit(){
-		//this._bookService.getBook("58cb34722a502529ca56e2c0").then(response => this.book=response).catch(this.handleError);
+		//this._bookService.getBook("58cb3ed62a50253381d56071").then(response => this.book=response).catch(this.handleError);
+		console.log("console: " + this.book);
 		this.book = this._bookService.getBookExample();
 		this.inicializa();
 	}

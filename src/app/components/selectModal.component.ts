@@ -24,7 +24,7 @@ export class SelectModalComponent{
     if(cell===undefined){
       this.selectModal.show();
     } else{
-          if(cell.valueList === undefined || cell.valueList.length == 0){
+          if(cell.valueList === null || cell.valueList === undefined || cell.valueList.length == 0){
             this.formText.showTextForm(cell);
           }else{
             this.formFormula.showFormFormula(cell, this.parameterGeneral,inputIdBook);
