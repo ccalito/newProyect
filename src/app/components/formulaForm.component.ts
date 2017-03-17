@@ -42,10 +42,10 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public inputQuery:InputQuery= new InputQuery(null,null);
    public muestraCombo2:boolean=false;
    public parameterListGeneral:Array<Parameter>;
-   public readonly PARAMETRO_PAIS:string="paicod";
-   public readonly PARAMETRO_EMPRESA:string="empcod";
-   public readonly PARAMETRO_DEPARTAMENTO:string="depcod";
-   public readonly PARAMETRO_PERIODO:string="percod";
+   public readonly PARAMETRO_PAIS:string="pais";
+   public readonly PARAMETRO_EMPRESA:string="empresa";
+   public readonly PARAMETRO_DEPARTAMENTO:string="departamento";
+   public readonly PARAMETRO_PERIODO:string="periodo";
    public readonly PARAMETRO_MONEDA:string="moneda";
 
   constructor(
