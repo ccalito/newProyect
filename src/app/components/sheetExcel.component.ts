@@ -41,7 +41,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 		this.hot = new Handsontable(this.container,
 			{
 				// Definición de tabla
-			data: Handsontable.helper.createEmptySpreadsheetData(this.book.sizeX,this.book.sizeY),
+			data: Handsontable.helper.createEmptySpreadsheetData(this.book.sizeY,this.book.sizeX),
 			rowHeaders: true,
 			colHeaders: true,
 			// performance tip: set constant size
@@ -58,7 +58,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 			renderer: (hotInstance, TD, row, col, prop, value, cellProperties) =>{
 
 				try{
-					let cell = this.getCell(col,row);
+					let cell = this.getCell(row,col);
 					value="";
 					TD.innerHTML = value;
 					if(cell != undefined){
