@@ -545,7 +545,7 @@ export class BookService{
 					"fieldCode": "smsali",
 					"valueList": [{
 							"name": "ctcod",
-							"value": "101101.0101"
+							"value": "101101.01.01"
 						}
 					]
 				}, {
