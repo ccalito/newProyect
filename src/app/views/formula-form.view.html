@@ -16,12 +16,12 @@
               </div>
               <div>
                 <select class="sel-option" name="selectInput" [(ngModel)]="selectedObject.selectInput" (change)="onChangeInputId(true)" required>
-                  <option  *ngFor="let item of inputRecibido.queryList" value="{{item.name}}">{{item.name}}</option>
+                  <option  *ngFor="let item of listInputIds.content" value="{{item.hexId}}">{{item.name}}</option>
                 </select>
             </div>
             <div *ngIf="muestraCombo2">
               <div>
-                 <label class="lbl-first-section">{{selectedObject.selectInput}}</label> 
+                 <label class="lbl-first-section">{{fromQueryList.name}}</label> 
               </div>
               <div>
                 <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>

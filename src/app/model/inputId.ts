@@ -4,7 +4,8 @@ import {FieldElement} from "./fieldelement";
 export class InputId{
 
     constructor(
-        public _id:string,
+        public hexId:string,
+	    public name:string,
         public queryList:Array<QueryElement>,
         public fields:Array<FieldElement>){
     }

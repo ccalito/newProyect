@@ -18,9 +18,11 @@ export class SelectModalComponent{
   @Input() public cell:Cell=new Cell(null,null,null,null,null,null,null,null,null);
 
   public parameterGeneral:Array<Parameter>;
+  public inputIdBook:string;
 
   public showSelectModal(cell:Cell, parameterGeneral:Array<Parameter>, inputIdBook:string):void {
     this.parameterGeneral=parameterGeneral;
+    this.inputIdBook=inputIdBook;
     if(cell===undefined){
       this.selectModal.show();
     } else{
@@ -37,7 +39,7 @@ export class SelectModalComponent{
   }
 
   public showFormulaForm(){
-    this.formFormula.showFormFormulaClear(this.parameterGeneral);
+    this.formFormula.showFormFormulaClear(this.parameterGeneral,this.inputIdBook);
     this.hideSelectModal();
   }
 

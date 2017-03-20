@@ -69,7 +69,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 					}
 					TD.removeEventListener("click");
 					TD.addEventListener("click",()=>{
-						this.selectModal.showSelectModal(cell, this.book.parametersList,this.book.hexId);
+						this.selectModal.showSelectModal(cell, this.book.parametersList,this.book.inputHexId);
 						this.cellSelected = cell;
 					});
 				}catch(e){

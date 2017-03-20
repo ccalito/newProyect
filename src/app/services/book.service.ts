@@ -12,6 +12,7 @@ import {Parameter} from "../model/parameter";
 import {Moneda} from "../model/Moneda";
 import {InputId} from "../model/inputId";
 import {InputQuery} from "../model/inputquery";
+import {ListInputId} from "../model/listInputId";
 
 
 @Injectable()
@@ -49,12 +50,15 @@ export class BookService{
         return this._http.get(this.urlBase+"/monedas/").toPromise().then(res=> res.json() as Array<Moneda> ).catch(this.handleError);
    }
 
+   getListInputId(){
+         return this._http.get(this.urlBase+"input/").toPromise().then(res =>res.json() as ListInputId).catch(this.handleError);
+   }
    getInput(inputHexId:string){
         return this._http.get(this.urlBase+"/input/"+inputHexId).toPromise().then(res=> res.json() as InputId ).catch(this.handleError);
    }
    
    submitCell(cell:Cell){
-
+        
    }
 
   private handleError(error: any): Promise<any> {
@@ -1650,6 +1654,74 @@ export class BookService{
 
     ]
     }`) as InputId;
+}
+
+    getListInputIdExample():ListInputId{
+        return JSON.parse(`
+        {
+        "content": [{
+                "_id": {
+                    "timestamp": 1488055926,
+                    "machineIdentifier": 3809784,
+                    "processIdentifier": 16821,
+                    "counter": 13226296,
+                    "time": 1488055926000,
+                    "date": 1488055926000,
+                    "timeSecond": 1488055926
+                },
+                "hexId": "58b1ee763a21f841b5c9d138",
+                "name": "Saldo Mensual",
+                "queryList": [{
+                        "correlative": 1,
+                        "query": "SELECT CTCOD,SMSALI,@SALDOM,SMDE01,SMDE02,SMDE03,SMDE04,SMDE05,SMDE06,SMDE07,SMDE08,SMDE09,SMDE10,SMDE11,SMDE12,SMDE13,SMDE14,SMHA01,SMHA02,SMHA03,SMHA04,SMHA05,SMHA06,SMHA07,SMHA08,SMHA09,SMHA10,SMHA11,SMHA12,SMHA13,SMHA14 FROM V5CFBDAT.CFSALM WHERE PAICOD = &pais AND EMPCOD = &empresa AND DEPCOD = &departamento AND TIPCON = '1' AND PERCOD = &periodo AND MOCOD=&moneda AND CTCOD IN (:ctcod)",
+                        "name": "Saldo Mensual",
+                        "fields": [{
+                                "variable": "ctcod",
+                                "label": "Cuenta",
+                                "description": "Cuenta Contable",
+                                "isFunction": false
+                            }, {
+                                "variable": "smsali",
+                                "label": "Saldo Inicial",
+                                "description": "Saldo Inicial de Período",
+                                "isFunction": false
+                            }, {
+                                "variable": "saldom",
+                                "label": "Saldo Mensual",
+                                "description": "Saldo Mensual",
+                                "isFunction": true
+                            }
+                        ]
+                    }, {
+                        "correlative": 2,
+                        "query": "SELECT CTCOD, CTDES1 FROM V5CFBDAT.CFCTAS WHERE PAICOD = '&pais' AND EMPCOD = '&empresa' AND DEPCOX = '&departamento' AND TIPCON = '1'",
+                        "name": "Cuentas",
+                        "fields": [{
+                                "variable": "ctcod",
+                                "label": "Cuenta",
+                                "description": "Cuenta Contable",
+                                "isFunction": false
+                            }, {
+                                "variable": "ctdes1",
+                                "label": "Nombre de Cuenta",
+                                "description": "Nombre de la Cuenta",
+                                "isFunction": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "last": true,
+        "totalPages": 1,
+        "totalElements": 1,
+        "sort": null,
+        "numberOfElements": 1,
+        "first": true,
+        "size": 20,
+        "number": 0
     }
 
+        `) as ListInputId;
+    }
 }

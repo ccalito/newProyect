@@ -13,6 +13,8 @@ import {InputId} from "../model/inputId";
 import {QueryElement} from "../model/queryelement";
 import {BookService} from "../services/book.service";
 import {InputQuery} from "../model/inputquery";
+import {ListInputId} from "../model/listInputId";
+
 
 @Component({
 selector: 'formulaForm',
@@ -35,9 +37,10 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public periodsItems:Array<Periodo>;
    public monedaItems:Array<Moneda>;
    public inputQueryList:QueryElement = new QueryElement(null,null,null,null);
+   public listInputIds:ListInputId = new ListInputId(null);
    public fromQueryList:QueryElement = new QueryElement(null,null,null,null);
    public whereQueryList:QueryElement = new QueryElement(null,null,null,null);
-   public inputRecibido:InputId= new InputId(null,null,null);
+   public inputRecibido:InputId= new InputId(null,null,null,null);
    public inputIdBook:string;
    public inputQuery:InputQuery= new InputQuery(null,null);
    public muestraCombo2:boolean=false;
@@ -60,26 +63,39 @@ export class FormComponent implements OnChanges,AfterViewInit{
       // this._bookService.getInputQuery(this.inputIdBook).then(response => this.inputQuery=response).catch(this.handleError);
       //this._bookService.getPaises().then(response => this.countryItems =response).catch(this.handleError);
       //this._bookService.getMonedas().then(response => this.monedaItems=response).catch(this.handleError);
-      //this._bookService.getInput(this.inputIdBook).then(response => this.inputRecibido=response).catch(this.handleError);
+      //this._bookService.getListInputId().then(response => this.listInputIds=response).catch(this.handleError);
+
       this.countryItems= this._bookService.getPaisesExample();
       this.monedaItems= this._bookService.getMonedaExample();
+      this.listInputIds=this._bookService.getListInputIdExample();
+      this.inputQuery=this._bookService.getInputQueryExample();
+
+      if(this.cell.inputId01 !=null &&  this.cell.inputId01!=undefined){
+        this.inputIdBook=this.cell.inputId01;
+      }
+      this.selectedObject.selectInput=this.inputIdBook;
+
       this.inputRecibido= this._bookService.getInputExample();
-    
+      //this._bookService.getInput(this.inputIdBook).then(response => this.inputRecibido=response).catch(this.handleError);
+      this.muestraCombo2=true;
       for(let queryList of this.inputRecibido.queryList){
         switch(queryList.correlative){
         case 1:
           this.fromQueryList= queryList;
+          this.selectedObject.from=this.cell.fieldCode;
         break;
         case 2:
           this.whereQueryList= queryList;
+          this.selectedObject.where=this.cell.valueList[0].value;
         break;
         }
 
       }
   }
   
-  public showFormFormulaClear(parameterGeneral:Array<Parameter>):void {
+  public showFormFormulaClear(parameterGeneral:Array<Parameter>, inputIdBook:string):void {
     this.parameterListGeneral = parameterGeneral;
+    this.inputIdBook=inputIdBook;
     this.setParameterGeneral(parameterGeneral);
     this.inicializaValoresDefault();
     this.formFormula.show();
