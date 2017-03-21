@@ -331,1307 +331,830 @@ export class BookService{
                 98, 
                 74
             ],
-			"cellList": [{
-					"size": null,
-					"posX": 1,
-					"posY": 0,
-					"textValue": "SISTEMA BANCARIO",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": "003300",
-						"foregroundColor": "000000",
-						"width": 253,
-						 "bold" : false
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 1,
-					"textValue": "BALANCE GENERAL CONDENSADO CONSOLIDADO",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": "003300",
-						"foregroundColor": "000000",
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 2,
-					"textValue": "AL 31 ENERO DEL 2017",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": "003300",
-						"foregroundColor": "000000",
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 3,
-					"textValue": "(Cifras en miles de quetzales)",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": "003300",
-						"foregroundColor": "000000",
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 2,
-					"posY": 5,
-					"textValue": "MONEDA NACIONAL",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 74
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 3,
-					"posY": 5,
-					"textValue": "MONEDA EXTRANJERA",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 94
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 4,
-					"posY": 5,
-					"textValue": "TOTAL",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 74
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 6,
-					"posY": 5,
-					"textValue": "MONEDA NACIONAL",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 74
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 7,
-					"posY": 5,
-					"textValue": "MONEDA EXTRANJERA",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 98
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 8,
-					"posY": 5,
-					"textValue": "TOTAL",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 74
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 6,
-					"textValue": "Activo",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253,
-						 "bold" : true
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 6,
-					"textValue": "Pasivo",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270,
-						 "bold" : true
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 8,
-					"textValue": "DISPONIBILIDADES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 8,
-					"textValue": "OBLIGACIONES DEPOSITARIAS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 9,
-					"textValue": "Caja",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 2,
-					"posY": 9,
-					"textValue": null,
-					"inputId01": null,
-					"style": null,
-					"parameterList": [],
-					"fieldCode": "smsali",
-					"valueList": [{
-							"name": "ctcod",
-							"value": "101101.01.01"
-						}
-					]
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 9,
-					"textValue": "Depositos Monetarios",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270,
-						 "bold" : true
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 10,
-					"textValue": "Banco Central",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253,
-						 "bold" : true
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 2,
-					"posY": 10,
-					"textValue": null,
-					"inputId01": null,
-					"style": null,
-					"parameterList": [],
-					"fieldCode": "smsali",
-					"valueList": [{
-							"name": "ctcod",
-							"value": "101101.0102"
-						}
-					]
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 10,
-					"textValue": "Depositos de Ahorros",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 11,
-					"textValue": "Bancos del Exterior",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 11,
-					"textValue": "Depositos a Plazo",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 12,
-					"textValue": "Cheques a compensar",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 12,
-					"textValue": "Depositos a la orden",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 13,
-					"textValue": "Giros sobre el exterior",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 13,
-					"textValue": "Depositos con restricciones",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 15,
-					"textValue": "INVERSIONES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 15,
-					"textValue": "CREDITOS OBTENIDOS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 16,
-					"textValue": "En titulos-Valores para negociacion",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 16,
-					"textValue": "Del Banco Central",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 17,
-					"textValue": "En titulos-Valores para la venta",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 17,
-					"textValue": "De Instituciones Financieras Nacionales",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 18,
-					"textValue": "En titulos-Valores para su vencimiento",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 18,
-					"textValue": "De Instituciones Financieras Extranjeras",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 19,
-					"textValue": "Operaciones de Reporto",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 19,
-					"textValue": "De Organismos Internacionales",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 20,
-					"textValue": "Certificados de Participacion",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 21,
-					"textValue": "Intereses pagados en compra de valores",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 21,
-					"textValue": "OBLIGACIONES FINANCIERAS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 22,
-					"textValue": "GASTOS FINANCIEROS POR PAGAR",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 23,
-					"textValue": "SUMA",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 23,
-					"textValue": "CUENTAS POR PAGAR",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 24,
-					"textValue": "(-) Estimaciones por Valuacion ",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 24,
-					"textValue": "PROVISIONES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 25,
-					"textValue": "SUC. CASA MATRIZ Y DEPTOS. ADSCRITOS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 26,
-					"textValue": "CARTERA",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 27,
-					"textValue": "Vigente",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 27,
-					"textValue": "OTRAS OBLIGACIONES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 28,
-					"textValue": "Vencida",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 28,
-					"textValue": "CREDITOS DIFERIDOS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 29,
-					"textValue": "SUMA",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 30,
-					"textValue": "SUMA",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 30,
-					"textValue": "OTRAS CUENTAS ACREEDORAS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 31,
-					"textValue": "(-) Estimaciones por Valuacion ",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 32,
-					"textValue": "CAPITAL CONTABLE",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 33,
-					"textValue": "PRODUCTOS FINANCIEROS POR COBRAR",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 34,
-					"textValue": "CUENTAS POR COBRAR",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 34,
-					"textValue": "CAPITAL PAGADO",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 35,
-					"textValue": "BIENES REALIZABLES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 35,
-					"textValue": "Capital Autorizado",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 36,
-					"textValue": "INVERSIONES PERMANENTES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 36,
-					"textValue": "Capital No pagado (-)",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 37,
-					"textValue": "OTRAS INVERSIONES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 37,
-					"textValue": "Casa Matriz, Capital Asignado",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 38,
-					"textValue": "SUC. CASA MATRIZ Y DEPTOS. ADSCRITOS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 38,
-					"textValue": "APORTACIONES PERMANENTES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 39,
-					"textValue": "INMUEBLES Y MUEBLES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 39,
-					"textValue": "RESERVAS DE CAPITAL",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 1,
-					"posY": 40,
-					"textValue": "CARGOS DIFERIDOS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 253
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 40,
-					"textValue": "RESERVAS PARA ACTIVOS EXTRAORDINARIOS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 42,
-					"textValue": "REVALUACION DE ACTIVOS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 43,
-					"textValue": "OBLIGACIONES SUBORDINADAS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 44,
-					"textValue": "GANANCIAS Y PERDIDAS POR FUSION",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 45,
-					"textValue": "VALUACION DE ACTIVOS DE RECUPERACION DUDOSA",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 46,
-					"textValue": "PROVISION DE BENEFICIOS A EMPLEADOS",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 47,
-					"textValue": "AJUSTES AL IMPUESO SOBRE LA RENTA",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 48,
-					"textValue": "GANANCIAS O PERDIDAS POR CAMBIO EN EL ",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 49,
-					"textValue": "VALOR DE MERCADO DE INVERSIONES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 50,
-					"textValue": "RESULTADO DE EJERCICIOS ANTERIORES",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 51,
-					"textValue": "RESULTADOS DEL EJERCICIO",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}, {
-					"size": null,
-					"posX": 5,
-					"posY": 52,
-					"textValue": "TOTAL IGUAL A LA SUMA DEL ACTIVO",
-					"inputId01": null,
-					"style": {
-						"fontFamily": "Calibri",
-						"fontWeight": null,
-						"backgroundColor": null,
-						"foregroundColor": null,
-						"width": 270
-					},
-					"parameterList": [],
-					"fieldCode": null,
-					"valueList": null
-				}
-			]
-		}
-	]
+			 "cellList" : [ 
+                {
+                    "posX" : 1,
+                    "posY" : 0,
+                    "textValue" : "SISTEMA BANCARIO",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "backgroundColor" : "003300",
+                        "foregroundColor" : "000000",
+                        "alignment" : 2,
+                        "bold" : true
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 1,
+                    "textValue" : "BALANCE GENERAL CONDENSADO CONSOLIDADO",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "backgroundColor" : "003300",
+                        "foregroundColor" : "000000",
+                        "alignment" : 2,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 2,
+                    "textValue" : "AL 31 ENERO DEL 2017",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "backgroundColor" : "003300",
+                        "foregroundColor" : "000000",
+                        "alignment" : 2,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 3,
+                    "textValue" : "(Cifras en miles de quetzales)",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "backgroundColor" : "003300",
+                        "foregroundColor" : "000000",
+                        "alignment" : 2,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 2,
+                    "posY" : 5,
+                    "textValue" : "MONEDA NACIONAL",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : true
+                    }
+                }, 
+                {
+                    "posX" : 3,
+                    "posY" : 5,
+                    "textValue" : "MONEDA EXTRANJERA",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : true
+                    }
+                }, 
+                {
+                    "posX" : 4,
+                    "posY" : 5,
+                    "textValue" : "TOTAL",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : true
+                    }
+                }, 
+                {
+                    "posX" : 6,
+                    "posY" : 5,
+                    "textValue" : "MONEDA NACIONAL",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : true
+                    }
+                }, 
+                {
+                    "posX" : 7,
+                    "posY" : 5,
+                    "textValue" : "MONEDA EXTRANJERA",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : true
+                    }
+                }, 
+                {
+                    "posX" : 8,
+                    "posY" : 5,
+                    "textValue" : "TOTAL",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : true
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 6,
+                    "textValue" : "Activo",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 6,
+                    "textValue" : "Pasivo",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 8,
+                    "textValue" : "DISPONIBILIDADES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 8,
+                    "textValue" : "OBLIGACIONES DEPOSITARIAS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 9,
+                    "textValue" : "Caja",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 2,
+                    "posY" : 9,
+                    "fieldCode" : "smsali",
+                    "valueList" : [ 
+                        {
+                            "name" : "ctcod",
+                            "value" : "101101.0101"
+                        }
+                    ]
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 9,
+                    "textValue" : "Depositos Monetarios",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 10,
+                    "textValue" : "Banco Central",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 10,
+                    "textValue" : "Depositos de Ahorros",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 11,
+                    "textValue" : "Bancos del Exterior",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 11,
+                    "textValue" : "Depositos a Plazo",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 12,
+                    "textValue" : "Cheques a compensar",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 12,
+                    "textValue" : "Depositos a la orden",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 13,
+                    "textValue" : "Giros sobre el exterior",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 13,
+                    "textValue" : "Depositos con restricciones",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 15,
+                    "textValue" : "INVERSIONES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 15,
+                    "textValue" : "CREDITOS OBTENIDOS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 16,
+                    "textValue" : "En titulos-Valores para negociacion",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 16,
+                    "textValue" : "Del Banco Central",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 17,
+                    "textValue" : "En titulos-Valores para la venta",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 17,
+                    "textValue" : "De Instituciones Financieras Nacionales",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 18,
+                    "textValue" : "En titulos-Valores para su vencimiento",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 18,
+                    "textValue" : "De Instituciones Financieras Extranjeras",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 19,
+                    "textValue" : "Operaciones de Reporto",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 19,
+                    "textValue" : "De Organismos Internacionales",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 20,
+                    "textValue" : "Certificados de Participacion",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 21,
+                    "textValue" : "Intereses pagados en compra de valores",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 21,
+                    "textValue" : "OBLIGACIONES FINANCIERAS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 22,
+                    "textValue" : "GASTOS FINANCIEROS POR PAGAR",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 23,
+                    "textValue" : "SUMA",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 23,
+                    "textValue" : "CUENTAS POR PAGAR",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 24,
+                    "textValue" : "(-) Estimaciones por Valuacion ",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 24,
+                    "textValue" : "PROVISIONES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 25,
+                    "textValue" : "SUC. CASA MATRIZ Y DEPTOS. ADSCRITOS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 26,
+                    "textValue" : "CARTERA",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 27,
+                    "textValue" : "Vigente",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 27,
+                    "textValue" : "OTRAS OBLIGACIONES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 28,
+                    "textValue" : "Vencida",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 28,
+                    "textValue" : "CREDITOS DIFERIDOS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 29,
+                    "textValue" : "SUMA",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 30,
+                    "textValue" : "SUMA",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 30,
+                    "textValue" : "OTRAS CUENTAS ACREEDORAS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 31,
+                    "textValue" : "(-) Estimaciones por Valuacion ",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 1,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 32,
+                    "textValue" : "CAPITAL CONTABLE",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 2,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 33,
+                    "textValue" : "PRODUCTOS FINANCIEROS POR COBRAR",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 34,
+                    "textValue" : "CUENTAS POR COBRAR",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 34,
+                    "textValue" : "CAPITAL PAGADO",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 35,
+                    "textValue" : "BIENES REALIZABLES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 35,
+                    "textValue" : "Capital Autorizado",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 36,
+                    "textValue" : "INVERSIONES PERMANENTES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 36,
+                    "textValue" : "Capital No pagado (-)",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 37,
+                    "textValue" : "OTRAS INVERSIONES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 37,
+                    "textValue" : "Casa Matriz, Capital Asignado",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 38,
+                    "textValue" : "SUC. CASA MATRIZ Y DEPTOS. ADSCRITOS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 38,
+                    "textValue" : "APORTACIONES PERMANENTES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 39,
+                    "textValue" : "INMUEBLES Y MUEBLES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 39,
+                    "textValue" : "RESERVAS DE CAPITAL",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 1,
+                    "posY" : 40,
+                    "textValue" : "CARGOS DIFERIDOS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 40,
+                    "textValue" : "RESERVAS PARA ACTIVOS EXTRAORDINARIOS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 42,
+                    "textValue" : "REVALUACION DE ACTIVOS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 43,
+                    "textValue" : "OBLIGACIONES SUBORDINADAS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 44,
+                    "textValue" : "GANANCIAS Y PERDIDAS POR FUSION",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 45,
+                    "textValue" : "VALUACION DE ACTIVOS DE RECUPERACION DUDOSA",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 46,
+                    "textValue" : "PROVISION DE BENEFICIOS A EMPLEADOS",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 47,
+                    "textValue" : "AJUSTES AL IMPUESO SOBRE LA RENTA",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 48,
+                    "textValue" : "GANANCIAS O PERDIDAS POR CAMBIO EN EL ",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 49,
+                    "textValue" : "VALOR DE MERCADO DE INVERSIONES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 50,
+                    "textValue" : "RESULTADO DE EJERCICIOS ANTERIORES",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 51,
+                    "textValue" : "RESULTADOS DEL EJERCICIO",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 5,
+                    "posY" : 52,
+                    "textValue" : "TOTAL IGUAL A LA SUMA DEL ACTIVO",
+                    "style" : {
+                        "fontFamily" : "Calibri",
+                        "alignment" : 0,
+                        "bold" : false
+                    }
+                }, 
+                {
+                    "posX" : 2,
+                    "posY" : 10,
+                    "fieldCode" : "smsali",
+                    "valueList" : [ 
+                        {
+                            "name" : "ctcod",
+                            "value" : "101101.0102"
+                        }
+				]
+			}
+		]
+       }
+    ]
 }
 `) as Book;
 }

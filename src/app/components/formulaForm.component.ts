@@ -50,7 +50,8 @@ export class FormComponent implements OnChanges,AfterViewInit{
    public readonly PARAMETRO_DEPARTAMENTO:string="departamento";
    public readonly PARAMETRO_PERIODO:string="periodo";
    public readonly PARAMETRO_MONEDA:string="moneda";
-
+   public readonly TIMEOUT:number=2000;
+   public muestraAlerta:boolean=false;
   constructor(
 		private _bookService: BookService
 	){}
@@ -105,7 +106,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
     this.cell=cell;
     this.inputIdBook=inputIdBook;
     this.parameterListGeneral = listParameterGeneral;
-    if(this.cell.parameterList.length>0){
+    if(this.cell.parameterList != undefined && this.cell.parameterList.length>0){
           this.setParameterGeneral(this.cell.parameterList);
     }else{
         this.setParameterGeneral(listParameterGeneral);
@@ -244,7 +245,12 @@ export class FormComponent implements OnChanges,AfterViewInit{
     this._bookService.submitCell(cellSave);
     this.muestraCombo2=false;
     this.selectedObject = new CellObject(null,null,null,null,null,null,null,null);   
-    this.formFormula.hide();
+    this.muestraAlerta = true;
+  }
+
+  public hideForm(){
+    console.log("ocultar");
+      this.formFormula.hide();
   }
 
   handleError(error: any) : void {

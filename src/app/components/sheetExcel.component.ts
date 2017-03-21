@@ -33,7 +33,6 @@ export class SheetExcelComponent implements AfterViewInit  {
 
 	ngAfterViewInit(){
 		//this._bookService.getBook("58cb3ed62a50253381d56071").then(response => this.book=response).catch(this.handleError);
-		console.log("console: " + this.book);
 		this.book = this._bookService.getBookExample();
 		this.inicializa();
 	}
@@ -51,7 +50,6 @@ export class SheetExcelComponent implements AfterViewInit  {
 			data: Handsontable.helper.createEmptySpreadsheetData(this.book.sizeY,this.book.sizeX),
 			rowHeaders: true,
 			colHeaders: true,
-			    className: "htCenter",
 
 			// performance tip: set constant size
 			colWidths: this.book.sheetList[0].colWidths,
@@ -74,7 +72,8 @@ export class SheetExcelComponent implements AfterViewInit  {
 						TD.style.background = cell.style != undefined && cell.style.backgroundColor != undefined ? "#"+cell.style.backgroundColor:"";
 						TD.style.color =  cell.style != undefined && cell.style.foregroundColor != undefined ? "#"+cell.style.foregroundColor:"";
 						TD.style.fontWeight = cell.style != undefined && cell.style.bold?"bold":"";
-						value=cell.textValue;
+						TD.className = cell.style != undefined && cell.style.alignment != undefined?this.getAlignment(cell.style.alignment):this.getAlignment(-1);
+						value=cell.textValue != undefined ? cell.textValue : cell.fieldCode != undefined ? cell.fieldCode : "Valor no definido";
 						TD.innerHTML = value;
 					}
 
@@ -132,5 +131,30 @@ export class SheetExcelComponent implements AfterViewInit  {
       }
       alert('Internal Error' + "The server response 500 error : \n"+body);
     }
+ }
+
+ public getAlignment(alignment:number):string {
+	 let stringAlignment="";
+	 switch(alignment){
+		 /* case 0: GENERAL */
+		 case 1:
+				stringAlignment="htLeft";
+				break;
+		 case 2:
+				stringAlignment="htCenter";
+				break;
+		 case 3:
+		 		stringAlignment="htRight";
+			 	break;
+		 /* case 4: FILL */
+		 case 5:
+		 		stringAlignment="htJustify";
+			 	break;
+		 /* case 6: CENTER_SELECTION */
+		 /* case 7: DISTRIBUTED */
+		 default:
+			 	stringAlignment="htLeft";
+	 }
+	return stringAlignment;
  }
 }

@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { routing, appRoutingProviders } from './app.routing';
-import { Ng2BootstrapModule,ModalModule,DropdownModule } from 'ng2-bootstrap';
+import { Ng2BootstrapModule,ModalModule,DropdownModule,AlertModule } from 'ng2-bootstrap';
 
 
 import { SheetExcelComponent } from './components/sheetExcel.component';
@@ -29,7 +29,8 @@ import { textFormComponent } from './components/textForm.component';
     routing,
     Ng2BootstrapModule,
     ModalModule.forRoot(),
-    DropdownModule.forRoot()
+    DropdownModule.forRoot(),
+    AlertModule.forRoot()
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
