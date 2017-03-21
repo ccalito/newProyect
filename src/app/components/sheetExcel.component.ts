@@ -51,6 +51,8 @@ export class SheetExcelComponent implements AfterViewInit  {
 			data: Handsontable.helper.createEmptySpreadsheetData(this.book.sizeY,this.book.sizeX),
 			rowHeaders: true,
 			colHeaders: true,
+			    className: "htCenter",
+
 			// performance tip: set constant size
 			colWidths: this.book.sheetList[0].colWidths,
 			mergeCells:rangeCells,
@@ -71,6 +73,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 					if(cell != undefined){
 						TD.style.background = cell.style != undefined && cell.style.backgroundColor != undefined ? "#"+cell.style.backgroundColor:"";
 						TD.style.color =  cell.style != undefined && cell.style.foregroundColor != undefined ? "#"+cell.style.foregroundColor:"";
+						TD.style.fontWeight = cell.style != undefined && cell.style.bold?"bold":"";
 						value=cell.textValue;
 						TD.innerHTML = value;
 					}

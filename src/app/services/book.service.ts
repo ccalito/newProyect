@@ -342,7 +342,8 @@ export class BookService{
 						"fontWeight": null,
 						"backgroundColor": "003300",
 						"foregroundColor": "000000",
-						"width": 253
+						"width": 253,
+						 "bold" : false
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -502,7 +503,8 @@ export class BookService{
 						"fontWeight": null,
 						"backgroundColor": null,
 						"foregroundColor": null,
-						"width": 253
+						"width": 253,
+						 "bold" : true
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -518,7 +520,8 @@ export class BookService{
 						"fontWeight": null,
 						"backgroundColor": null,
 						"foregroundColor": null,
-						"width": 270
+						"width": 270,
+						 "bold" : true
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -596,7 +599,8 @@ export class BookService{
 						"fontWeight": null,
 						"backgroundColor": null,
 						"foregroundColor": null,
-						"width": 270
+						"width": 270,
+						 "bold" : true
 					},
 					"parameterList": [],
 					"fieldCode": null,
@@ -612,7 +616,8 @@ export class BookService{
 						"fontWeight": null,
 						"backgroundColor": null,
 						"foregroundColor": null,
-						"width": 253
+						"width": 253,
+						 "bold" : true
 					},
 					"parameterList": [],
 					"fieldCode": null,
