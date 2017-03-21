@@ -294,6 +294,43 @@ export class BookService{
 	],
 	"sheetList": [{
 			"correlative": 0,
+			 "cellRangeList" : [ 
+                 {
+                    "firstRow" : 0,
+                    "lastRow" : 0,
+                    "firstColumn" : 1,
+                    "lastColumn" : 8
+                }, 
+                {
+                    "firstRow" : 1,
+                    "lastRow" : 1,
+                    "firstColumn" : 1,
+                    "lastColumn" : 8
+                }, 
+                {
+                    "firstRow" : 2,
+                    "lastRow" : 2,
+                    "firstColumn" : 1,
+                    "lastColumn" : 8
+                }, 
+                {
+                    "firstRow" : 3,
+                    "lastRow" : 3,
+                    "firstColumn" : 1,
+                    "lastColumn" : 8
+                }
+            ],
+            "colWidths" : [ 
+                74, 
+                253, 
+                74, 
+                94, 
+                74, 
+                270, 
+                74, 
+                98, 
+                74
+            ],
 			"cellList": [{
 					"size": null,
 					"posX": 1,

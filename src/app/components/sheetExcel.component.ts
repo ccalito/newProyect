@@ -7,6 +7,7 @@ import {Book} from "../model/book";
 import {Sheet} from '../model/sheet';
 import {Cell} from "../model/cell";
 import {Parameter} from "../model/parameter";
+import {MergeCell} from "../model/mergecell";
 
 import {SelectModalComponent} from "./selectModal.component";
 
@@ -39,6 +40,12 @@ export class SheetExcelComponent implements AfterViewInit  {
 
 	public inicializa(){
 		this.container = document.getElementById('sheetInput');
+		let rangeCells:Array<MergeCell>= new Array<MergeCell>();
+		for(let range of this.book.sheetList[0].cellRangeList){
+				let mergeCell : MergeCell = new MergeCell(range.firstRow,range.firstColumn,range.lastRow-range.firstRow<=0?1:range.lastRow-range.firstRow,range.lastColumn-range.firstColumn<=0?1:range.lastColumn-range.firstColumn);
+				rangeCells.push(mergeCell);
+		}
+		console.log(rangeCells);	
 		this.hot = new Handsontable(this.container,
 			{
 				// Definición de tabla
@@ -46,7 +53,9 @@ export class SheetExcelComponent implements AfterViewInit  {
 			rowHeaders: true,
 			colHeaders: true,
 			// performance tip: set constant size
-			colWidths: 80,
+			colWidths: this.book.sheetList[0].colWidths,
+			mergeCells:rangeCells,
+
 			rowHeights: 23,
 			// performance tip: turn off calculations
 			autoRowSize: false,
@@ -57,13 +66,13 @@ export class SheetExcelComponent implements AfterViewInit  {
 
 			// se le asigna color y forma a las columnas
 			renderer: (hotInstance, TD, row, col, prop, value, cellProperties) =>{
-
 				try{
 					let cell = this.getCell(row,col);
 					value="";
 					TD.innerHTML = value;
 					if(cell != undefined){
 						TD.style.background = cell.style != undefined && cell.style.backgroundColor != undefined ? "#"+cell.style.backgroundColor:"";
+						TD.style.color =  cell.style != undefined && cell.style.foregroundColor != undefined ? "#"+cell.style.foregroundColor:"";
 						value=cell.textValue;
 						TD.innerHTML = value;
 					}
