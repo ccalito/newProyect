@@ -45,7 +45,6 @@ export class SheetExcelComponent implements AfterViewInit  {
 				let mergeCell : MergeCell = new MergeCell(range.firstRow,range.firstColumn,range.lastRow-range.firstRow<=0?1:range.lastRow-range.firstRow,range.lastColumn-range.firstColumn<=0?1:range.lastColumn-range.firstColumn);
 				rangeCells.push(mergeCell);
 		}
-		console.log(rangeCells);	
 		this.hot = new Handsontable(this.container,
 			{
 				// Definición de tabla
@@ -63,7 +62,6 @@ export class SheetExcelComponent implements AfterViewInit  {
 			// fila y columna seleccionada
 			currentRowClassName: 'currentRow',
 			currentColClassName: 'currentCol',
-
 			// se le asigna color y forma a las columnas
 			renderer: (hotInstance, TD, row, col, prop, value, cellProperties) =>{
 				try{
@@ -76,6 +74,7 @@ export class SheetExcelComponent implements AfterViewInit  {
 						value=cell.textValue;
 						TD.innerHTML = value;
 					}
+
 					TD.removeEventListener("click");
 					TD.addEventListener("click",()=>{
 						this.selectModal.showSelectModal(cell, this.book.parametersList,this.book.inputHexId);
