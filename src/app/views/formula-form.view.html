@@ -65,8 +65,8 @@
                   <option  *ngFor="let item of monedaItems" value="{{item.moneda}}">{{item.descripcion}}</option>
                 </select>
               </div> 
-                <alert type="success" [dismissOnTimeout]="TIMEOUT" onClose="hideForm()" *ngIf="muestraAlerta">
-                  <strong>Well done!</strong> You successfully read.
+                <alert id="alertMessage" type="success" [dismissOnTimeout]="TIMEOUT" (onClose)="hideFormFormula()"  *ngIf="muestraAlerta">
+                  <strong>Cambios Realizados!</strong>
               </alert>
           </form>
           </div>

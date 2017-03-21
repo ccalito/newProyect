@@ -92,6 +92,7 @@ export class FormComponent implements OnChanges,AfterViewInit{
         }
 
       }
+      this.muestraAlerta=false;
   }
   
   public showFormFormulaClear(parameterGeneral:Array<Parameter>, inputIdBook:string):void {
@@ -194,7 +195,6 @@ export class FormComponent implements OnChanges,AfterViewInit{
     let cellSave:Cell;
     let parameterList:Array<Parameter> = new Array<Parameter>();
     let parameterValues:Array<Parameter> = new Array<Parameter>();
-    
 
     cellSave = this.cell;
 
@@ -203,7 +203,6 @@ export class FormComponent implements OnChanges,AfterViewInit{
           if(this.selectedObject.country != parameter.value){
             let parameterValue:Parameter=new Parameter(parameter.name,this.selectedObject.country);
             parameterList.push(parameterValue);
-            console.log(parameterList);
           }
         }else if(parameter.name===this.PARAMETRO_EMPRESA){
           if(this.selectedObject.company != parameter.value){
@@ -232,7 +231,6 @@ export class FormComponent implements OnChanges,AfterViewInit{
       cellSave.parameterList=parameterList;
     }
 
-
     cellSave.inputId01 = this.selectedObject.selectInput;
     cellSave.fieldCode = this.selectedObject.from;
 
@@ -249,7 +247,6 @@ export class FormComponent implements OnChanges,AfterViewInit{
   }
 
   public hideForm(){
-    console.log("ocultar");
       this.formFormula.hide();
   }
 
