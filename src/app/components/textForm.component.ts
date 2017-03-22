@@ -18,6 +18,9 @@ private listColors:string[];
 public cell:Cell;
 @Input() public textValue:string;
 
+public readonly TIMEOUT:number=2000;
+public muestraAlerta:boolean=false;
+
   constructor(
 		private _bookService: BookService
     ){}
@@ -29,10 +32,13 @@ public showTextForm(cell:Cell):void {
 }
 
 public showTextFormClear():void {
+    this.muestraAlerta = false;
+    this.textValue="";   
     this.formText.show();
 }
 
 public hideTextForm():void {
+    this.muestraAlerta = false;
     this.formText.hide();
 }
 
@@ -48,7 +54,13 @@ public hideTextForm():void {
     cellSave.valueList=null;
 
     this._bookService.submitCell(cellSave);
-    this.formText.hide();   
+    //this.formText.hide();
+    this.textValue="";   
+    this.muestraAlerta = true;
+  }
+
+  public hideForm(){
+      this.formText.hide();
   }
 
 }

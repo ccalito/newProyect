@@ -11,23 +11,27 @@
           </div>
           <div class="modal-body">
             <form (ngSubmit)="onSaveCell()">
-            <div>
-              <table style="width:100%">
-                <tr>
-                  <th>Descripción</th>
-                  <th></th>
-                </tr>
-                <tr>
-                  <td>
-                    <textarea  [(ngModel)]="textValue" type="string" id="textValue" name ="textValue"  
-                    style="resize:none; width: 680px; height: 50px;"></textarea>
-                  </td>
-                                    <td>
-                    <button class="btn btn-primary btn-sm" type="submit">Confirmar</button>
-                  </td>
-                </tr>
-              </table> 
-           </div>
+              <div>
+                <table style="width:100%">
+                  <tr>
+                    <th>Descripción</th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <textarea  [(ngModel)]="textValue" type="string" id="textValue" name ="textValue"  
+                      style="resize:none; width: 680px; height: 50px;"></textarea>
+                    </td>
+                                      <td>
+                      <button class="btn btn-primary btn-sm" type="submit" [disabled]="!textValue">Confirmar</button>
+                    </td>
+                  </tr>
+                </table> 
+            </div>
+            <br/>
+            <alert id="alertMessage" type="success" [dismissOnTimeout]="TIMEOUT" (onClose)="hideForm()"  *ngIf="muestraAlerta">
+              <strong>Cambios Realizados!</strong>
+            </alert>
             </form>
           </div>
         </div>
