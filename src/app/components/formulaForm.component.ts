@@ -1,4 +1,4 @@
-import {Component,ViewChild,Input,OnChanges,SimpleChanges,AfterViewInit,Directive } from '@angular/core';
+import {Component,ViewChild,Input,OnChanges,SimpleChanges,AfterViewInit } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
 import {NgForm} from '@angular/forms';
 import {CellObject} from './cell-object';

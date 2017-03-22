@@ -1,5 +1,5 @@
 import { Component,ViewChild,Input,OnChanges,SimpleChanges } from '@angular/core';
-import { ModalDirective,ModalModule } from 'ng2-bootstrap';
+import { ModalDirective } from 'ng2-bootstrap';
 import { FormComponent} from './formulaForm.component'
 import { textFormComponent} from './textForm.component'
 import {Cell} from '../model/cell';
