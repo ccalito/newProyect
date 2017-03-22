@@ -1,4 +1,4 @@
-import { Component, AfterViewInit,ViewChild } from '@angular/core';
+import { Component, AfterViewInit,ViewChild,OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 declare let $ : any;
 declare let Handsontable: any;
@@ -19,24 +19,34 @@ import {BookService} from "../services/book.service";
 	providers: [BookService]
 })
 
-export class SheetExcelComponent implements AfterViewInit  {
+export class SheetExcelComponent implements AfterViewInit, OnInit  {
 	public book:Book;
 	public container: any;
 	public hot: any;
 	public cellSelected:Cell;
+	public idTemplate:string;
+
 
 	constructor(
-		private _bookService: BookService
+		private _bookService: BookService,
+		private _route: ActivatedRoute,
+		private _router: Router
 		){}
 
 @ViewChild(SelectModalComponent) public selectModal:SelectModalComponent;
 
 	ngAfterViewInit(){
+		console.log("Parametro - "+this.idTemplate);
 		//this._bookService.getBook("58cb3ed62a50253381d56071").then(response => this.book=response).catch(this.handleError);
 		this.book = this._bookService.getBookExample();
 		this.inicializa();
 	}
 
+	ngOnInit(){
+		this._route.params.forEach((params: Params) => {
+		 this.idTemplate = params["idTemplate"];
+		});
+	}
 	public inicializa(){
 		this.container = document.getElementById('sheetInput');
 		let rangeCells:Array<MergeCell>= new Array<MergeCell>();

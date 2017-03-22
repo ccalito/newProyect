@@ -1,5 +1,5 @@
 import {Component,ViewChild,OnInit,Input} from '@angular/core';
-import { ModalDirective } from 'ng2-bootstrap';
+import { ModalDirective,ModalModule } from 'ng2-bootstrap';
 import {Cell} from '../model/cell';
 import {BookService} from '../services/book.service';
 

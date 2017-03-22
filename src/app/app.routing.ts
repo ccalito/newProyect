@@ -9,7 +9,7 @@ const appRoutes: Routes = [
 		redirectTo: '/',
 		pathMatch: 'full'
 	},
-	{path: "", component: SheetExcelComponent}
+	{path: "template-update/:idTemplate", component: SheetExcelComponent}
 ];
 
 export const appRoutingProviders: any[] = [];
