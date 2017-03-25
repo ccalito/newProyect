@@ -82,11 +82,15 @@ export class FormComponent implements OnChanges,AfterViewInit{
         switch(queryList.correlative){
         case 1:
           this.fromQueryList= queryList;
-          this.selectedObject.from=this.cell.fieldCode;
+          if(this.cell.fieldCode != undefined && this.cell.fieldCode != null){
+            this.selectedObject.from=this.cell.fieldCode;
+          }
         break;
         case 2:
           this.whereQueryList= queryList;
-          this.selectedObject.where=this.cell.valueList[0].value;
+          if(this.cell.valueList != undefined && this.cell.valueList != null){
+            this.selectedObject.where=this.cell.valueList[0].value;
+          }
         break;
         }
 
