@@ -82,11 +82,15 @@ export class FormComponent implements OnChanges,AfterViewInit{
         switch(queryList.correlative){
         case 1:
           this.fromQueryList= queryList;
-          this.selectedObject.from=this.cell.fieldCode;
+          if(this.cell.fieldCode != undefined && this.cell.fieldCode != null){
+            this.selectedObject.from=this.cell.fieldCode;
+          }
         break;
         case 2:
           this.whereQueryList= queryList;
-          this.selectedObject.where=this.cell.valueList[0].value;
+          if(this.cell.valueList != undefined && this.cell.valueList != null){
+            this.selectedObject.where=this.cell.valueList[0].value;
+          }
         break;
         }
 
@@ -130,15 +134,6 @@ export class FormComponent implements OnChanges,AfterViewInit{
           this.selectedObject.moneda=parameter.value;
         }
       }
-      if(this.selectedObject.country!= undefined){
-        this.onChangeCountry(false);
-      }
-      if(this.selectedObject.company != undefined){
-        this.onChangeCompany(false);
-      }
-      if(this.selectedObject.department != undefined){
-        this.onChangeDepartment(false);
-      }
   }
 
   public setOverrideCellValues(list:Array<Parameter>){
@@ -157,46 +152,12 @@ export class FormComponent implements OnChanges,AfterViewInit{
     }
   }
 
-  onChangeInputId(clear:boolean){
-    //this._bookService.getInputQuery(this.inputIdBook).then(response => this.inputQuery =response).catch(this.handleError);
-    this.inputQuery = this._bookService.getInputQueryExample();
-    this.muestraCombo2=true;
-  }
-
-  onChangeCountry(clear:boolean){
-      //this._bookService.getEmpresas(this.selectedObject.country).then(response => this.companyItems =response).catch(this.handleError);
-      this.companyItems = this._bookService.getCompaniaExample(this.selectedObject.country);
-      if(clear){
-        this.selectedObject.company=null;
-        this.selectedObject.department=null;
-        this.selectedObject.period=null;
-      }
-  }
-
-  onChangeCompany(clear:boolean){
-    //this._bookService.getDepartamentos(this.selectedObject.country,this.selectedObject.company).then(response =>this.departmentsItems=response).catch(this.handleError);
-    this.departmentsItems=this._bookService.getDepartamentoExample(this.selectedObject.country,this.selectedObject.company);
-     if(clear){
-      this.selectedObject.department=null;
-      this.selectedObject.period=null;
-     }
-  }
-
-  onChangeDepartment(clear:boolean){
-    //this._bookService.getPeriodos(this.selectedObject.country,this.selectedObject.company,this.selectedObject.department).then(response =>this.periodsItems=response).catch(this.handleError);
-    this.periodsItems = this._bookService.getPeriodosExample(this.selectedObject.country,this.selectedObject.company,this.selectedObject.department);
-     if(clear){
-      this.selectedObject.period=null;
-     }
-  }
-
   onSaveCell(){
     let cellSave:Cell;
     let parameterList:Array<Parameter> = new Array<Parameter>();
     let parameterValues:Array<Parameter> = new Array<Parameter>();
 
     cellSave = this.cell;
-
     for (let parameter of this.parameterListGeneral) {
         if(parameter.name===this.PARAMETRO_PAIS){
           if(this.selectedObject.country != parameter.value){

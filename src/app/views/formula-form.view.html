@@ -15,55 +15,37 @@
                  <label class="lbl-first-section">Seleccionar Input:</label> 
               </div>
               <div>
-                <select class="sel-option" name="selectInput" [(ngModel)]="selectedObject.selectInput" (change)="onChangeInputId(true)" required>
-                  <option  *ngFor="let item of listInputIds.content" value="{{item.hexId}}">{{item.name}}</option>
-                </select>
+                <input type="text" name="selectInput" [(ngModel)]="selectedObject.selectInput" required>
             </div>
-            <div *ngIf="muestraCombo2">
               <div>
                  <label class="lbl-first-section">{{fromQueryList.name}}</label> 
               </div>
-              <div>
-                <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
-                  <option  *ngFor="let item of fromQueryList.fields" value="{{item.variable}}">{{item.description}}</option>
-                </select>
+            <div>
+                <input type="text" class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
             </div>
+            <div>
+              <label class="lbl-first-section">{{whereQueryList.name}}:</label>
             </div>
-              <div *ngIf="muestraCombo2"> 
-                <label class="lbl-first-section">{{whereQueryList.name}}:</label>
-              </div>
-              <div *ngIf="muestraCombo2">
-                <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
-                  <option  *ngFor="let item of inputQuery.content"  value="{{item.values[0]}}"> {{item.values[0]}} - {{item.values[1]}}</option>
-                </select>
-              </div>
+            <div>
+                <input type="text" class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
+            </div>
               <hr>
              <div>
                 <label class="lbl-second-section">Pais:</label>
-                <select class="sel-option" name="country" [(ngModel)]="selectedObject.country" (change)="onChangeCountry(true)" required>
-                  <option  *ngFor="let item of countryItems" value="{{item.paicod}}">{{item.painom}}</option>
-                </select>
+                <input typ="text" class="sel-option" name="country" [(ngModel)]="selectedObject.country" required>
                 <label class="lbl-second-section">Empresa:</label>
-                <select class="sel-option" name="company" [(ngModel)]="selectedObject.company" (change)="onChangeCompany(true)" required>
-                  <option  *ngFor="let item of companyItems" value="{{item.empcod}}">{{item.empnom}}</option>
-                </select>
+                <input type="text" class="sel-option" name="company" [(ngModel)]="selectedObject.company" required>
                 <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid">Confirmar</button>
              </div>
               <div>
                 <label class="lbl-second-section">Departamento:</label>
-                <select class="sel-option" name="department" [(ngModel)]="selectedObject.department" (change)="onChangeDepartment(true)" required>
-                  <option  *ngFor="let item of departmentsItems" value="{{item.depcod}}">{{item.depnom}}</option>
-                </select>
+                <input type="text" class="sel-option" name="department" [(ngModel)]="selectedObject.department" required>
                 <label class="lbl-second-section">Periodo:</label>
-                <select class="sel-option" name="period" [(ngModel)]="selectedObject.period" required>
-                  <option  *ngFor="let item of periodsItems" value="{{item.percod}}">{{item.perdes}}</option>
-                </select>
+                <input type="text" class="sel-option" name="period" [(ngModel)]="selectedObject.period" required>
               </div> 
               <div>
                 <label class="lbl-second-section">Moneda:</label>
-                <select class="sel-option" name="moneda" [(ngModel)]="selectedObject.moneda" required>
-                  <option  *ngFor="let item of monedaItems" value="{{item.moneda}}">{{item.descripcion}}</option>
-                </select>
+                <input type="text" class="sel-option" name="moneda" [(ngModel)]="selectedObject.moneda" required>
               </div> 
                 <alert id="alertMessage" type="success" [dismissOnTimeout]="TIMEOUT" (onClose)="hideFormFormula()"  *ngIf="muestraAlerta">
                   <strong>Cambios Realizados!</strong>
