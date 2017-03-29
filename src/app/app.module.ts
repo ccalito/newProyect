@@ -8,7 +8,7 @@ import { routing, appRoutingProviders } from './app.routing';
 
 import {ModalModule} from 'angular2-modal';
 
-import { Ng2BootstrapModule,DropdownModule,AlertModule, ModalModule as ModalModuleNg } from 'ng2-bootstrap';
+import { Ng2BootstrapModule,AlertModule, ModalModule as ModalModuleNg } from 'ng2-bootstrap';
 
 import { SheetExcelComponent } from './components/sheetExcel.component';
 import { FormComponent } from './components/formulaForm.component';
@@ -32,7 +32,6 @@ import { textFormComponent } from './components/textForm.component';
     Ng2BootstrapModule,
     ModalModule.forRoot(),
     ModalModuleNg.forRoot(),
-    DropdownModule.forRoot(),
     AlertModule.forRoot()
   ],
   providers: [appRoutingProviders],
