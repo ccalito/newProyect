@@ -25,7 +25,7 @@ export class SheetExcelComponent implements AfterViewInit, OnInit  {
 	public hot: any;
 	public cellSelected:Cell;
 	public idTemplate:string;
-
+     
 
 	constructor(
 		private _bookService: BookService,
