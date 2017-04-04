@@ -1,0 +1,21 @@
+<div name="divGeneral">
+    <div>
+        <label class="lbl-first-section">{{elementOperation.fromQueryList.name}}</label>
+    </div>
+    <div>
+        <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
+			<option *ngFor="let item of elementOperation.fromQueryList.fields"
+				value="{{item.variable}}">{{item.label}}</option>
+		</select>
+    </div>
+    <div>
+        <label class="lbl-first-section">{{elementOperation.whereQueryList.name}}:</label>
+    </div>
+    <div>
+        <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
+                          <option *ngFor="let item of elementOperation.inputQuery.content"
+                value="{{item.values[0]}}">{{item.values[0]}} -
+                {{item.values[1]}}</option>
+        </select>
+    </div>
+</div>
