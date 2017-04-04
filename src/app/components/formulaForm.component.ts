@@ -10,14 +10,14 @@ import { QueryElement } from "../model/queryelement";
 import { BookService } from "../services/book.service";
 import { InputQuery } from "../model/inputquery";
 import { ListInputId } from "../model/listInputId";
-import { ElementOperationComponent } from "./elementOperation.component";
+import { ElementOperation } from "../model/elementOperation";
 //import {HttpUtilService} from "../../../shared/util/http-util.service";
 
 @Component({
     selector: 'formulaForm',
     templateUrl: '../views/formula-form.view.html',
     styleUrls: ['../../../../assets/popup-form.css'],
-    providers: [BookService,ElementOperationComponent]
+    providers: [BookService]
 })
 
 export class FormComponent {
@@ -56,10 +56,11 @@ export class FormComponent {
     public action: string = "Muestra";
     public muestraTag: boolean = false;
 
+    public listElementOperation:Array<ElementOperation>;
+
     constructor(
-        private _bookService: BookService,
+        private _bookService: BookService
         //private httpUtil: HttpUtilService
-        private _elementOperationComponent: ElementOperationComponent
     ) {
     }
 
@@ -305,8 +306,9 @@ export class FormComponent {
 
     onOperaciones() {
         this.muestraTag = true;
-        this._elementOperationComponent.elementOperation.fromQueryList = this.fromQueryList;
-        this._elementOperationComponent.elementOperation.whereQueryList = this.whereQueryList;
-        this._elementOperationComponent.elementOperation.inputQuery = this.inputQueryList; 
+        let newElement:ElementOperation= new ElementOperation(null,null,null,null,null);
+        newElement.fromQueryList=this.fromQueryList;
+        newElement.whereQueryList=this.whereQueryList;
+        this.listElementOperation.push(newElement);
     }
 }
