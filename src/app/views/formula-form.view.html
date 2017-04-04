@@ -1,75 +1,86 @@
-<div bsModal #formFormula="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" 
-            id="formFormula">
-            
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" style="text-align:center;">Ingreso de datos</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="hideFormFormula()">
+<div bsModal #formFormula="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+  id="formFormula">
+
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" style="text-align:center;">Ingreso de datos</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideFormFormula()">
               <span aria-hidden="true">&times;</span>
             </button>
+      </div>
+      <div class="modal-body">
+        <!-- <form #f="ngForm" (ngSubmit)="onSaveCell()" novalidate> -->
+        <form #f="ngForm" novalidate>
+          <div>
+            <label class="lbl-first-section">Seleccionar Input:</label>
           </div>
-          <div class="modal-body">
-            <!-- <form #f="ngForm" (ngSubmit)="onSaveCell()" novalidate> -->
-          <form #f="ngForm" novalidate>
-              <div>
-                 <label class="lbl-first-section">Seleccionar Input:</label> 
-              </div>
-              <div>
-                <select class="sel-option" name="selectInput" [(ngModel)]="selectedObject.selectInput" (change)="onChangeInputId()" required>
+          <div>
+            <select class="sel-option" name="selectInput" [(ngModel)]="selectedObject.selectInput" (change)="onChangeInputId()" required>
                   <option  *ngFor="let item of listInputIds.content" value="{{item.hexId}}">{{item.name}}</option>
                 </select>
-            </div>
-            <div *ngIf="muestraCombo2">
-              <div>
-                 <label class="lbl-first-section">{{fromQueryList.name}}</label> 
-              </div>
+          </div>
+          <div *ngIf="muestraCombo2">
             <div>
-                  <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
+              <label class="lbl-first-section">{{fromQueryList.name}}</label>
+            </div>
+            <div>
+              <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
                     <option  *ngFor="let item of fromQueryList.fields" value="{{item.variable}}">{{item.label}}</option>
                   </select>
             </div>
-            </div>
-              <div *ngIf="muestraCombo2">
-              <label class="lbl-first-section">{{whereQueryList.name}}:</label>
-            </div>
-              <div *ngIf="muestraCombo2">
-                <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
+          </div>
+          <div *ngIf="muestraCombo2">
+            <label class="lbl-first-section">{{whereQueryList.name}}:</label>
+          </div>
+          <div *ngIf="muestraCombo2">
+            <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
                   <option  *ngFor="let item of inputQuery.content"  value="{{item.values[0]}}"> {{item.values[0]}} - {{item.values[1]}}</option>
                 </select>
-              <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid" (click)="onSaveCell()">Confirmar</button>
+            <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid" (click)="onSaveCell()">Confirmar</button>
+          </div>
+          <div *ngIf="muestraTag">
+            <div *ngFor="let elementOperation of listElementOperation">
+              <div>
+                <label class="lbl-first-section">{{elementOperation.fromQueryList.name}}</label>
+                <select class="sel-option" name="from" [(ngModel)]="elementOperation.from" required>
+                <option  *ngFor="let item of elementOperation.fromQueryList.fields" value="{{item.variable}}">{{item.label}}</option>
+                  </select>
+                <label class="lbl-first-section">{{elementOperation.whereQueryList.name}}:</label>
+                <select class="sel-option" name="where" [(ngModel)]="elementOperation.where" required>
+                  <option  *ngFor="let item of elementOperation.inputQuery.content"  value="{{item.values[0]}}"> {{item.values[0]}} - {{item.values[1]}}</option>
+                </select>
+              </div>
             </div>
-            <div *ngIf="muestraTag">
-                <element-operation-tag></element-operation-tag>
+          </div>
+          <div>
+            <button class="btn btn-primary btn-sm" style="float:left; margin-top: 10px;" (click)="onParametrosGenerales()"> {{action}} Parámetros</button>            <br/>
+            <button class="btn btn-primary btn-sm" style="float:center; margin-top: 10px;" (click)="onOperaciones()"> Operaciones </button>            <br/>
+          </div>
+          <hr>
+          <div *ngIf="muestraParametroGeneral">
+            <div>
+              <label class="lbl-second-section">Pais:</label>
+              <input typ="text" class="sel-option" name="country" [(ngModel)]="selectedObject.country" required>
+              <label class="lbl-second-section">Empresa:</label>
+              <input type="text" class="sel-option" name="company" [(ngModel)]="selectedObject.company" required>
             </div>
             <div>
-              <button class="btn btn-primary btn-sm" style="float:left; margin-top: 10px;" (click)="onParametrosGenerales()"> {{action}} Parámetros</button> <br/>
-              <button class="btn btn-primary btn-sm" style="float:center; margin-top: 10px;" (click)="onOperaciones()"> Operaciones </button> <br/>
+              <label class="lbl-second-section">Departamento:</label>
+              <input type="text" class="sel-option" name="department" [(ngModel)]="selectedObject.department" required>
+              <label class="lbl-second-section">Periodo:</label>
+              <input type="text" class="sel-option" name="period" [(ngModel)]="selectedObject.period" required>
             </div>
-            <hr>
-            <div *ngIf="muestraParametroGeneral">
-              <div>
-                    <label class="lbl-second-section">Pais:</label>
-                    <input typ="text" class="sel-option" name="country" [(ngModel)]="selectedObject.country" required>
-                    <label class="lbl-second-section">Empresa:</label>
-                    <input type="text" class="sel-option" name="company" [(ngModel)]="selectedObject.company" required>
-                </div>
-                  <div>
-                    <label class="lbl-second-section">Departamento:</label>
-                    <input type="text" class="sel-option" name="department" [(ngModel)]="selectedObject.department" required>
-                    <label class="lbl-second-section">Periodo:</label>
-                    <input type="text" class="sel-option" name="period" [(ngModel)]="selectedObject.period" required>
-                  </div> 
-                  <div>
-                    <label class="lbl-second-section">Moneda:</label>
-                    <input type="text" class="sel-option" name="moneda" [(ngModel)]="selectedObject.moneda" required>
-                  </div>
-              </div> 
-                <alert id="alertMessage" type="success" [dismissOnTimeout]="TIMEOUT" (onClose)="hideFormFormula()"  *ngIf="muestraAlerta">
-                    <strong>Cambios Realizados!</strong>
-                </alert>
-          </form>
+            <div>
+              <label class="lbl-second-section">Moneda:</label>
+              <input type="text" class="sel-option" name="moneda" [(ngModel)]="selectedObject.moneda" required>
+            </div>
           </div>
-        </div>
+          <alert id="alertMessage" type="success" [dismissOnTimeout]="TIMEOUT" (onClose)="hideFormFormula()" *ngIf="muestraAlerta">
+            <strong>Cambios Realizados!</strong>
+          </alert>
+        </form>
       </div>
+    </div>
+  </div>
 </div>
