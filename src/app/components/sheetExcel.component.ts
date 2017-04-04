@@ -44,6 +44,7 @@ export class SheetExcelComponent implements AfterViewInit, OnInit  {
 			.subscribe((data: any) => this.inicializa(data));*/
 		//this._bookService.getBook(this.idTemplate).then(response => {this.book=response; this.inicializa();}).catch(this.handleError);
 		this.book = this._bookService.getBookExample();
+		this.inicializa(this.book);
 	}
 
 	ngOnInit(){
