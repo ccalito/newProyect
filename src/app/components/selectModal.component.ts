@@ -19,8 +19,10 @@ export class SelectModalComponent{
 
   public parameterGeneral:Array<Parameter>;
   public inputIdBook:string;
+  public templateId: string;
 
-  public showSelectModal(cell:Cell, parameterGeneral:Array<Parameter>, inputIdBook:string):void {
+  public showSelectModal(cell:Cell, parameterGeneral:Array<Parameter>, inputIdBook:string, templateId:string):void {
+    this.templateId = templateId;
     this.parameterGeneral=parameterGeneral;
     this.inputIdBook=inputIdBook;
     if(cell===undefined){
@@ -29,7 +31,7 @@ export class SelectModalComponent{
           if(cell.valueList === null || cell.valueList === undefined || cell.valueList.length == 0){
             this.formText.showTextForm(cell);
           }else{
-            this.formFormula.showFormFormula(cell, this.parameterGeneral,inputIdBook);
+            this.formFormula.showFormFormula(cell, this.parameterGeneral,inputIdBook,templateId);
           }
     }
   }
@@ -39,7 +41,7 @@ export class SelectModalComponent{
   }
 
   public showFormulaForm(){
-    this.formFormula.showFormFormulaClear(this.parameterGeneral,this.inputIdBook);
+    this.formFormula.showFormFormulaClear(this.parameterGeneral,this.inputIdBook, this.templateId);
     this.hideSelectModal();
   }
 

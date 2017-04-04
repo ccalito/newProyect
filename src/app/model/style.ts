@@ -7,7 +7,11 @@ export class Style{
         public alignment:number,
         public backgroundColor:string,
         public foregroundColor:string,
-        public bold:boolean
+        public bold:boolean,
+        public borderTop:number,
+        public borderBottom:number,
+        public borderLeft:number,
+        public borderRight:number,
     ){
     }
 }
