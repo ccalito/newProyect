@@ -7,7 +7,9 @@ export class ElementOperation{
         public fromQueryList:QueryElement,
         public whereQueryList:QueryElement,
         public inputQuery:QueryElement,
-        public operation:string 
+        public operation:string,
+        public from:string,
+        public where:string
     ){
     }
 
