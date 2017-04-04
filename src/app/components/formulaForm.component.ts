@@ -10,6 +10,7 @@ import {QueryElement} from "../model/queryelement";
 import {BookService} from "../services/book.service";
 import {InputQuery} from "../model/inputquery";
 import {ListInputId} from "../model/listInputId";
+
 //import {HttpUtilService} from "../../../shared/util/http-util.service";
 
 @Component({
