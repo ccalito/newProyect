@@ -57,6 +57,7 @@ export class FormComponent {
     public muestraTag: boolean = false;
 
     public listElementOperation:Array<ElementOperation>= new Array<ElementOperation>();
+    public listaOperadores:Array<String> = new Array<String>("-","+","*","/");
 
     constructor(
         private _bookService: BookService
