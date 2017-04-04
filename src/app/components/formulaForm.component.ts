@@ -309,6 +309,7 @@ export class FormComponent {
         let newElement:ElementOperation= new ElementOperation(null,null,null,null,null,null,null);
         newElement.fromQueryList=this.fromQueryList;
         newElement.whereQueryList=this.whereQueryList;
+        newElement.inputQuery=this.inputQuery;
         this.listElementOperation.push(newElement);
     }
 }
