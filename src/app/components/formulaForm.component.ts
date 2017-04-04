@@ -307,5 +307,6 @@ export class FormComponent {
         this.muestraTag = true;
         this._elementOperationComponent.elementOperation.fromQueryList = this.fromQueryList;
         this._elementOperationComponent.elementOperation.whereQueryList = this.whereQueryList;
+        this._elementOperationComponent.elementOperation.inputQuery = this.inputQueryList; 
     }
 }
