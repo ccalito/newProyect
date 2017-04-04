@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import { Http, BaseRequestOptions, URLSearchParams,Response } from '@angular/http';
+import {Http, Response, Headers} from "@angular/http";
 import "rxjs/add/operator/map";
 import 'rxjs/add/operator/toPromise';
 import {Book} from "../model/book";
@@ -8,99 +8,60 @@ import {Empresa} from "../model/empresa";
 import {Departamento} from "../model/departamento";
 import {Periodo} from "../model/periodo";
 import {Cell} from "../model/cell";
-import {Moneda} from "../model/moneda";
+import {Parameter} from "../model/parameter";
+import {Moneda} from "../model/Moneda";
 import {InputId} from "../model/inputId";
 import {InputQuery} from "../model/inputquery";
 import {ListInputId} from "../model/listInputId";
-import {HttpUtilService} from "../../../shared/util/http-util.service";
-import {Observable} from "rxjs";
-import 'rxjs/Rx';
+
 
 @Injectable()
 export class BookService{
-   // public urlBase:string="http://192.168.0.16:8080/reporting/api/";
-   // public urlBaseLegacy:string="http://192.168.0.16:8080/reporting-legacy/api/";
+    public urlBase:string="http://192.168.0.16:8080/reporting/api/";
+    public urlBaseLegacy:string="http://192.168.0.16:8080/reporting-legacy/api/";
 
-   public urlBase:string="/reporting/api/";
-   //public urlBaseLegacy:string="/reporting-legacy/api/";
+	constructor(private _http: Http){}
 
-    constructor(private _http: Http,
-                private httpUtil: HttpUtilService) {
-
+    getBook(idTemplate:string){
+        return this._http.get(this.urlBase+"template/"+idTemplate).toPromise().then(res =>res.json() as Book).catch(this.handleError);
     }
 
-    getBook(idTemplate:string): Observable<Response>{
-        //return this._http.get(this.urlBase+"template/"+idTemplate).toPromise().then(res =>res.json() as Book).catch(this.handleError);
-        return this._http.get(this.urlBase+"template/"+idTemplate)
-                .map((data: Response) => data.json() as Book)
-                .catch(this.httpUtil.handleError);
+    getInputQuery(idTemplate:string){
+        return this._http.get(this.urlBase+"dynamic/query/templateId="+idTemplate).toPromise().then(res =>res.json() as InputQuery).catch(this.handleError);
     }
 
-
-    getInputQuery(idTemplate:string, inputId:string): Observable<Response>{
-        return this._http.get(this.urlBase+"dynamic/query/templateId="+idTemplate,
-            BookService.createRequestOption({
-                page: 1,
-                size: 100,
-                search: "",
-                inputId: inputId
-            }))
-            .map((data: Response) => data.json() as InputQuery)
-            .catch(this.handleError);
+    getPaises(){
+        return this._http.get(this.urlBaseLegacy+"countries/").toPromise().then(res=> res.json() as Array<Pais> ).catch(this.handleError);
     }
 
-    private static createRequestOption(req?: any): BaseRequestOptions {
-        let options: BaseRequestOptions = new BaseRequestOptions();
-        if (req) {
-            let params: URLSearchParams = new URLSearchParams();
-            params.set('page', req.page);
-            params.set('size', req.size);
-            params.set('search', req.search);
-            params.set('inputId', req.inputId);
-            options.search = params;
-        }
-        return options;
+    getEmpresas(pais:string){
+        return this._http.get(this.urlBaseLegacy+"/companies/filter/pais="+pais).toPromise().then(res=> res.json() as Array<Empresa> ).catch(this.handleError);
     }
 
-
-    /* getPaises(){
-         return this._http.get(this.urlBaseLegacy+"countries/").toPromise().then(res=> res.json() as Array<Pais> ).catch(this.handleError);
-     }
-
-     getEmpresas(pais:string){
-         return this._http.get(this.urlBaseLegacy+"/companies/filter/pais="+pais).toPromise().then(res=> res.json() as Array<Empresa> ).catch(this.handleError);
-     }
-
-     getDepartamentos(pais:string,empresa:string){
-         return this._http.get(this.urlBaseLegacy+"/departments/filter/pais="+pais+"&empresa="+empresa).toPromise().then(res=> res.json() as Array<Departamento> ).catch(this.handleError);
-     }
-
-    getPeriodos(pais:string,empresa:string,departamento:string){
-         return this._http.get(this.urlBaseLegacy+"/periods/filter/pais="+pais+"&empresa="+empresa+"&departamento="+departamento).toPromise().then(res=> res.json() as Array<Periodo> ).catch(this.handleError);
+    getDepartamentos(pais:string,empresa:string){
+        return this._http.get(this.urlBaseLegacy+"/departments/filter/pais="+pais+"&empresa="+empresa).toPromise().then(res=> res.json() as Array<Departamento> ).catch(this.handleError);
     }
 
-    getMonedas(){
-         return this._http.get(this.urlBase+"/monedas/").toPromise().then(res=> res.json() as Array<Moneda> ).catch(this.handleError);
-    }*/
-
-   getListInputId(): Observable<Response>{
-         //return this._http.get(this.urlBase+"input/").toPromise().then(res =>res.json() as ListInputId).catch(this.handleError);
-       return this._http.get(this.urlBase+"input/")
-           .map((data: Response) => data.json() as ListInputId)
-           .catch(this.httpUtil.handleError);
+   getPeriodos(pais:string,empresa:string,departamento:string){
+        return this._http.get(this.urlBaseLegacy+"/periods/filter/pais="+pais+"&empresa="+empresa+"&departamento="+departamento).toPromise().then(res=> res.json() as Array<Periodo> ).catch(this.handleError);
    }
-   getInput(inputHexId:string): Observable<Response>{
-        //return this._http.get(this.urlBase+"/input/"+inputHexId).toPromise().then(res=> res.json() as InputId ).catch(this.handleError);
-       return this._http.get(this.urlBase+"/input/"+inputHexId)
-           .map((data: Response) => data.json() as InputId)
-           .catch(this.httpUtil.handleError);
+
+   getMonedas(){
+        return this._http.get(this.urlBase+"/monedas/").toPromise().then(res=> res.json() as Array<Moneda> ).catch(this.handleError);
+   }
+
+   getListInputId(){
+         return this._http.get(this.urlBase+"input/").toPromise().then(res =>res.json() as ListInputId).catch(this.handleError);
+   }
+   getInput(inputHexId:string){
+        return this._http.get(this.urlBase+"/input/"+inputHexId).toPromise().then(res=> res.json() as InputId ).catch(this.handleError);
    }
    
    submitCell(cell:Cell){
         
    }
 
-  private handleError(error: any):Promise<any> {
+  private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
@@ -1255,7 +1216,6 @@ export class BookService{
         "description": "Función de Saldo Mensual",
         "isFunction": true
         }
-
     ]
     }`) as InputId;
 }
@@ -1325,7 +1285,6 @@ export class BookService{
         "size": 20,
         "number": 0
     }
-
         `) as ListInputId;
     }
 }

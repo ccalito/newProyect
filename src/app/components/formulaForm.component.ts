@@ -9,7 +9,7 @@ import {QueryElement} from "../model/queryelement";
 import {BookService} from "../services/book.service";
 import {InputQuery} from "../model/inputquery";
 import {ListInputId} from "../model/listInputId";
-import {HttpUtilService} from "../../../shared/util/http-util.service";
+//import {HttpUtilService} from "../../../shared/util/http-util.service";
 
 @Component({
     selector: 'formulaForm',
@@ -52,8 +52,9 @@ export class FormComponent {
     public checkboxValue: boolean = false;
     public templateId: string;
 
-    constructor(private _bookService: BookService,
-                private httpUtil: HttpUtilService) {
+    constructor(private _bookService: BookService
+                //private httpUtil: HttpUtilService
+                ) {
     }
 
 
@@ -94,7 +95,7 @@ export class FormComponent {
     public valuaInputRecibidoCambio() {
         this.inputIdBook = this.selectedObject.selectInput;
 
-        this._bookService.getInputQuery(this.templateId, this.inputIdBook)
+       /* this._bookService.getInputQuery(this.templateId, this.inputIdBook)
             .catch(this.httpUtil.handleError)
             .map((data: any) => this.inputQuery = data)
             .subscribe();
@@ -102,7 +103,7 @@ export class FormComponent {
         this._bookService.getInput(this.inputIdBook)
             .catch(this.httpUtil.handleError)
             .map((data: any) => this.inputRecibido = data)
-            .subscribe(() => this.valuaInputRecibido());
+            .subscribe(() => this.valuaInputRecibido());*/
 
     }
 

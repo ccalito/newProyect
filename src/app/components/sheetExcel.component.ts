@@ -32,7 +32,7 @@ export class SheetExcelComponent implements AfterViewInit, OnInit  {
 	constructor(
 		private _bookService: BookService,
 		private _route: ActivatedRoute,
-		private _router: Router,
+		private _router: Router
 	//	private httpUtil: HttpUtilService
 		){}
 
