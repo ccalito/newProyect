@@ -56,7 +56,7 @@ export class FormComponent {
     public action: string = "Muestra";
     public muestraTag: boolean = false;
 
-    public listElementOperation:Array<ElementOperation>;
+    public listElementOperation:Array<ElementOperation>= new Array<ElementOperation>();
 
     constructor(
         private _bookService: BookService
