@@ -49,8 +49,9 @@ export class FormComponent {
     public readonly PARAMETRO_MONEDA: string = "moneda";
     public readonly TIMEOUT: number = 2000;
     public muestraAlerta: boolean = false;
-    public checkboxValue: boolean = false;
     public templateId: string;
+    public muestraParametroGeneral: boolean = false;
+    public action: string = "Muestra";
 
     constructor(private _bookService: BookService
                 //private httpUtil: HttpUtilService
@@ -278,5 +279,16 @@ export class FormComponent {
             }
             alert('Internal Error' + "The server response 500 error : \n" + body);
         }
+    }
+
+ onParametrosGenerales(){
+        if(this.muestraParametroGeneral){
+            this.muestraParametroGeneral = false;
+            this.action = "Muestra";
+        }else{
+            this.muestraParametroGeneral = true;
+            this.action = "Oculta";
+        }
+
     }
 }
