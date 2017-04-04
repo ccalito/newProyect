@@ -320,6 +320,7 @@ export class FormComponent {
     }
 
     onEliminar(idElement:number){
+        console.log(idElement);
         this.listElementOperation.splice(idElement);
     }
 }

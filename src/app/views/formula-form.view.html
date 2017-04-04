@@ -49,6 +49,7 @@
                   <select class="sel-option" name="operacion{{elementOperation.idElement}}" [(ngModel)]="elementOperation.operation" required>
                     <option  *ngFor="let operadores of listaOperadores"> {{operadores}}</option>
                   </select>
+                  <button class="btn-danger" (click)="onEliminar(elementOperation.idElement)"> </button>
                 </div>
               </div>
               <button class="btn btn-primary btn-sm" style="float:none; margin-top: 10px;" (click)="onAgregar()">Agregar</button> 
