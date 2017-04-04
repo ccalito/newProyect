@@ -104,6 +104,18 @@ export class BookService{
                         "101102.02",
                         "DEPOSITOS ESPECIALES"
                     ]
+                },
+                {
+                    "values": [
+                        "101101.0101",
+                        "DEPOSITOS DIARIOS"
+                    ]
+                },
+                {
+                    "values": [
+                        "101101.0102",
+                        "DEPOSITOS SEMANALES"
+                    ]
                 }
             ],
             "parameters": [
