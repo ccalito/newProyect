@@ -310,6 +310,8 @@ export class FormComponent {
         newElement.fromQueryList=new QueryElement(this.fromQueryList.correlative,this.fromQueryList.query,this.fromQueryList.name,this.fromQueryList.fields);
         newElement.whereQueryList=this.whereQueryList;
         newElement.inputQuery=this.inputQuery;
+        newElement.idElement=this.listElementOperation.length+1;
         this.listElementOperation.push(newElement);
+
     }
 }
