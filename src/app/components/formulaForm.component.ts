@@ -307,7 +307,7 @@ export class FormComponent {
     onOperaciones() {
         this.muestraTag = true;
         let newElement:ElementOperation= new ElementOperation(null,null,null,null,null,null,null);
-        newElement.fromQueryList=this.fromQueryList;
+        newElement.fromQueryList=new QueryElement(this.fromQueryList.correlative,this.fromQueryList.query,this.fromQueryList.name,this.fromQueryList.fields);
         newElement.whereQueryList=this.whereQueryList;
         newElement.inputQuery=this.inputQuery;
         this.listElementOperation.push(newElement);
