@@ -23,39 +23,41 @@
           <div *ngIf="muestraCombo2">
             <div>
               <label class="lbl-first-section">{{fromQueryList.name}}</label>
-            </div>
-            <div>
+
               <select class="sel-option" name="from" [(ngModel)]="selectedObject.from" required>
                     <option  *ngFor="let item of fromQueryList.fields" value="{{item.variable}}">{{item.label}}</option>
                   </select>
-            </div>
-          </div>
-          <div *ngIf="muestraCombo2">
             <label class="lbl-first-section">{{whereQueryList.name}}:</label>
-          </div>
-          <div *ngIf="muestraCombo2">
             <select class="sel-option" name="where" [(ngModel)]="selectedObject.where" required>
                   <option  *ngFor="let item of inputQuery.content"  value="{{item.values[0]}}"> {{item.values[0]}} - {{item.values[1]}}</option>
                 </select>
-            <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid" (click)="onSaveCell()">Confirmar</button>
+          </div>
           </div>
           <div *ngIf="muestraTag">
-            <div *ngFor="let elementOperation of listElementOperation">
-              <div>
-                <label class="lbl-first-section">{{elementOperation.fromQueryList.name}}</label>
-                <select class="sel-option" name="from" [(ngModel)]="elementOperation.from" required>
-                <option  *ngFor="let item of elementOperation.fromQueryList.fields" value="{{item.variable}}">{{item.label}}</option>
+          <div style="border-style: groove;">
+              <div *ngFor="let elementOperation of listElementOperation">
+                <div>
+                  <label class="lbl-first-section">{{elementOperation.fromQueryList.name}}</label>
+                  <select class="sel-option" name="from{{elementOperation.idElement}}" [(ngModel)]="elementOperation.from" required>
+                  <option  *ngFor="let fromQueryList of elementOperation.fromQueryList.fields" value="{{fromQueryList.variable}}">{{fromQueryList.label}}</option>
+                    </select>
+                  <label class="lbl-first-section">{{elementOperation.whereQueryList.name}}:</label>
+                  <select class="sel-option" name="where{{elementOperation.idElement}}" [(ngModel)]="elementOperation.where" required>
+                    <option  *ngFor="let whereQueryList of elementOperation.inputQuery.content"  value="{{whereQueryList.values[0]}}"> {{whereQueryList.values[0]}} - {{whereQueryList.values[1]}}</option>
                   </select>
-                <label class="lbl-first-section">{{elementOperation.whereQueryList.name}}:</label>
-                <select class="sel-option" name="where" [(ngModel)]="elementOperation.where" required>
-                  <option  *ngFor="let item of elementOperation.inputQuery.content"  value="{{item.values[0]}}"> {{item.values[0]}} - {{item.values[1]}}</option>
-                </select>
+                  <label class="lbl-first-section">Operación</label>
+                  <select class="sel-option" name="operacion{{elementOperation.idElement}}" [(ngModel)]="elementOperation.operation" required>
+                    <option  *ngFor="let operadores of listaOperadores"> {{operadores}}</option>
+                  </select>
+                </div>
               </div>
-            </div>
+              <button class="btn btn-primary btn-sm" style="float:none; margin-top: 10px;" (click)="onAgregar()">Agregar</button> 
           </div>
-          <div>
+          </div>
+            <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid" (click)="onSaveCell()">Confirmar</button>
+          <div> 
             <button class="btn btn-primary btn-sm" style="float:left; margin-top: 10px;" (click)="onParametrosGenerales()"> {{action}} Parámetros</button>            <br/>
-            <button class="btn btn-primary btn-sm" style="float:center; margin-top: 10px;" (click)="onOperaciones()"> Operaciones </button>            <br/>
+            <button [disabled]="muestraParametroGeneral" class="btn btn-primary btn-sm" style="float:center; margin-top: 10px;" (click)="onOperaciones()"> Operaciones </button>            <br/>
           </div>
           <hr>
           <div *ngIf="muestraParametroGeneral">
