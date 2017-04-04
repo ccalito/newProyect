@@ -54,7 +54,7 @@ export class FormComponent {
     public templateId: string;
     public muestraParametroGeneral: boolean = false;
     public action: string = "Muestra";
-    public muestraTag: boolean = false;
+    public muestraOperacion: boolean = false;
 
     public listElementOperation: Array<ElementOperation> = new Array<ElementOperation>();
     public listaOperadores: Array<String> = new Array<String>("-", "+", "*", "/");
@@ -141,7 +141,7 @@ export class FormComponent {
         this.muestraAlerta = false;
         this.muestraParametroGeneral = false;
         this.action = "Muestra";
-        this.muestraTag = false;
+        this.muestraOperacion = false;
         this.listElementOperation = new Array<ElementOperation>();
         if(this.cell.valueList.length>1){
             let primerVal:boolean=true;
@@ -151,7 +151,7 @@ export class FormComponent {
                 }
                  primerVal=false;
             }
-            this.muestraTag=true;
+            this.muestraOperacion=true;
         }
         this.formFormula.show();
     }
@@ -327,7 +327,7 @@ export class FormComponent {
     }
 
     onOperaciones() {
-        this.muestraTag = true;
+        this.muestraOperacion = true;
         this.onAgregar();
     }
 

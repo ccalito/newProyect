@@ -33,7 +33,7 @@
                 </select>
           </div>
           </div>
-          <div *ngIf="muestraTag">
+          <div *ngIf="muestraOperacion">
           <div style="border-style: groove;">
               <div *ngFor="let elementOperation of listElementOperation">
                 <div>
@@ -57,7 +57,7 @@
           </div>
           <div> 
             <button class="btn btn-primary btn-sm" style="float:left; margin-top: 10px;" (click)="onParametrosGenerales()"> {{action}} Parámetros</button>
-            <button *ngIf="!muestraTag" class="btn btn-primary btn-sm" style="float:left; margin-top: 10px; margin-left: 5px;" (click)="onOperaciones()"> Operaciones </button>
+            <button *ngIf="!muestraOperacion" class="btn btn-primary btn-sm" style="float:left; margin-top: 10px; margin-left: 5px;" (click)="onOperaciones()"> Operaciones </button>
             <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid" (click)="onSaveCell()" style="margin-top: 10px;">Confirmar</button>
           </div>
           <hr style="margin-top: 50px;">
