@@ -139,6 +139,10 @@ export class FormComponent {
 
         }
         this.muestraAlerta = false;
+        this.muestraParametroGeneral = false;
+        this.action = "Muestra";
+        this.muestraTag = false;
+        this.listElementOperation = new Array<ElementOperation>();
         this.formFormula.show();
     }
 
@@ -251,12 +255,19 @@ export class FormComponent {
         let parameterValueList: Array<ParameterDynamic> = new Array<ParameterDynamic>();
 
         let parameterValue: ParameterDynamic = new ParameterDynamic(null, null, null, null);
-        /* fieldcode, operation */
         parameterValue.fieldCode = this.selectedObject.from;
         parameterValue.name = this.inputQuery.parameters[0];
         parameterValue.value = this.selectedObject.where;
-
         parameterValueList.push(parameterValue);
+
+        for (let ele of this.listElementOperation) {
+            let parameterValue: ParameterDynamic = new ParameterDynamic(null, null, null, null);
+            parameterValue.fieldCode = ele.from;
+            parameterValue.name = ele.inputQuery.parameters[0];
+            parameterValue.value = ele.where;
+            parameterValue.operation = ele.operation;
+            parameterValueList.push(parameterValue);
+        }
 
         cellSave.valueList = parameterValueList;
 
