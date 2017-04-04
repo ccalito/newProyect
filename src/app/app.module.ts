@@ -14,6 +14,7 @@ import { SheetExcelComponent } from './components/sheetExcel.component';
 import { FormComponent } from './components/formulaForm.component';
 import { SelectModalComponent } from './components/selectModal.component';
 import { textFormComponent } from './components/textForm.component';
+import {ElementOperationComponent} from './components/elementOperation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { textFormComponent } from './components/textForm.component';
     SheetExcelComponent,
     FormComponent,
     SelectModalComponent,
-    textFormComponent
+    textFormComponent,
+    ElementOperationComponent
   ],
   imports: [
     BrowserModule,
