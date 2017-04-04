@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, SimpleChanges, ViewChild} from "@angular/core";
+import {Component, Input, SimpleChanges, ViewChild} from "@angular/core";
 
 import {ModalDirective} from "ng2-bootstrap";
 import {CellObject} from "./cell-object";
@@ -18,7 +18,7 @@ import {HttpUtilService} from "../../../shared/util/http-util.service";
     providers: [BookService]
 })
 
-export class FormComponent implements AfterViewInit {
+export class FormComponent {
 
     @ViewChild('formFormula') public formFormula: ModalDirective;
 
@@ -56,40 +56,37 @@ export class FormComponent implements AfterViewInit {
                 private httpUtil: HttpUtilService) {
     }
 
-    ngAfterViewInit() {
-        //this.inicializaValoresDefault();
-    }
 
     public inicializaValoresDefault(templateId: string) {
         this.templateId = templateId;
         //this._bookService.getInputQuery(templateId, this.inputIdBook).then(response => this.inputQuery=response).catch(FormComponent.handleError);
         //this._bookService.getListInputId().then(response => this.listInputIds=response).catch(FormComponent.handleError);
 
-        this._bookService.getInputQuery(this.templateId, this.inputIdBook)
+       /* this._bookService.getInputQuery(this.templateId, this.inputIdBook)
             .catch(this.httpUtil.handleError)
-            .subscribe((data: any) => this.inputQuery = data);
+            .subscribe((data: any) => this.inputQuery = data);*/
 
-        this._bookService.getListInputId()
+        /*this._bookService.getListInputId()
             .catch(this.httpUtil.handleError)
-            .subscribe((data: any) => this.listInputIds = data);
+            .subscribe((data: any) => this.listInputIds = data);*/
 
         //this._bookService.getPaises().then(response => this.countryItems =response).catch(this.handleError);
         //this._bookService.getMonedas().then(response => this.monedaItems=response).catch(this.handleError);
         //this.countryItems= this._bookService.getPaisesExample();
         //this.monedaItems= this._bookService.getMonedaExample();
-        //this.listInputIds=this._bookService.getListInputIdExample();
-        //this.inputQuery=this._bookService.getInputQueryExample();
+        this.listInputIds=this._bookService.getListInputIdExample();
+        this.inputQuery=this._bookService.getInputQueryExample();
 
         if (this.cell.inputId01 != null && this.cell.inputId01 != undefined) {
             this.inputIdBook = this.cell.inputId01;
         }
         this.selectedObject.selectInput = this.inputIdBook;
 
-        //this.inputRecibido= this._bookService.getInputExample();
-        this._bookService.getInput(this.inputIdBook)
+        this.inputRecibido= this._bookService.getInputExample();
+        /*this._bookService.getInput(this.inputIdBook)
             .catch(this.httpUtil.handleError)
             .map((data: any) => this.inputRecibido = data)
-            .subscribe(() => this.valuaInputRecibido());
+            .subscribe(() => this.valuaInputRecibido());*/
 
         //this._bookService.getInput(this.inputIdBook).then(response => {this.inputRecibido=response; this.valuaInputRecibido();}).catch(FormComponent.handleError);
     }
@@ -111,7 +108,6 @@ export class FormComponent implements AfterViewInit {
 
     public valuaInputRecibido() {
         this.muestraCombo2 = true;
-        /* Aca da error */
 
         let index = 0;
         for (let queryList of this.inputRecibido.queryList) {
@@ -171,15 +167,7 @@ export class FormComponent implements AfterViewInit {
                 this.selectedObject.moneda = parameter.value;
             }
         }
-        /* if(this.selectedObject.country!= undefined){
-         this.onChangeCountry(false);
-         }
-         if(this.selectedObject.company != undefined){
-         this.onChangeCompany(false);
-         }
-         if(this.selectedObject.department != undefined){
-         this.onChangeDepartment(false);
-         }*/
+       
     }
 
     public static setOverrideCellValues(list: Array<Parameter>) {
@@ -203,36 +191,9 @@ export class FormComponent implements AfterViewInit {
         this.valuaInputRecibidoCambio();
         //this._bookService.getInput(this.inputIdBook).then(response => {this.inputRecibido=response; this.valuaInputRecibidoCambio();}).catch(FormComponent.handleError);
         //this._bookService.getInputQuery(this.templateId, this.inputIdBook).then(response => this.inputQuery =response).catch(FormComponent.handleError);
-        //this.inputQuery = this._bookService.getInputQueryExample();
+        this.inputQuery = this._bookService.getInputQueryExample();
         //this.muestraCombo2=true;
     }
-
-    /* onChangeCountry(clear:boolean){
-     this._bookService.getEmpresas(this.selectedObject.country).then(response => this.companyItems =response).catch(this.handleError);
-     //this.companyItems = this._bookService.getCompaniaExample(this.selectedObject.country);
-     if(clear){
-     this.selectedObject.company=null;
-     this.selectedObject.department=null;
-     this.selectedObject.period=null;
-     }
-     }
-
-     onChangeCompany(clear:boolean){
-     this._bookService.getDepartamentos(this.selectedObject.country,this.selectedObject.company).then(response =>this.departmentsItems=response).catch(this.handleError);
-     //this.departmentsItems=this._bookService.getDepartamentoExample(this.selectedObject.country,this.selectedObject.company);
-     if(clear){
-     this.selectedObject.department=null;
-     this.selectedObject.period=null;
-     }
-     }
-
-     onChangeDepartment(clear:boolean){
-     this._bookService.getPeriodos(this.selectedObject.country,this.selectedObject.company,this.selectedObject.department).then(response =>this.periodsItems=response).catch(this.handleError);
-     //this.periodsItems = this._bookService.getPeriodosExample(this.selectedObject.country,this.selectedObject.company,this.selectedObject.department);
-     if(clear){
-     this.selectedObject.period=null;
-     }
-     }*/
 
     onSaveCell() {
         let cellSave: Cell;

@@ -13,7 +13,7 @@ import {SelectModalComponent} from "./selectModal.component";
 
 import {BookService} from "../services/book.service";
 import {isUndefined} from "util";
-import {HttpUtilService} from "../../../shared/util/http-util.service";
+//import {HttpUtilService} from "../../../shared/util/http-util.service";
 
 @Component({
 	selector: "sheet-excel",
@@ -33,17 +33,17 @@ export class SheetExcelComponent implements AfterViewInit, OnInit  {
 		private _bookService: BookService,
 		private _route: ActivatedRoute,
 		private _router: Router,
-		private httpUtil: HttpUtilService
+	//	private httpUtil: HttpUtilService
 		){}
 
 @ViewChild(SelectModalComponent) public selectModal:SelectModalComponent;
 
 	ngAfterViewInit(){
-		this._bookService.getBook(this.idTemplate)
+		/*this._bookService.getBook(this.idTemplate)
 			.catch(this.httpUtil.handleError)
-			.subscribe((data: any) => this.inicializa(data));
+			.subscribe((data: any) => this.inicializa(data));*/
 		//this._bookService.getBook(this.idTemplate).then(response => {this.book=response; this.inicializa();}).catch(this.handleError);
-		//this.book = this._bookService.getBookExample();
+		this.book = this._bookService.getBookExample();
 	}
 
 	ngOnInit(){
@@ -56,7 +56,6 @@ export class SheetExcelComponent implements AfterViewInit, OnInit  {
 		this.container = document.getElementById('sheetInput');
 		let rangeCells: Array<MergeCell> = [];
 		for (let range of this.book.sheetList[0].cellRangeList) {
-			//let mergeCell: MergeCell = new MergeCell(range.firstRow, range.firstColumn, range.lastRow - range.firstRow <= 0 ? 1 : range.lastRow - range.firstRow, range.lastColumn - range.firstColumn <= 0 ? 1 : range.lastColumn - range.firstColumn);
 			let mergeCell: MergeCell = new MergeCell(range.firstRow,
 				range.firstColumn,
 				range.lastRow - range.firstRow +1,
