@@ -50,7 +50,6 @@ public hideTextForm():void {
     cellSave.textValue = this.textValue;
     cellSave.parameterList=null;
     cellSave.inputId01 = null;
-    cellSave.fieldCode = null;
     cellSave.valueList=null;
 
     this._bookService.submitCell(cellSave);
