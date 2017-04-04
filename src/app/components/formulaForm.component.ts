@@ -318,4 +318,8 @@ export class FormComponent {
         newElement.idElement=this.listElementOperation.length+1;
         this.listElementOperation.push(newElement);
     }
+
+    onEliminar(idElement:number){
+        this.listElementOperation.splice(idElement);
+    }
 }
