@@ -1,23 +1,23 @@
-import {Component, Input, SimpleChanges, ViewChild} from "@angular/core";
+import { Component, Input, SimpleChanges, ViewChild } from "@angular/core";
 
-import {ModalDirective} from "ng2-bootstrap";
-import {CellObject} from "./cell-object";
-import {Cell} from "../model/cell";
-import {Parameter} from "../model/parameter";
-import {ParameterDynamic} from "../model/parameterDynamic";
-import {InputId} from "../model/inputId";
-import {QueryElement} from "../model/queryelement";
-import {BookService} from "../services/book.service";
-import {InputQuery} from "../model/inputquery";
-import {ListInputId} from "../model/listInputId";
-
+import { ModalDirective } from "ng2-bootstrap";
+import { CellObject } from "./cell-object";
+import { Cell } from "../model/cell";
+import { Parameter } from "../model/parameter";
+import { ParameterDynamic } from "../model/parameterDynamic";
+import { InputId } from "../model/inputId";
+import { QueryElement } from "../model/queryelement";
+import { BookService } from "../services/book.service";
+import { InputQuery } from "../model/inputquery";
+import { ListInputId } from "../model/listInputId";
+import { ElementOperationComponent } from "./elementOperation.component";
 //import {HttpUtilService} from "../../../shared/util/http-util.service";
 
 @Component({
     selector: 'formulaForm',
     templateUrl: '../views/formula-form.view.html',
     styleUrls: ['../../../../assets/popup-form.css'],
-    providers: [BookService]
+    providers: [BookService,ElementOperationComponent]
 })
 
 export class FormComponent {
@@ -54,10 +54,13 @@ export class FormComponent {
     public templateId: string;
     public muestraParametroGeneral: boolean = false;
     public action: string = "Muestra";
+    public muestraTag: boolean = false;
 
-    constructor(private _bookService: BookService
-                //private httpUtil: HttpUtilService
-                ) {
+    constructor(
+        private _bookService: BookService,
+        //private httpUtil: HttpUtilService
+        private _elementOperationComponent: ElementOperationComponent
+    ) {
     }
 
 
@@ -66,9 +69,9 @@ export class FormComponent {
         //this._bookService.getInputQuery(templateId, this.inputIdBook).then(response => this.inputQuery=response).catch(FormComponent.handleError);
         //this._bookService.getListInputId().then(response => this.listInputIds=response).catch(FormComponent.handleError);
 
-       /* this._bookService.getInputQuery(this.templateId, this.inputIdBook)
-            .catch(this.httpUtil.handleError)
-            .subscribe((data: any) => this.inputQuery = data);*/
+        /* this._bookService.getInputQuery(this.templateId, this.inputIdBook)
+             .catch(this.httpUtil.handleError)
+             .subscribe((data: any) => this.inputQuery = data);*/
 
         /*this._bookService.getListInputId()
             .catch(this.httpUtil.handleError)
@@ -78,15 +81,15 @@ export class FormComponent {
         //this._bookService.getMonedas().then(response => this.monedaItems=response).catch(this.handleError);
         //this.countryItems= this._bookService.getPaisesExample();
         //this.monedaItems= this._bookService.getMonedaExample();
-        this.listInputIds=this._bookService.getListInputIdExample();
-        this.inputQuery=this._bookService.getInputQueryExample();
+        this.listInputIds = this._bookService.getListInputIdExample();
+        this.inputQuery = this._bookService.getInputQueryExample();
 
         if (this.cell.inputId01 != null && this.cell.inputId01 != undefined) {
             this.inputIdBook = this.cell.inputId01;
         }
         this.selectedObject.selectInput = this.inputIdBook;
 
-        this.inputRecibido= this._bookService.getInputExample();
+        this.inputRecibido = this._bookService.getInputExample();
         /*this._bookService.getInput(this.inputIdBook)
             .catch(this.httpUtil.handleError)
             .map((data: any) => this.inputRecibido = data)
@@ -99,15 +102,15 @@ export class FormComponent {
     public valuaInputRecibidoCambio() {
         this.inputIdBook = this.selectedObject.selectInput;
 
-       /* this._bookService.getInputQuery(this.templateId, this.inputIdBook)
-            .catch(this.httpUtil.handleError)
-            .map((data: any) => this.inputQuery = data)
-            .subscribe();
-
-        this._bookService.getInput(this.inputIdBook)
-            .catch(this.httpUtil.handleError)
-            .map((data: any) => this.inputRecibido = data)
-            .subscribe(() => this.valuaInputRecibido());*/
+        /* this._bookService.getInputQuery(this.templateId, this.inputIdBook)
+             .catch(this.httpUtil.handleError)
+             .map((data: any) => this.inputQuery = data)
+             .subscribe();
+ 
+         this._bookService.getInput(this.inputIdBook)
+             .catch(this.httpUtil.handleError)
+             .map((data: any) => this.inputRecibido = data)
+             .subscribe(() => this.valuaInputRecibido());*/
 
     }
 
@@ -172,7 +175,7 @@ export class FormComponent {
                 this.selectedObject.moneda = parameter.value;
             }
         }
-       
+
     }
 
     public static setOverrideCellValues(list: Array<Parameter>) {
@@ -243,9 +246,9 @@ export class FormComponent {
         cellSave.inputId01 = this.selectedObject.selectInput;
         //cellSave.valueList[0].fieldCode = this.selectedObject.from;
 
-        let parameterValueList: Array <ParameterDynamic> = new Array <ParameterDynamic>();
+        let parameterValueList: Array<ParameterDynamic> = new Array<ParameterDynamic>();
 
-        let parameterValue: ParameterDynamic = new ParameterDynamic(null,null,null,null);
+        let parameterValue: ParameterDynamic = new ParameterDynamic(null, null, null, null);
         /* fieldcode, operation */
         parameterValue.fieldCode = this.selectedObject.from;
         parameterValue.name = this.inputQuery.parameters[0];
@@ -290,14 +293,19 @@ export class FormComponent {
         }
     }
 
- onParametrosGenerales(){
-        if(this.muestraParametroGeneral){
+    onParametrosGenerales() {
+        if (this.muestraParametroGeneral) {
             this.muestraParametroGeneral = false;
             this.action = "Muestra";
-        }else{
+        } else {
             this.muestraParametroGeneral = true;
             this.action = "Oculta";
         }
+    }
 
+    onOperaciones() {
+        this.muestraTag = true;
+        this._elementOperationComponent.elementOperation.fromQueryList = this.fromQueryList;
+        this._elementOperationComponent.elementOperation.whereQueryList = this.whereQueryList;
     }
 }
