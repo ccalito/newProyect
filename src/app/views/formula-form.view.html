@@ -49,18 +49,18 @@
                   <select class="sel-option" name="operacion{{elementOperation.idElement}}" [(ngModel)]="elementOperation.operation" required>
                     <option  *ngFor="let operadores of listaOperadores"> {{operadores}}</option>
                   </select>
-                  <button class="btn-danger" (click)="onEliminar(elementOperation.idElement)"> </button>
+                  <button type="button" class="btn-primary btn-danger" (click)="onEliminar(elementOperation.idElement)">Eliminar Registro</button>
                 </div>
               </div>
               <button class="btn btn-primary btn-sm" style="float:none; margin-top: 10px;" (click)="onAgregar()">Agregar</button> 
           </div>
           </div>
-            <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid" (click)="onSaveCell()">Confirmar</button>
           <div> 
-            <button class="btn btn-primary btn-sm" style="float:left; margin-top: 10px;" (click)="onParametrosGenerales()"> {{action}} Parámetros</button>            <br/>
-            <button [disabled]="muestraParametroGeneral" class="btn btn-primary btn-sm" style="float:center; margin-top: 10px;" (click)="onOperaciones()"> Operaciones </button>            <br/>
+            <button class="btn btn-primary btn-sm" style="float:left; margin-top: 10px;" (click)="onParametrosGenerales()"> {{action}} Parámetros</button>
+            <button *ngIf="!muestraTag" class="btn btn-primary btn-sm" style="float:left; margin-top: 10px; margin-left: 5px;" (click)="onOperaciones()"> Operaciones </button>
+            <button class="btn btn-primary btn-sm" type="submit" [disabled]="!f.valid" (click)="onSaveCell()" style="margin-top: 10px;">Confirmar</button>
           </div>
-          <hr>
+          <hr style="margin-top: 50px;">
           <div *ngIf="muestraParametroGeneral">
             <div>
               <label class="lbl-second-section">Pais:</label>
