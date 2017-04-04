@@ -144,8 +144,12 @@ export class FormComponent {
         this.muestraTag = false;
         this.listElementOperation = new Array<ElementOperation>();
         if(this.cell.valueList.length>1){
+            let primerVal:boolean=true;
             for(let valueList of this.cell.valueList){
-                 this.addElement(true,valueList);
+                if(!primerVal){
+                  this.addElement(true,valueList);
+                }
+                 primerVal=false;
             }
             this.muestraTag=true;
         }
