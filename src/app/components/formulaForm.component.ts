@@ -143,6 +143,12 @@ export class FormComponent {
         this.action = "Muestra";
         this.muestraTag = false;
         this.listElementOperation = new Array<ElementOperation>();
+        if(this.cell.valueList.length>1){
+            for(let valueList of this.cell.valueList){
+                 this.addElement(true,valueList);
+            }
+            this.muestraTag=true;
+        }
         this.formFormula.show();
     }
 
@@ -323,7 +329,16 @@ export class FormComponent {
 
     public idElementOperacion:number=1;
     onAgregar() {
+        this.addElement(false,null);
+    }
+
+    addElement(recuperaParametro:boolean,parameterDynamic:ParameterDynamic){
         let newElement: ElementOperation = new ElementOperation(null, null, null, null, null, null, null);
+        if(recuperaParametro){
+            newElement.from=parameterDynamic.fieldCode;
+            newElement.where=parameterDynamic.value;
+            newElement.operation=parameterDynamic.operation;
+        }
         newElement.fromQueryList = new QueryElement(this.fromQueryList.correlative, this.fromQueryList.query, this.fromQueryList.name, this.fromQueryList.fields);
         newElement.whereQueryList = this.whereQueryList;
         newElement.inputQuery = this.inputQuery;
