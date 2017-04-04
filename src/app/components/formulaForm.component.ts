@@ -56,8 +56,8 @@ export class FormComponent {
     public action: string = "Muestra";
     public muestraTag: boolean = false;
 
-    public listElementOperation:Array<ElementOperation>= new Array<ElementOperation>();
-    public listaOperadores:Array<String> = new Array<String>("-","+","*","/");
+    public listElementOperation: Array<ElementOperation> = new Array<ElementOperation>();
+    public listaOperadores: Array<String> = new Array<String>("-", "+", "*", "/");
 
     constructor(
         private _bookService: BookService
@@ -310,17 +310,26 @@ export class FormComponent {
         this.onAgregar();
     }
 
-    onAgregar(){
-        let newElement:ElementOperation= new ElementOperation(null,null,null,null,null,null,null);
-        newElement.fromQueryList=new QueryElement(this.fromQueryList.correlative,this.fromQueryList.query,this.fromQueryList.name,this.fromQueryList.fields);
-        newElement.whereQueryList=this.whereQueryList;
-        newElement.inputQuery=this.inputQuery;
-        newElement.idElement=this.listElementOperation.length+1;
+    public idElementOperacion:number=1;
+    onAgregar() {
+        let newElement: ElementOperation = new ElementOperation(null, null, null, null, null, null, null);
+        newElement.fromQueryList = new QueryElement(this.fromQueryList.correlative, this.fromQueryList.query, this.fromQueryList.name, this.fromQueryList.fields);
+        newElement.whereQueryList = this.whereQueryList;
+        newElement.inputQuery = this.inputQuery;
+        newElement.idElement = this.idElementOperacion;
         this.listElementOperation.push(newElement);
+        this.idElementOperacion++;
     }
 
-    onEliminar(idElement:number){
-        console.log(idElement);
-        this.listElementOperation.splice(idElement);
+    onEliminar(idElement: number) {
+        let val = 0;
+        for (let ele of this.listElementOperation) {
+            if (ele.idElement === idElement) {
+                break;
+            } else {
+                val++;
+            }
+        }
+        this.listElementOperation.splice(val, 1);
     }
 }
