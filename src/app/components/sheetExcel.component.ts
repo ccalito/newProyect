@@ -93,7 +93,7 @@ export class SheetExcelComponent implements AfterViewInit, OnInit  {
 							TD.style.fontWeight = cell.style != undefined && cell.style.bold ? "bold" : "";
 							TD.className = cell.style != undefined && cell.style.alignment != undefined ? this.getAlignment(cell.style.alignment) : this.getAlignment(-1);
 							SheetExcelComponent.setBorder(TD, cell);
-							value = cell.textValue != undefined ? cell.textValue : cell.fieldCode != undefined ? cell.fieldCode : "Valor no definido";
+							value = cell.textValue != undefined ? cell.textValue : cell.valueList[0].fieldCode != undefined ? cell.valueList[0].fieldCode : "Valor no definido";
 							TD.innerHTML = value;
 						}
 

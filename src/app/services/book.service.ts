@@ -505,11 +505,12 @@ export class BookService{
                 {
                     "posX" : 2,
                     "posY" : 9,
-                    "fieldCode" : "smsali",
                     "valueList" : [ 
                         {
+                            "fieldCode" : "smsali",
                             "name" : "ctcod",
-                            "value" : "101101.0101"
+                            "value" : "101101.0101",
+                            "operation": ""
                         }
                     ]
                 }, 
@@ -1156,11 +1157,18 @@ export class BookService{
                 {
                     "posX" : 2,
                     "posY" : 10,
-                    "fieldCode" : "smsali",
                     "valueList" : [ 
                         {
+                            "fieldCode" : "smsali",
                             "name" : "ctcod",
-                            "value" : "101101.0102"
+                            "value" : "101101.0102",
+                            "operation": "-"
+                        },
+                        {
+                            "fieldCode" : "smsali",
+                            "name" : "ctcod",
+                            "value" : "101101.0101",
+                            "operation": ""
                         }
 				]
 			}

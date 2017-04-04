@@ -4,6 +4,7 @@ import {ModalDirective} from "ng2-bootstrap";
 import {CellObject} from "./cell-object";
 import {Cell} from "../model/cell";
 import {Parameter} from "../model/parameter";
+import {ParameterDynamic} from "../model/parameterDynamic";
 import {InputId} from "../model/inputId";
 import {QueryElement} from "../model/queryelement";
 import {BookService} from "../services/book.service";
@@ -118,8 +119,8 @@ export class FormComponent {
             switch (index) {
                 case 1:
                     this.fromQueryList = queryList;
-                    if (this.cell.fieldCode != undefined && this.cell.fieldCode != null) {
-                        this.selectedObject.from = this.cell.fieldCode;
+                    if (this.cell.valueList[0].fieldCode != undefined && this.cell.valueList[0].fieldCode != null) {
+                        this.selectedObject.from = this.cell.valueList[0].fieldCode;
                     }
                     break;
                 case 2:
@@ -239,13 +240,20 @@ export class FormComponent {
         }
 
         cellSave.inputId01 = this.selectedObject.selectInput;
-        cellSave.fieldCode = this.selectedObject.from;
+        //cellSave.valueList[0].fieldCode = this.selectedObject.from;
 
-        let parameterValue: Parameter = new Parameter(null, null);
+        let parameterValueList: Array <ParameterDynamic> = new Array <ParameterDynamic>();
+
+        let parameterValue: ParameterDynamic = new ParameterDynamic(null,null,null,null);
+        /* fieldcode, operation */
+        parameterValue.fieldCode = this.selectedObject.from;
         parameterValue.name = this.inputQuery.parameters[0];
         parameterValue.value = this.selectedObject.where;
-        parameterValues.push(parameterValue);
-        cellSave.valueList = parameterValues;
+
+        parameterValueList.push(parameterValue);
+
+        cellSave.valueList = parameterValueList;
+
         console.log(this.cell);
         this._bookService.submitCell(cellSave);
         this.muestraCombo2 = false;

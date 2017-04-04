@@ -1,5 +1,6 @@
 import {Parameter} from "./parameter";
 import {Style} from "./style";
+import {ParameterDynamic} from "./parameterDynamic";
 
 export class Cell{
  
@@ -11,8 +12,7 @@ export class Cell{
         public inputId01:string,
         public style:Style,
         public parameterList:Array<Parameter>,
-        public fieldCode:string,
-        public valueList:Array<Parameter>
+        public valueList:Array<ParameterDynamic>
     ){
     }
 }
