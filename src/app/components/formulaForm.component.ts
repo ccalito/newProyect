@@ -90,6 +90,7 @@ export class FormComponent {
             .subscribe(() => this.valuaInputRecibido());*/
 
         //this._bookService.getInput(this.inputIdBook).then(response => {this.inputRecibido=response; this.valuaInputRecibido();}).catch(FormComponent.handleError);
+        this.valuaInputRecibido();
     }
 
     public valuaInputRecibidoCambio() {
