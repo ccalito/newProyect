@@ -27,7 +27,8 @@ export class SheetExcelComponent implements AfterViewInit, OnInit  {
 	public hot: any;
 	public cellSelected:Cell;
 	public idTemplate:string;
-
+	public readonly BACKGROUND_FORMULA:string = "#7ECBF2";
+	public readonly COLOR_FORMULA:string = "#000000";
 
 	constructor(
 		private _bookService: BookService,
@@ -88,8 +89,13 @@ export class SheetExcelComponent implements AfterViewInit, OnInit  {
 						value = "";
 						TD.innerHTML = value;
 						if (cell != undefined) {
+							if(cell.valueList != undefined && cell.valueList != null && cell.valueList.length > 1){
+								TD.style.background = this.BACKGROUND_FORMULA;
+								TD.style.color = this.COLOR_FORMULA;
+							}else{
 							TD.style.background = cell.style != undefined && cell.style.backgroundColor != undefined ? "#" + cell.style.backgroundColor : "";
 							TD.style.color = cell.style != undefined && cell.style.foregroundColor != undefined ? "#" + cell.style.foregroundColor : "";
+							}
 							TD.style.fontWeight = cell.style != undefined && cell.style.bold ? "bold" : "";
 							TD.className = cell.style != undefined && cell.style.alignment != undefined ? this.getAlignment(cell.style.alignment) : this.getAlignment(-1);
 							SheetExcelComponent.setBorder(TD, cell);
